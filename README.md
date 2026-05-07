@@ -124,5 +124,3 @@ Distribuído sob a **Apache License 2.0**. Veja o arquivo [`LICENSE`](LICENSE) p
 
 - `PACOTE.md` — ordem recomendada de execução
 - `INSTALAR.md` — guia completo de instalação
-- `Instruções - Gestão Financeira Pessoal e Economia do Reino.txt` — contexto e filosofia detalhada
-- `Finanças Pessoais 360.xlsx` — planilha complementar de controle financeiro

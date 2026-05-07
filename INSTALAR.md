@@ -107,5 +107,3 @@ gestor-financeiro (entrada)
 ## Arquivos de apoio
 
 - `PACOTE.md` — visão geral e ordem recomendada de execução
-- `Instruções - Gestão Financeira Pessoal e Economia do Reino.txt` — contexto e filosofia
-- `Finanças Pessoais 360.xlsx` — planilha complementar de controle financeiro
