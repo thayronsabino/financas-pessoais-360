@@ -7,31 +7,43 @@ Funciona com Claude, Codex e qualquer agente compatível com o sistema de skills
 
 ## Como instalar
 
-### Método A — Upload via Habilidades (Claude.ai)
+### Método A — npx skills (recomendado)
+
+Compatível com Claude Code, Codex, Cursor e 55+ agentes. Requer Node.js.
+
+Instalar o pacote completo:
+
+```bash
+npx skills add thayronsabino/financas-pessoais-360
+```
+
+Instalar uma skill específica:
+
+```bash
+npx skills add thayronsabino/financas-pessoais-360 --skill gestor-financeiro
+```
+
+### Método B — Upload via Habilidades (Claude.ai)
 
 Sem terminal. Direto pela interface do Claude:
 
 1. Abra **Configurações → Habilidades**
-2. Faça upload dos 7 arquivos `SKILL.md` (baixe cada um pelo link abaixo ou clone o repositório)
+2. Faça upload dos 7 arquivos `SKILL.md`
 3. Invoque: `/gestor-financeiro`
-
-### Método B — Terminal (Python 3.6+)
-
-```bash
-curl -O https://raw.githubusercontent.com/thayronsabino/financas-pessoais-360/main/install.py
-python install.py
-```
-
-Destino customizado:
-
-```bash
-python install.py --destino /caminho/desejado
-```
 
 ### Método C — Clone completo
 
 ```bash
 git clone https://github.com/thayronsabino/financas-pessoais-360.git
+```
+
+### Método D — Script Python (fallback)
+
+Para ambientes sem Node.js. Requer Python 3.6+:
+
+```bash
+curl -O https://raw.githubusercontent.com/thayronsabino/financas-pessoais-360/main/install.py
+python install.py
 ```
 
 ---

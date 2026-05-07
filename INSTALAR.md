@@ -6,7 +6,24 @@ Escolha o método de instalação conforme seu ambiente.
 
 ---
 
-## Método A — Upload via Habilidades (Claude.ai)
+## Método A — npx skills (recomendado)
+
+Compatível com Claude Code, Codex, Cursor e 55+ agentes. Requer Node.js.
+
+```bash
+# Instalar o pacote completo
+npx skills add thayronsabino/financas-pessoais-360
+
+# Instalar skill específica
+npx skills add thayronsabino/financas-pessoais-360 --skill gestor-financeiro
+
+# Instalar todas as skills explicitamente
+npx skills add thayronsabino/financas-pessoais-360 --skill '*'
+```
+
+---
+
+## Método B — Upload via Habilidades (Claude.ai)
 
 Não requer repositório nem terminal. Faça upload direto pela interface do Claude.
 
