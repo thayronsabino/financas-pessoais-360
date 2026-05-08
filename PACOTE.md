@@ -57,12 +57,12 @@ Localização: `frameworks/`
 
 | Arquivo | Função |
 |---------|--------|
-| `REFERENCIAS-BRASIL-2026.md` | Dados macroeconômicos, tributários e legislativos atualizados |
-| `GLOSSARIO.md` | Terminologia proprietária do pacote |
-| `MEMORY-SYSTEM.md` | Mecanismo de Memória Financeira (persistência) |
-| `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Alma pastoral — idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade |
-| `PROTOCOLO-CRISE-ESPIRITUAL.md` | Quando ativar e como conduzir situações que transcendem finanças (vício, violência, risco à vida) |
-| `EDUCACAO-FINANCEIRA-BASICA.md` | Conceitos básicos para usuários iniciantes absolutos |
+| `docs/REFERENCIAS-BRASIL-2026.md` | Dados macroeconômicos, tributários e legislativos atualizados |
+| `docs/GLOSSARIO.md` | Terminologia proprietária do pacote |
+| `docs/MEMORY-SYSTEM.md` | Mecanismo de Memória Financeira (persistência) |
+| `docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Alma pastoral — idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade |
+| `docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Quando ativar e como conduzir situações que transcendem finanças (vício, violência, risco à vida) |
+| `docs/EDUCACAO-FINANCEIRA-BASICA.md` | Conceitos básicos para usuários iniciantes absolutos |
 
 ---
 
@@ -79,12 +79,12 @@ mordomia/
 │   └── LICENSE
 │
 ├── ARQUIVOS CENTRAIS (6)
-│   ├── REFERENCIAS-BRASIL-2026.md
-│   ├── GLOSSARIO.md
-│   ├── MEMORY-SYSTEM.md
-│   ├── PRINCIPIOS-BIBLICOS-EXPANDIDOS.md
-│   ├── PROTOCOLO-CRISE-ESPIRITUAL.md
-│   └── EDUCACAO-FINANCEIRA-BASICA.md
+│   ├── docs/REFERENCIAS-BRASIL-2026.md
+│   ├── docs/GLOSSARIO.md
+│   ├── docs/MEMORY-SYSTEM.md
+│   ├── docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md
+│   ├── docs/PROTOCOLO-CRISE-ESPIRITUAL.md
+│   └── docs/EDUCACAO-FINANCEIRA-BASICA.md
 │
 ├── SKILLS (7)
 │   ├── gestor-financeiro/SKILL.md
@@ -164,14 +164,14 @@ ATIVAÇÃO DA ROTA CORRETA:
 ✅ A skill /pessoal-investimento-reino é OBRIGATÓRIA na base — alinha 
    finanças, investimentos e mordomia cristã.
 
-✅ Todas as skills referenciam REFERENCIAS-BRASIL-2026.md — nunca usar 
+✅ Todas as skills referenciam docs/REFERENCIAS-BRASIL-2026.md — nunca usar 
    valores hardcoded em respostas.
 
 ✅ Playbooks e frameworks são lidos diretamente pelo agente quando 
    ativados — não são "outras skills".
 
 ✅ Mecanismo de Memória Financeira permite continuidade entre sessões 
-   (especificação em MEMORY-SYSTEM.md).
+   (especificação em docs/MEMORY-SYSTEM.md).
 
 ✅ Protocolo de Crise é prioridade absoluta — quando sinais aparecem, 
    o sistema PARA o fluxo financeiro e encaminha para apoio adequado.
@@ -220,7 +220,7 @@ ATIVAÇÃO DA ROTA CORRETA:
 ### Iniciante absoluto
 
 ```
-1. Ler EDUCACAO-FINANCEIRA-BASICA.md primeiro
+1. Ler docs/EDUCACAO-FINANCEIRA-BASICA.md primeiro
 2. Praticar 30 dias de anotação de gastos
 3. Invocar /gestor-financeiro com base mínima
 4. Sistema usa linguagem simples por padrão
@@ -342,12 +342,12 @@ CRISES COBERTAS:
 gestor-financeiro
    ↓ consulta
 ARQUIVOS CENTRAIS:
-   - REFERENCIAS-BRASIL-2026.md (taxas, IR, INSS)
-   - GLOSSARIO.md (termos proprietários)
-   - PRINCIPIOS-BIBLICOS-EXPANDIDOS.md (profundidade pastoral)
-   - PROTOCOLO-CRISE-ESPIRITUAL.md (quando transcende finanças)
-   - EDUCACAO-FINANCEIRA-BASICA.md (para iniciantes)
-   - MEMORY-SYSTEM.md (continuidade entre sessões)
+   - docs/REFERENCIAS-BRASIL-2026.md (taxas, IR, INSS)
+   - docs/GLOSSARIO.md (termos proprietários)
+   - docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md (profundidade pastoral)
+   - docs/PROTOCOLO-CRISE-ESPIRITUAL.md (quando transcende finanças)
+   - docs/EDUCACAO-FINANCEIRA-BASICA.md (para iniciantes)
+   - docs/MEMORY-SYSTEM.md (continuidade entre sessões)
 
    ↓ ativa
 PLAYBOOKS PREMIUM (8 disponíveis):

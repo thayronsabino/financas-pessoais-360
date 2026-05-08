@@ -152,12 +152,12 @@ Engines de decisão para perguntas específicas:
 
 | Arquivo | Função |
 |---------|--------|
-| `REFERENCIAS-BRASIL-2026.md` | Dados macroeconômicos, tributários e legislativos atualizados |
-| `GLOSSARIO.md` | Terminologia proprietária centralizada |
-| `MEMORY-SYSTEM.md` | Especificação do Mecanismo de Memória Financeira |
-| `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **A alma do pacote** — idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade |
-| `PROTOCOLO-CRISE-ESPIRITUAL.md` | **Crítico** — quando ativar e como conduzir situações que transcendem finanças (vício, violência, crise emocional, risco à vida) |
-| `EDUCACAO-FINANCEIRA-BASICA.md` | Glossário e conceitos básicos para usuários iniciantes absolutos |
+| `docs/REFERENCIAS-BRASIL-2026.md` | Dados macroeconômicos, tributários e legislativos atualizados |
+| `docs/GLOSSARIO.md` | Terminologia proprietária centralizada |
+| `docs/MEMORY-SYSTEM.md` | Especificação do Mecanismo de Memória Financeira |
+| `docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **A alma do pacote** — idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade |
+| `docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | **Crítico** — quando ativar e como conduzir situações que transcendem finanças (vício, violência, crise emocional, risco à vida) |
+| `docs/EDUCACAO-FINANCEIRA-BASICA.md` | Glossário e conceitos básicos para usuários iniciantes absolutos |
 
 ---
 
@@ -191,12 +191,12 @@ mordomia/
 ├── LICENSE                              ← Apache 2.0
 ├── install.py                           ← Script de instalação
 │
-├── REFERENCIAS-BRASIL-2026.md           ← Dados dinâmicos
-├── GLOSSARIO.md                         ← Terminologia proprietária
-├── MEMORY-SYSTEM.md                     ← Persistência entre sessões
-├── PRINCIPIOS-BIBLICOS-EXPANDIDOS.md    ← Alma pastoral
-├── PROTOCOLO-CRISE-ESPIRITUAL.md        ← Cuidado em crise
-├── EDUCACAO-FINANCEIRA-BASICA.md        ← Para iniciantes absolutos
+├── docs/REFERENCIAS-BRASIL-2026.md           ← Dados dinâmicos
+├── docs/GLOSSARIO.md                         ← Terminologia proprietária
+├── docs/MEMORY-SYSTEM.md                     ← Persistência entre sessões
+├── docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md    ← Alma pastoral
+├── docs/PROTOCOLO-CRISE-ESPIRITUAL.md        ← Cuidado em crise
+├── docs/EDUCACAO-FINANCEIRA-BASICA.md        ← Para iniciantes absolutos
 │
 ├── gestor-financeiro/SKILL.md
 ├── pessoal-diagnostico-financeiro/SKILL.md
@@ -310,7 +310,7 @@ O MordomIA é um sistema vivo. Próximas versões planejadas:
 Contribuições são bem-vindas:
 
 - 🐛 **Bugs:** abra uma issue em https://github.com/thayronsabino/mordomia/issues
-- 📊 **Atualização de taxas:** PRs com `REFERENCIAS-BRASIL-2026.md` atualizado (citando fonte oficial)
+- 📊 **Atualização de taxas:** PRs com `docs/REFERENCIAS-BRASIL-2026.md` atualizado (citando fonte oficial)
 - 📖 **Novos playbooks:** casos brasileiros não cobertos
 - 🌐 **Tradução:** versões em outros idiomas
 - ✍️ **Casos de uso reais:** transcrições anonimizadas
@@ -327,9 +327,9 @@ Contribuições são bem-vindas:
 | [`INSTALAR.md`](INSTALAR.md) | Guia detalhado de instalação |
 | [`ROADMAP.md`](ROADMAP.md) | Visão de longo prazo e próximas versões |
 | [`DESIGN.md`](DESIGN.md) | Design system (Stripe-inspired) |
-| [`PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`](PRINCIPIOS-BIBLICOS-EXPANDIDOS.md) | Fundamentação teológica |
-| [`PROTOCOLO-CRISE-ESPIRITUAL.md`](PROTOCOLO-CRISE-ESPIRITUAL.md) | Cuidado em crise emocional/espiritual |
-| [`EDUCACAO-FINANCEIRA-BASICA.md`](EDUCACAO-FINANCEIRA-BASICA.md) | Para iniciantes absolutos |
+| [`docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`](docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md) | Fundamentação teológica |
+| [`docs/PROTOCOLO-CRISE-ESPIRITUAL.md`](docs/PROTOCOLO-CRISE-ESPIRITUAL.md) | Cuidado em crise emocional/espiritual |
+| [`docs/EDUCACAO-FINANCEIRA-BASICA.md`](docs/EDUCACAO-FINANCEIRA-BASICA.md) | Para iniciantes absolutos |
 | [`landing-page/Manifesto — MordomIA.md`](landing-page/Manifesto%20—%20MordomIA.md) | Manifesto do projeto |
 
 ---

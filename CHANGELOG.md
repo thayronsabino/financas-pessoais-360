@@ -9,7 +9,7 @@
 ### 🌟 Adicionado — Alma Pastoral e Expansão de Cobertura
 
 **Arquivos centrais (3 novos):**
-- `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` — fundamentação teológica profunda com 8 princípios:
+- `docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` — fundamentação teológica profunda com 8 princípios:
   - Idolatria do dinheiro
   - Ansiedade financeira
   - Contentamento
@@ -18,11 +18,11 @@
   - Honestidade nos negócios
   - Confiança em Deus na escassez
   - Hospitalidade como mordomia de recursos
-- `PROTOCOLO-CRISE-ESPIRITUAL.md` — documento crítico para situações que transcendem finanças:
+- `docs/PROTOCOLO-CRISE-ESPIRITUAL.md` — documento crítico para situações que transcendem finanças:
   - 5 níveis de severidade
   - Rede de apoio (CVV 188, CAPS, AA/NA/JA, Disque 180, Lei Maria da Penha)
   - Mensagens prontas para cuidador
-- `EDUCACAO-FINANCEIRA-BASICA.md` — acessibilidade para iniciantes absolutos:
+- `docs/EDUCACAO-FINANCEIRA-BASICA.md` — acessibilidade para iniciantes absolutos:
   - Glossário de termos básicos
   - 5 erros comuns
   - Sistema "caderno e caneta" para começar sem app
@@ -118,9 +118,9 @@
 - `frameworks/comprar-a-vista-vs-parcelado.md`
 
 **Arquivos Centrais (3):**
-- `REFERENCIAS-BRASIL-2026.md` — dados macroeconômicos, tributários, legislativos
-- `GLOSSARIO.md` — terminologia proprietária
-- `MEMORY-SYSTEM.md` — especificação do Mecanismo de Memória Financeira
+- `docs/REFERENCIAS-BRASIL-2026.md` — dados macroeconômicos, tributários, legislativos
+- `docs/GLOSSARIO.md` — terminologia proprietária
+- `docs/MEMORY-SYSTEM.md` — especificação do Mecanismo de Memória Financeira
 
 **Funcionalidades adicionais:**
 - Painéis Operacionais ASCII (dashboards) em todas as skills

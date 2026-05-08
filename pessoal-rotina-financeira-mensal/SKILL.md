@@ -19,12 +19,12 @@ Este skill não explica a importância de revisar as finanças. Ele executa o Ci
 
 | Arquivo | Quando consultar |
 |---------|------------------|
-| `../MEMORY-SYSTEM.md` | **OBRIGATÓRIO** — leitura do snapshot anterior + escrita do snapshot atual ao final |
-| `../REFERENCIAS-BRASIL-2026.md` | Para validar referências (IPCA mensal, atualização das taxas) |
-| `../GLOSSARIO.md` | Para terminologia padronizada (Ciclo de Recalibração, Trajetória, etc.) |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Para revisão com usuário ainda em consolidação dos termos básicos |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Para revisão de coração + revisão de números (contentamento, gratidão, idolatria) |
-| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | Se sinais aparecem em revisão (fadiga emocional do cuidador, ansiedade crescente) |
+| `../docs/MEMORY-SYSTEM.md` | **OBRIGATÓRIO** — leitura do snapshot anterior + escrita do snapshot atual ao final |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | Para validar referências (IPCA mensal, atualização das taxas) |
+| `../docs/GLOSSARIO.md` | Para terminologia padronizada (Ciclo de Recalibração, Trajetória, etc.) |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para revisão com usuário ainda em consolidação dos termos básicos |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Para revisão de coração + revisão de números (contentamento, gratidão, idolatria) |
+| `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se sinais aparecem em revisão (fadiga emocional do cuidador, ansiedade crescente) |
 | `../frameworks/priorizacao-financeira.md` | Quando há excedente identificado e dúvida de alocação |
 | `../playbooks/generosidade-sustentavel.md` | Para revisar nível Stewardship e crescimento progressivo das contribuições |
 

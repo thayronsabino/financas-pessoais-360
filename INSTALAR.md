@@ -123,9 +123,9 @@ npx skills remove thayronsabino/mordomia
 ```
 ⚠️ No Claude.ai, as skills funcionam, MAS:
 
-- Os arquivos centrais (REFERENCIAS-BRASIL-2026.md, PRINCIPIOS-BIBLICOS-EXPANDIDOS.md, 
-  PROTOCOLO-CRISE-ESPIRITUAL.md, EDUCACAO-FINANCEIRA-BASICA.md, GLOSSARIO.md, 
-  MEMORY-SYSTEM.md) NÃO são automaticamente acessíveis.
+- Os arquivos centrais (docs/REFERENCIAS-BRASIL-2026.md, docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md, 
+  docs/PROTOCOLO-CRISE-ESPIRITUAL.md, docs/EDUCACAO-FINANCEIRA-BASICA.md, docs/GLOSSARIO.md, 
+  docs/MEMORY-SYSTEM.md) NÃO são automaticamente acessíveis.
 
 - Os playbooks e frameworks NÃO são automaticamente acessíveis.
 
@@ -160,12 +160,12 @@ mordomia/
 ├── LICENSE
 ├── install.py
 │
-├── REFERENCIAS-BRASIL-2026.md
-├── GLOSSARIO.md
-├── MEMORY-SYSTEM.md
-├── PRINCIPIOS-BIBLICOS-EXPANDIDOS.md
-├── PROTOCOLO-CRISE-ESPIRITUAL.md
-├── EDUCACAO-FINANCEIRA-BASICA.md
+├── docs/REFERENCIAS-BRASIL-2026.md
+├── docs/GLOSSARIO.md
+├── docs/MEMORY-SYSTEM.md
+├── docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md
+├── docs/PROTOCOLO-CRISE-ESPIRITUAL.md
+├── docs/EDUCACAO-FINANCEIRA-BASICA.md
 │
 ├── gestor-financeiro/SKILL.md
 ├── pessoal-diagnostico-financeiro/SKILL.md
@@ -319,7 +319,7 @@ gestor-financeiro
 ├── Lê arquivos centrais (REFERENCIAS, GLOSSARIO, PRINCIPIOS, etc.)
 ├── Detecta gatilhos e ativa frameworks (5 disponíveis)
 ├── Detecta situações e ativa playbooks (8 disponíveis)
-└── Aciona PROTOCOLO-CRISE-ESPIRITUAL.md quando necessário
+└── Aciona docs/PROTOCOLO-CRISE-ESPIRITUAL.md quando necessário
 ```
 
 ---
@@ -415,7 +415,7 @@ Solução:
 ```
 Use Método C (clone) ou Método D (Python script).
 Após instalar, os arquivos ficam locais — não há dependência de internet 
-para uso. Apenas o REFERENCIAS-BRASIL-2026.md pode ficar desatualizado 
+para uso. Apenas o docs/REFERENCIAS-BRASIL-2026.md pode ficar desatualizado 
 (precisa atualização trimestral manual ou via futura integração web).
 ```
 
@@ -477,7 +477,7 @@ Após instalar:
 1. ✅ **Leia o `README.md`** para visão geral
 2. ✅ **Leia o `PACOTE.md`** para entender a ordem das skills
 3. ✅ **Invoque `/gestor-financeiro`** e comece sua jornada
-4. ✅ **Para iniciantes:** consulte `EDUCACAO-FINANCEIRA-BASICA.md`
+4. ✅ **Para iniciantes:** consulte `docs/EDUCACAO-FINANCEIRA-BASICA.md`
 5. ✅ **Para entender filosofia:** leia `landing-page/Manifesto — MordomIA.md`
 
 ---

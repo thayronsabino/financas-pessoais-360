@@ -26,7 +26,7 @@ SENÃO:
 
 **Selic atual (referência):** 14,75% a.a.  
 **Selic líquida** após IR de 15% (após 720 dias): **~12,5% a.a.**  
-*Para detalhes atualizados, consultar `REFERENCIAS-BRASIL-2026.md`*
+*Para detalhes atualizados, consultar `../docs/REFERENCIAS-BRASIL-2026.md`*
 
 ### Tabela de Decisão Instantânea
 
@@ -54,7 +54,7 @@ SENÃO:
 ENTRADAS:
   - taxa_anual_divida (%)
   - prazo_aplicacao_potencial (dias)
-  - selic_atual (%) [consultar REFERENCIAS-BRASIL-2026.md]
+  - selic_atual (%) [consultar ../docs/REFERENCIAS-BRASIL-2026.md]
   - tem_camada_protecao_completa? (sim/não)
 
 PASSO 1 — Calcular IR de Investimento por prazo:

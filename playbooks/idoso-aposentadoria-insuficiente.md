@@ -359,7 +359,7 @@ SE detectar:
     → Disque 100 (Direitos Humanos) ou Delegacia do Idoso
   
   - Depressão ou ansiedade aguda
-    → CAPS, psicólogo, ou PROTOCOLO-CRISE-ESPIRITUAL.md
+    → CAPS, psicólogo, ou ../docs/PROTOCOLO-CRISE-ESPIRITUAL.md
   
   - Negligência por parte de filhos
     → Conversa pastoral com família
@@ -380,7 +380,7 @@ SE detectar:
 | Reorganização | `/pessoal-orcamento-domestico` (versão simplificada) |
 | Renegociação | `/pessoal-plano-dividas-reserva` (foco em consignado) |
 | Acompanhamento | `/pessoal-rotina-financeira-mensal` (adaptado para baixa frequência) |
-| Apoio espiritual | Consultar `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` |
+| Apoio espiritual | Consultar `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` |
 
 ---
 

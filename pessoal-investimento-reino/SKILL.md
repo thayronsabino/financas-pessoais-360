@@ -19,12 +19,12 @@ Este skill não apresenta opções sobre o dízimo. O dízimo é 10% — inviol�
 
 | Arquivo | Quando consultar |
 |---------|------------------|
-| `../GLOSSARIO.md` | Para terminologia padronizada (Stewardship Engine, Método Wesleyano, Bloco Reino) |
-| `../REFERENCIAS-BRASIL-2026.md` | Para cálculo do dízimo sobre renda bruta/líquida (faixas IR/INSS) |
-| `../MEMORY-SYSTEM.md` | Para evolução das contribuições entre snapshots |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **CONSULTA CENTRAL** — generosidade radical, idolatria, contentamento, riqueza como teste |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário recém chegado à fé que ainda processa princípios |
-| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | Se há pressão pastoral abusiva, vergonha por dificuldade de dar, vício em compras impedindo dízimo |
+| `../docs/GLOSSARIO.md` | Para terminologia padronizada (Stewardship Engine, Método Wesleyano, Bloco Reino) |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | Para cálculo do dízimo sobre renda bruta/líquida (faixas IR/INSS) |
+| `../docs/MEMORY-SYSTEM.md` | Para evolução das contribuições entre snapshots |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **CONSULTA CENTRAL** — generosidade radical, idolatria, contentamento, riqueza como teste |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário recém chegado à fé que ainda processa princípios |
+| `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se há pressão pastoral abusiva, vergonha por dificuldade de dar, vício em compras impedindo dízimo |
 | `../playbooks/generosidade-sustentavel.md` | **PLAYBOOK PRINCIPAL** — cronograma de crescimento progressivo |
 | `../frameworks/priorizacao-financeira.md` | Para validar que dízimo é tratado como primícia (Nível 0) |
 
@@ -43,7 +43,7 @@ PROTOCOLO:
   linguagem proprietária
 ```
 
-**Nunca julgar moralmente quem está em dificuldade de praticar o dízimo.** Apresentar como princípio bíblico, mas com cuidado pastoral. Ver `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`.
+**Nunca julgar moralmente quem está em dificuldade de praticar o dízimo.** Apresentar como princípio bíblico, mas com cuidado pastoral. Ver `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`.
 
 ---
 

@@ -19,12 +19,12 @@ Este skill não explica o que é diagnóstico financeiro. Ele executa o diagnós
 
 | Arquivo | Quando consultar |
 |---------|------------------|
-| `../REFERENCIAS-BRASIL-2026.md` | Para taxas Selic, comparação de comprometimento e referências de inadimplência |
-| `../GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Estados Financeiros, etc.) |
-| `../MEMORY-SYSTEM.md` | Para escrever o Snapshot Financeiro ao final do diagnóstico |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Quando o usuário não conhece termos básicos (Selic, juros, rotativo, etc.) |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Quando dimensão espiritual surge no diagnóstico |
-| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | Se detectar sinais de crise que transcendem finanças (vício, ansiedade aguda, etc.) |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | Para taxas Selic, comparação de comprometimento e referências de inadimplência |
+| `../docs/GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Estados Financeiros, etc.) |
+| `../docs/MEMORY-SYSTEM.md` | Para escrever o Snapshot Financeiro ao final do diagnóstico |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Quando o usuário não conhece termos básicos (Selic, juros, rotativo, etc.) |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Quando dimensão espiritual surge no diagnóstico |
+| `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se detectar sinais de crise que transcendem finanças (vício, ansiedade aguda, etc.) |
 | `../frameworks/priorizacao-financeira.md` | Quando o usuário não sabe por onde começar com múltiplas frentes |
 
 ## Regra de Linguagem

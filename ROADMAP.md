@@ -67,9 +67,9 @@ PRINCÍPIO 5 — Acessibilidade antes de sofisticação
 
 **Escopo:** Recuperação da dimensão pastoral e expansão de cobertura para casos brasileiros.
 
-- [x] **`PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`:** 8 princípios profundos (idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade)
-- [x] **`PROTOCOLO-CRISE-ESPIRITUAL.md`:** 5 níveis de severidade + rede de apoio (CVV 188, CAPS, AA/NA/JA, Disque 180, Lei Maria da Penha)
-- [x] **`EDUCACAO-FINANCEIRA-BASICA.md`:** Acessibilidade para iniciantes absolutos
+- [x] **`docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`:** 8 princípios profundos (idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade)
+- [x] **`docs/PROTOCOLO-CRISE-ESPIRITUAL.md`:** 5 níveis de severidade + rede de apoio (CVV 188, CAPS, AA/NA/JA, Disque 180, Lei Maria da Penha)
+- [x] **`docs/EDUCACAO-FINANCEIRA-BASICA.md`:** Acessibilidade para iniciantes absolutos
 - [x] **3 novos Playbooks:** Idoso com Aposentadoria Insuficiente, Trabalhador Informal sem CNPJ, Endividamento por Doença na Família
 - [x] **Postura Pastoral Obrigatória** reforçada no `gestor-financeiro`
 - [x] **Regra de Linguagem Proprietária** em todas as skills
@@ -82,7 +82,7 @@ PRINCÍPIO 5 — Acessibilidade antes de sofisticação
 
 **Foco:** Refinamento sem grandes adições estruturais.
 
-- [ ] **Atualização trimestral de `REFERENCIAS-BRASIL-2026.md`** — Selic, IPCA, taxas BCB
+- [ ] **Atualização trimestral de `docs/REFERENCIAS-BRASIL-2026.md`** — Selic, IPCA, taxas BCB
 - [ ] **Tradução do README** para inglês e espanhol (alcance internacional)
 - [ ] **Versão alternativa de skills** sem termos proprietários (modo "sem branding") para uso por outros sistemas
 - [ ] **Casos de uso documentados** (10-15 cenários reais resolvidos pelo pacote, com transcrições anonimizadas)
@@ -120,7 +120,7 @@ PRINCÍPIO 5 — Acessibilidade antes de sofisticação
   - receita.fazenda.gov.br (tabelas IR vigentes)
   - ibge.gov.br (IPCA, IGP-M atualizados)
 
-- [ ] **Auto-atualização** do `REFERENCIAS-BRASIL-2026.md` com cache local de 30 dias
+- [ ] **Auto-atualização** do `docs/REFERENCIAS-BRASIL-2026.md` com cache local de 30 dias
 - [ ] **Detector de "data freshness"** que avisa quando dados estão stale
 - [ ] **Skill experimental:** `referencias-atualizadas` (consulta web sob demanda)
 - [ ] **Política de fallback** quando web está indisponível (usar última versão cacheada)
@@ -295,7 +295,7 @@ Para que uma versão seja lançada, ela precisa atender:
 ### Critérios Técnicos
 
 - [ ] Todos os arquivos com frontmatter atualizado (versão, data)
-- [ ] `REFERENCIAS-BRASIL-2026.md` validado contra fontes oficiais
+- [ ] `docs/REFERENCIAS-BRASIL-2026.md` validado contra fontes oficiais
 - [ ] Cross-references entre arquivos verificados
 - [ ] Sem links quebrados ou paths incorretos
 - [ ] Glossário atualizado com novos termos (se houver)
@@ -323,7 +323,7 @@ O MordomIA é open source (Apache 2.0). Contribuições são bem-vindas:
 
 ```
 1. CORREÇÃO DE TAXAS / DADOS:
-   Pull Request atualizando REFERENCIAS-BRASIL-2026.md
+   Pull Request atualizando docs/REFERENCIAS-BRASIL-2026.md
    Sempre citando fonte oficial
 
 2. NOVO PLAYBOOK:
@@ -339,7 +339,7 @@ O MordomIA é open source (Apache 2.0). Contribuições são bem-vindas:
 4. SCRIPTS DE SIMULAÇÃO:
    Python/JavaScript com testes
    Documentação clara de inputs/outputs
-   Aderência ao padrão do REFERENCIAS-BRASIL-2026.md
+   Aderência ao padrão do docs/REFERENCIAS-BRASIL-2026.md
 
 5. TRADUÇÃO:
    Skills, playbooks ou frameworks em outros idiomas

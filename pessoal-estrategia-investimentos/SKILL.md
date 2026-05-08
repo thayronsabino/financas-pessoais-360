@@ -19,11 +19,11 @@ Este skill não apresenta opções de alocação para o usuário escolher. Ele d
 
 | Arquivo | Quando consultar |
 |---------|------------------|
-| `../REFERENCIAS-BRASIL-2026.md` | **OBRIGATÓRIO** — Selic, IPCA, IR sobre investimentos (tabela regressiva), FGC, Tesouro Direto |
-| `../GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Estados Financeiros) |
-| `../MEMORY-SYSTEM.md` | Para validar que pré-requisitos estão atendidos via Snapshot anterior |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário que ainda não entende Tesouro, CDB, ações, FIIs |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **Crítico em Estado EXPANSÃO/LEGADO** — riqueza como teste, idolatria, generosidade radical |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | **OBRIGATÓRIO** — Selic, IPCA, IR sobre investimentos (tabela regressiva), FGC, Tesouro Direto |
+| `../docs/GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Estados Financeiros) |
+| `../docs/MEMORY-SYSTEM.md` | Para validar que pré-requisitos estão atendidos via Snapshot anterior |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário que ainda não entende Tesouro, CDB, ações, FIIs |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **Crítico em Estado EXPANSÃO/LEGADO** — riqueza como teste, idolatria, generosidade radical |
 | `../frameworks/investir-vs-quitar-divida.md` | Validação obrigatória antes de iniciar estratégia |
 | `../frameworks/priorizacao-financeira.md` | Verificar nível adequado da pirâmide |
 | `../frameworks/casa-vs-aluguel.md` | Quando objetivo é compra de imóvel |

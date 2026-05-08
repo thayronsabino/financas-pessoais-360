@@ -45,12 +45,12 @@ Este skill é ativado principalmente nos estados:
 
 | Arquivo | Quando consultar |
 |---------|------------------|
-| `../REFERENCIAS-BRASIL-2026.md` | **OBRIGATÓRIO** — taxas Selic, modalidades de crédito, FGC, Lei 14.690/2023, Desenrola Brasil 2.0 |
-| `../GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Protocolo Estancar Sangria) |
-| `../MEMORY-SYSTEM.md` | Para escrever Snapshot ao final do plano |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário iniciante que precisa entender o que é juros compostos, rotativo, etc. |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Provérbios 22:7 — liberdade da dívida; ansiedade financeira; honestidade |
-| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | **CRÍTICO** — vício em crédito/compras, depressão por endividamento, violência patrimonial |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | **OBRIGATÓRIO** — taxas Selic, modalidades de crédito, FGC, Lei 14.690/2023, Desenrola Brasil 2.0 |
+| `../docs/GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Protocolo Estancar Sangria) |
+| `../docs/MEMORY-SYSTEM.md` | Para escrever Snapshot ao final do plano |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário iniciante que precisa entender o que é juros compostos, rotativo, etc. |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Provérbios 22:7 — liberdade da dívida; ansiedade financeira; honestidade |
+| `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | **CRÍTICO** — vício em crédito/compras, depressão por endividamento, violência patrimonial |
 | `../frameworks/investir-vs-quitar-divida.md` | Quando o usuário tem capital disponível e dúvida sobre destinação |
 | `../playbooks/recuperacao-90-dias.md` | Quando o usuário está em Estado SOBREVIVÊNCIA com cronograma agressivo |
 | `../playbooks/idoso-aposentadoria-insuficiente.md` | Idoso com consignado consumindo aposentadoria |
@@ -69,7 +69,7 @@ PROTOCOLO:
 
 ## Contexto Brasileiro — Referências Atualizadas
 
-As taxas abaixo são **referência rápida**. Para valores oficiais e atualizados, sempre consultar `../REFERENCIAS-BRASIL-2026.md`.
+As taxas abaixo são **referência rápida**. Para valores oficiais e atualizados, sempre consultar `../docs/REFERENCIAS-BRASIL-2026.md`.
 
 | Modalidade | Taxa Mensal (~) | Taxa Anual (~) | Prioridade |
 |-----------|-------------|------------|-----------|
@@ -82,7 +82,7 @@ As taxas abaixo são **referência rápida**. Para valores oficiais e atualizado
 
 **Regra de ouro:** Qualquer dívida com taxa **> Selic líquida** (~12,5% a.a. após IR) está destruindo patrimônio. Priorize quitação antes de qualquer investimento.
 
-⚠️ Se a "Última atualização" do `REFERENCIAS-BRASIL-2026.md` estiver > 90 dias da data atual, alertar o usuário e validar com fontes oficiais (bcb.gov.br).
+⚠️ Se a "Última atualização" do `../docs/REFERENCIAS-BRASIL-2026.md` estiver > 90 dias da data atual, alertar o usuário e validar com fontes oficiais (bcb.gov.br).
 
 ---
 

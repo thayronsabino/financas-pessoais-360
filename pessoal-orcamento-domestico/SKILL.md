@@ -19,10 +19,10 @@ Este skill não explica o que é um orçamento. Ele implanta um Sistema de Orça
 
 | Arquivo | Quando consultar |
 |---------|------------------|
-| `../REFERENCIAS-BRASIL-2026.md` | Para faixas de IR/INSS (cálculo do líquido) e referências de comprometimento saudável |
-| `../GLOSSARIO.md` | Para terminologia padronizada (Bloco Reino, Bloco Essencial, Camada de Proteção Financeira, etc.) |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário iniciante que precisa entender conceitos básicos primeiro |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Para temas como contentamento, idolatria do consumo, hospitalidade |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | Para faixas de IR/INSS (cálculo do líquido) e referências de comprometimento saudável |
+| `../docs/GLOSSARIO.md` | Para terminologia padronizada (Bloco Reino, Bloco Essencial, Camada de Proteção Financeira, etc.) |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário iniciante que precisa entender conceitos básicos primeiro |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Para temas como contentamento, idolatria do consumo, hospitalidade |
 | `../playbooks/estruturacao-familiar.md` | Quando o usuário é família sem orçamento estruturado |
 | `../playbooks/casal-e-financas.md` | Quando há conflito ou desalinhamento entre cônjuges |
 | `../playbooks/idoso-aposentadoria-insuficiente.md` | Para 60+ com aperto financeiro |

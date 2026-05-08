@@ -452,7 +452,7 @@ SE detectar:
   - Cuidador com sinais claros de burnout
     → Profissional de saúde mental
     → Pastor / aconselhamento espiritual
-    → PROTOCOLO-CRISE-ESPIRITUAL.md
+    → ../docs/PROTOCOLO-CRISE-ESPIRITUAL.md
     
   - Crise espiritual aguda do paciente ou cuidador
     → Pastor com formação em capelania hospitalar
@@ -472,7 +472,7 @@ SE detectar:
     
   - Pensamentos de auto-extermínio (paciente ou cuidador)
     → CVV: 188 (24h, gratuito)
-    → PROTOCOLO-CRISE-ESPIRITUAL.md ATIVAÇÃO IMEDIATA
+    → ../docs/PROTOCOLO-CRISE-ESPIRITUAL.md ATIVAÇÃO IMEDIATA
 ```
 
 ---
@@ -485,8 +485,8 @@ SE detectar:
 | Renegociação | `/pessoal-plano-dividas-reserva` |
 | Reorganização | `/pessoal-orcamento-domestico` |
 | Acompanhamento | `/pessoal-rotina-financeira-mensal` |
-| Apoio espiritual | `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` |
-| Crise emocional | `PROTOCOLO-CRISE-ESPIRITUAL.md` |
+| Apoio espiritual | `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` |
+| Crise emocional | `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` |
 
 ---
 

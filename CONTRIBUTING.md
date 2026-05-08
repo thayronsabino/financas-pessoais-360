@@ -10,7 +10,7 @@ Obrigado por considerar contribuir! O MordomIA é um projeto **open source** sob
 
 ```
 1. ATUALIZAÇÃO DE DADOS
-   Pull Request atualizando REFERENCIAS-BRASIL-2026.md
+   Pull Request atualizando docs/REFERENCIAS-BRASIL-2026.md
    Sempre citando fonte oficial (BCB, Receita Federal, IBGE, etc.)
 
 2. NOVO PLAYBOOK
@@ -26,7 +26,7 @@ Obrigado por considerar contribuir! O MordomIA é um projeto **open source** sob
 4. SCRIPTS DE SIMULAÇÃO (Python/JS)
    Com testes (cobertura ≥ 80%)
    Documentação clara de inputs/outputs
-   Aderência ao REFERENCIAS-BRASIL-2026.md
+   Aderência ao docs/REFERENCIAS-BRASIL-2026.md
 
 5. TRADUÇÕES
    Skills, playbooks ou frameworks em outros idiomas
@@ -292,12 +292,12 @@ ANTES DE ABRIR PR, VERIFICAR:
 [ ] Painel Operacional ASCII (se aplicável)
 [ ] Linguagem aderente ao tom do projeto (decisivo + pastoral)
 [ ] Todos os links internos funcionam
-[ ] Termos proprietários consistentes com GLOSSARIO.md
+[ ] Termos proprietários consistentes com docs/GLOSSARIO.md
 [ ] Princípios bíblicos integrados naturalmente (não como decoração)
 [ ] Cobertura de casos de borda
 ```
 
-### Para atualizações de REFERENCIAS-BRASIL-2026.md
+### Para atualizações de docs/REFERENCIAS-BRASIL-2026.md
 
 ```
 [ ] Todos os valores citam fonte oficial
@@ -329,7 +329,7 @@ Ao traduzir conteúdo:
    - Princípios cristãos não-localizáveis (são os mesmos em qualquer idioma)
 
 2. ADAPTAR REFERÊNCIAS LOCAIS
-   - Substituir REFERENCIAS-BRASIL-2026.md por REFERENCIAS-[PAIS]-[ANO].md
+   - Substituir docs/REFERENCIAS-BRASIL-2026.md por REFERENCIAS-[PAIS]-[ANO].md
    - Adaptar legislação (FGTS → equivalente local)
    - Adaptar moedas (R$ → USD/EUR/MXN)
    - Adaptar instituições (BCB → Fed/BCE/Banxico)

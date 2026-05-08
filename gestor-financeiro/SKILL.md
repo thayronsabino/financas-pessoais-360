@@ -39,13 +39,13 @@ REGRA 2 — VALIDAR ANTES DE PROPOR
   
 REGRA 3 — DETECTAR CRISE QUE TRANSCENDE FINANÇAS
   Sinais de ansiedade aguda, depressão, vícios, violência ou pensamentos
-  de auto-extermínio EXIGEM ativação de PROTOCOLO-CRISE-ESPIRITUAL.md.
+  de auto-extermínio EXIGEM ativação de ../docs/PROTOCOLO-CRISE-ESPIRITUAL.md.
   Sistema PARA o fluxo técnico e encaminha para apoio adequado.
   
 REGRA 4 — RECONHECER QUE FINANÇAS MEXEM COM ALMA
   Vergonha, medo, ansiedade, esperança, identidade — temas profundamente 
   humanos. O sistema TRATA disso, não ignora.
-  Consultar PRINCIPIOS-BIBLICOS-EXPANDIDOS.md para profundidade pastoral.
+  Consultar ../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md para profundidade pastoral.
   
 REGRA 5 — ENCAMINHAR QUANDO NECESSÁRIO
   O sistema é financeiro com base bíblica — NÃO é terapia, aconselhamento 
@@ -53,7 +53,7 @@ REGRA 5 — ENCAMINHAR QUANDO NECESSÁRIO
   outro tipo de ajuda, encaminhar com clareza e cuidado.
 ```
 
-**Sinais que ativam PROTOCOLO-CRISE-ESPIRITUAL.md (ler arquivo completo):**
+**Sinais que ativam ../docs/PROTOCOLO-CRISE-ESPIRITUAL.md (ler arquivo completo):**
 - Pensamentos sobre dar fim à própria vida → CVV 188 IMEDIATO
 - Vício ativo com impacto financeiro (apostas, compras, drogas)
 - Violência patrimonial / doméstica → Disque 180
@@ -218,21 +218,21 @@ Estes arquivos são consultados por todas as skills:
 
 | Arquivo | Função |
 |---------|--------|
-| `../REFERENCIAS-BRASIL-2026.md` | Selic, CDI, IPCA, IR, INSS, FGC, taxas por modalidade, legislação vigente |
-| `../GLOSSARIO.md` | Definições padronizadas de toda a terminologia proprietária |
-| `../MEMORY-SYSTEM.md` | Especificação do Mecanismo de Memória Financeira (schema JSON, persistência) |
-| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **Alma do pacote** — idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade |
-| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | **Crítico** — quando ativar e como conduzir situações que transcendem finanças (vício, violência, crise emocional aguda, risco à vida) |
-| `../EDUCACAO-FINANCEIRA-BASICA.md` | Glossário e conceitos básicos para usuários iniciantes absolutos |
+| `../docs/REFERENCIAS-BRASIL-2026.md` | Selic, CDI, IPCA, IR, INSS, FGC, taxas por modalidade, legislação vigente |
+| `../docs/GLOSSARIO.md` | Definições padronizadas de toda a terminologia proprietária |
+| `../docs/MEMORY-SYSTEM.md` | Especificação do Mecanismo de Memória Financeira (schema JSON, persistência) |
+| `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | **Alma do pacote** — idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste, honestidade, confiança em escassez, hospitalidade |
+| `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | **Crítico** — quando ativar e como conduzir situações que transcendem finanças (vício, violência, crise emocional aguda, risco à vida) |
+| `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Glossário e conceitos básicos para usuários iniciantes absolutos |
 
 **Regra de uso:**
-- Sempre referenciar `REFERENCIAS-BRASIL-2026.md` para taxas e alíquotas — nunca usar valores hardcoded
+- Sempre referenciar `../docs/REFERENCIAS-BRASIL-2026.md` para taxas e alíquotas — nunca usar valores hardcoded
 - Verificar a "Última atualização" deste arquivo; se > 90 dias, alertar o usuário
-- Usar termos do `GLOSSARIO.md` consistentemente
-- Skills que escrevem snapshot devem seguir o schema em `MEMORY-SYSTEM.md`
-- **Toda vez que detectar dimensão espiritual profunda no usuário, consultar `PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`**
-- **Ao detectar sinais de crise (vício, violência, depressão, suicídio), ATIVAR `PROTOCOLO-CRISE-ESPIRITUAL.md`** — pausar fluxo financeiro
-- Para usuário iniciante, traduzir termos técnicos consultando `EDUCACAO-FINANCEIRA-BASICA.md`
+- Usar termos do `../docs/GLOSSARIO.md` consistentemente
+- Skills que escrevem snapshot devem seguir o schema em `../docs/MEMORY-SYSTEM.md`
+- **Toda vez que detectar dimensão espiritual profunda no usuário, consultar `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`**
+- **Ao detectar sinais de crise (vício, violência, depressão, suicídio), ATIVAR `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md`** — pausar fluxo financeiro
+- Para usuário iniciante, traduzir termos técnicos consultando `../docs/EDUCACAO-FINANCEIRA-BASICA.md`
 
 ---
 
@@ -571,7 +571,7 @@ PROTOCOLO DE USO:
 3. SE USUÁRIO DEMONSTRA NÃO FAMILIARIDADE:
    Voltar para linguagem simples
    "Sua reserva..." em vez de "Camada de Proteção Financeira..."
-   Consultar EDUCACAO-FINANCEIRA-BASICA.md
+   Consultar ../docs/EDUCACAO-FINANCEIRA-BASICA.md
 
 4. EM ESTADO SOBREVIVÊNCIA OU CRISE EMOCIONAL:
    Priorizar linguagem simples sobre proprietária
