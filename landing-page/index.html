@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MordomIA — Sistema Operacional Financeiro para Mordomia Cristã</title>
+  <meta name="description" content="Um ecossistema de agentes de IA que diagnostica, organiza e multiplica seus recursos — fundamentado na mordomia cristã. Instale gratuitamente." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MordomIA — Sistema Operacional Financeiro para Mordomia Cristã" />
+  <meta property="og:description" content="7 agentes de IA orquestrados para diagnosticar, organizar e multiplicar seus recursos — fundamentado na mordomia cristã." />
+  <meta property="og:url" content="https://thayronsabino.github.io/mordomia" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MordomIA — Sistema Operacional Financeiro" />
+  <meta name="twitter:description" content="7 agentes de IA para organizar finanças pessoais com fé e inteligência." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text"><strong>MordomIA</strong></span>
+      </div>
+      <a href="https://github.com/thayronsabino/mordomia" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+        GitHub &rarr;
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="container">
+      <div class="eyebrow-pill reveal">
+        <span class="eyebrow-dot"></span>
+        Sistema Operacional Financeiro &middot; 7 Agentes de IA &middot; Open Source
+      </div>
+      <h1 class="hero-title reveal">
+        O sistema operacional<br>financeiro para<br>
+        <em>mordomia crist&atilde;.</em>
+      </h1>
+      <p class="hero-sub reveal">
+        Um ecossistema de agentes de IA que diagnostica, organiza e multiplica seus recursos &mdash; alinhando dinheiro, prop&oacute;sito e Reino.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="https://github.com/thayronsabino/mordomia" target="_blank" rel="noopener" class="btn btn-primary btn-xl">Instalar o Sistema</a>
+        <a href="#arquitetura" class="btn btn-outline btn-xl">Explorar Arquitetura</a>
+      </div>
+      <div class="hero-terminal reveal">
+        <div class="terminal-bar">
+          <div class="terminal-dots"><span></span><span></span><span></span></div>
+          <span class="terminal-title">gestor-financeiro &mdash; an&aacute;lise em execu&ccedil;&atilde;o</span>
+        </div>
+        <div class="terminal-body hero-term-body">
+          <div class="ht-line"><span class="ht-prompt">$</span> <span class="ht-cmd">/gestor-financeiro</span></div>
+          <div class="ht-spacer"></div>
+          <div class="ht-line"><span class="ht-tree">[gestor-financeiro]</span></div>
+          <div class="ht-line"><span class="ht-pipe">│</span></div>
+          <div class="ht-line"><span class="ht-pipe">├─</span><span class="ht-label"> diagn&oacute;stico</span><span class="ht-dots"> ··········</span><span class="ht-warn"> urg&ecirc;ncia: alta</span></div>
+          <div class="ht-line"><span class="ht-pipe">├─</span><span class="ht-label"> d&iacute;vidas &amp; reserva</span><span class="ht-dots"> ···</span><span class="ht-val"> avalanche</span></div>
+          <div class="ht-line"><span class="ht-pipe">├─</span><span class="ht-label"> rotina mensal</span><span class="ht-dots"> ·······</span><span class="ht-ok"> ativa</span></div>
+          <div class="ht-line"><span class="ht-pipe">└─</span><span class="ht-label"> inv. reino</span><span class="ht-dots"> ···········</span><span class="ht-gold"> ✦ sempre ativo</span></div>
+        </div>
+      </div>
+      <div class="hero-compat reveal">
+        <span>Compat&iacute;vel com</span>
+        <div class="compat-tags">
+          <span>Claude</span><span>GPT-4o</span><span>Cursor</span><span>Windsurf</span><span>Cline</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto-reveal-section" id="manifesto">
+    <div class="container">
+      <div class="section-label reveal">Manifesto</div>
+      <div class="mr-opener reveal">
+        <p class="mr-lead">O problema nunca foi apenas dinheiro.</p>
+        <p class="mr-text">A maioria das pessoas vive tentando organizar as finan&ccedil;as sem organizar a dire&ccedil;&atilde;o da pr&oacute;pria vida. Ganham mais, trabalham mais, consomem mais &mdash; e continuam sem clareza.</p>
+        <p class="mr-insight">Porque desorganiza&ccedil;&atilde;o financeira n&atilde;o nasce apenas da falta de recursos.<br>Ela nasce da <strong>aus&ecirc;ncia de prop&oacute;sito.</strong></p>
+      </div>
+      <blockquote class="mr-pullquote reveal">
+        <p>&ldquo;Nada &eacute; realmente nosso.<br>Tudo foi confiado.&rdquo;</p>
+      </blockquote>
+      <div class="mr-close reveal">
+        <p class="mr-coda">
+          Porque dinheiro sem dire&ccedil;&atilde;o gera ansiedade.<br>
+          <strong>Mas mordomia com prop&oacute;sito gera liberdade.</strong>
+        </p>
+        <button class="btn-manifesto" onclick="openManifesto()">
+          Ler o Manifesto Completo &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITAÇÃO -->
+  <section class="quote-section">
+    <div class="container">
+      <blockquote class="quote">
+        <p>&ldquo;Do Senhor &eacute; a terra e tudo que nela existe, o mundo e os que nele habitam.&rdquo;</p>
+        <cite>&mdash; Salmos 24:1</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FILOSOFIA -->
+  <section class="philosophy-section" id="filosofia">
+    <div class="container">
+      <div class="section-label">A Funda&ccedil;&atilde;o</div>
+      <h2 class="section-title">Finan&ccedil;as ordenadas pelo que realmente importa</h2>
+      <p class="section-sub">Cada orienta&ccedil;&atilde;o do sistema reconhece que Deus &eacute; o dono de tudo &mdash; e voc&ecirc;, o mordomo fiel chamado a administrar com excel&ecirc;ncia.</p>
+      <div class="principles-grid">
+        <div class="principle">
+          <div class="principle-ref">Salmo 24:1</div>
+          <h4>Deus é o Dono</h4>
+          <p>Recursos são confiados para administração fiel, não conquistados para acumulação.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">Lucas 16:10</div>
+          <h4>Fidelidade no Pouco</h4>
+          <p>Boa gestão de recursos limitados hoje abre portas para mais amanhã.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">Provérbios 3:9-10</div>
+          <h4>Primícias Primeiro</h4>
+          <p>Honrar a Deus com dízimo e ofertas é prioridade orçamentária — não sobra.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">Provérbios 22:7</div>
+          <h4>Liberdade da Dívida</h4>
+          <p>Dívida compromete sua liberdade de servir. Sair dela é ato de mordomia.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">2 Coríntios 9:7</div>
+          <h4>Generosidade Intencional</h4>
+          <p>Investir no Reino é parte do planejamento — não impulso, mas decisão.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-ref">1 Timóteo 5:8</div>
+          <h4>Cuidar da Própria Casa</h4>
+          <p>Organizar as finanças da família é ato de fé, não de mundanidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUITETURA -->
+  <section class="how-section" id="arquitetura">
+    <div class="container">
+      <div class="section-label">A Arquitetura</div>
+      <h2 class="section-title">Um orquestrador. Sete especialistas. Uma miss&atilde;o.</h2>
+      <p class="section-sub">Voc&ecirc; chama apenas <code>/gestor-financeiro</code>. O sistema avalia sua situa&ccedil;&atilde;o e monta automaticamente a cadeia de agentes mais adequada.</p>
+
+      <div class="org-chart">
+        <div class="org-root-wrap">
+          <div class="org-hub-node">
+            <code class="org-hub-name">gestor-financeiro</code>
+            <div class="org-hub-label">Orquestrador</div>
+          </div>
+          <div class="org-hub-modes">
+            <span class="mode-badge mode-direct">Modo Direto &mdash; 1 agente</span>
+            <span class="mode-badge mode-consult">Modo Consultoria &mdash; 2 a 5 agentes</span>
+          </div>
+        </div>
+
+        <div class="org-children">
+          <div class="org-child">
+            <div class="org-child-node">
+              <span class="org-child-num">01</span>
+              <span class="org-child-name">Diagn&oacute;stico</span>
+            </div>
+          </div>
+          <div class="org-child">
+            <div class="org-child-node">
+              <span class="org-child-num">02</span>
+              <span class="org-child-name">Or&ccedil;amento</span>
+            </div>
+          </div>
+          <div class="org-child">
+            <div class="org-child-node">
+              <span class="org-child-num">03</span>
+              <span class="org-child-name">D&iacute;vidas &amp; Reserva</span>
+            </div>
+          </div>
+          <div class="org-child">
+            <div class="org-child-node">
+              <span class="org-child-num">04</span>
+              <span class="org-child-name">Investimentos</span>
+            </div>
+          </div>
+          <div class="org-child">
+            <div class="org-child-node">
+              <span class="org-child-num">05</span>
+              <span class="org-child-name">Rotina Mensal</span>
+            </div>
+          </div>
+          <div class="org-child org-child-kingdom">
+            <div class="org-child-node org-child-node-kingdom">
+              <span class="org-child-num">✦</span>
+              <span class="org-child-name">Inv. Reino</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-detail-grid">
+        <div class="skill-detail-card">
+          <div class="sdc-num">01</div>
+          <div class="sdc-body">
+            <code class="sdc-code">pessoal-diagnostico-financeiro</code>
+            <p class="sdc-desc">Raio-X financeiro completo. Gargalos, risco de inadimplência e prioridade de ação.</p>
+          </div>
+        </div>
+        <div class="skill-detail-card">
+          <div class="sdc-num">02</div>
+          <div class="sdc-body">
+            <code class="sdc-code">pessoal-orcamento-domestico</code>
+            <p class="sdc-desc">Orçamento com categorias, tetos e ritual semanal. Dízimo como categoria prioritária.</p>
+          </div>
+        </div>
+        <div class="skill-detail-card">
+          <div class="sdc-num">03</div>
+          <div class="sdc-body">
+            <code class="sdc-code">pessoal-plano-dividas-reserva</code>
+            <p class="sdc-desc">Quitação por Avalanche ou Bola de Neve. Reserva progressiva em 3 fases.</p>
+          </div>
+        </div>
+        <div class="skill-detail-card">
+          <div class="sdc-num">04</div>
+          <div class="sdc-body">
+            <code class="sdc-code">pessoal-estrategia-investimentos</code>
+            <p class="sdc-desc">Carteira por perfil de risco e horizonte. 3 blocos: liquidez, renda fixa, variável.</p>
+          </div>
+        </div>
+        <div class="skill-detail-card">
+          <div class="sdc-num">05</div>
+          <div class="sdc-body">
+            <code class="sdc-code">pessoal-rotina-financeira-mensal</code>
+            <p class="sdc-desc">Fechamento mensal, análise de desvios e recalibração. O hub que mantém o sistema vivo.</p>
+          </div>
+        </div>
+        <div class="skill-detail-card skill-detail-card-kingdom">
+          <div class="sdc-num">✦</div>
+          <div class="sdc-body">
+            <code class="sdc-code">pessoal-investimento-reino</code>
+            <p class="sdc-desc">Presente em toda cadeia. Dízimo, ofertas e projetos ministeriais planejados, não improvisados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO O SISTEMA PENSA -->
+  <section class="think-section" id="como-funciona">
+    <div class="container">
+      <div class="section-label reveal">Intelig&ecirc;ncia Operacional</div>
+      <h2 class="section-title reveal">O orquestrador decide automaticamente.</h2>
+      <p class="section-sub reveal">N&atilde;o &eacute; um chatbot. &Eacute; um sistema com l&oacute;gica de roteamento, classifica&ccedil;&atilde;o de urg&ecirc;ncia e sele&ccedil;&atilde;o de especialistas.</p>
+      <div class="think-layout">
+        <div class="think-left reveal">
+          <div class="think-feature">
+            <div class="think-num">01</div>
+            <div>
+              <strong>Classifica&ccedil;&atilde;o de urg&ecirc;ncia</strong>
+              <p>Analisa d&iacute;vida ativa, reserva e fluxo de caixa para definir prioridade: baixa, m&eacute;dia ou alta.</p>
+            </div>
+          </div>
+          <div class="think-feature">
+            <div class="think-num">02</div>
+            <div>
+              <strong>Roteamento autom&aacute;tico</strong>
+              <p>Seleciona 1 a 5 agentes com base no perfil. Voc&ecirc; n&atilde;o precisa saber qual invocar.</p>
+            </div>
+          </div>
+          <div class="think-feature">
+            <div class="think-num">03</div>
+            <div>
+              <strong>Checkpoints e limites</strong>
+              <p>Evita sobrecarga cognitiva. Entrega o pr&oacute;ximo passo, n&atilde;o um plano de 40 p&aacute;ginas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="think-terminal reveal">
+          <div class="terminal-bar">
+            <div class="terminal-dots"><span></span><span></span><span></span></div>
+            <span class="terminal-title">gestor-financeiro &mdash; an&aacute;lise</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-block">
+              <span class="t-label">INPUT</span>
+              <div class="t-row"><span class="t-key">Renda mensal</span><span class="t-val">R$ 5.200</span></div>
+              <div class="t-row"><span class="t-key">D&iacute;vida ativa</span><span class="t-val t-warn">cart&atilde;o rotativo</span></div>
+              <div class="t-row"><span class="t-key">Reserva</span><span class="t-val t-danger">R$ 0,00</span></div>
+            </div>
+            <div class="t-arrow">&darr; analisando perfil financeiro&hellip;</div>
+            <div class="t-block">
+              <span class="t-label">RESULTADO</span>
+              <div class="t-row"><span class="t-key">Urg&ecirc;ncia</span><span class="t-val t-danger">ALTA</span></div>
+              <div class="t-row"><span class="t-key">Modo</span><span class="t-val">Consultoria</span></div>
+              <div class="t-row"><span class="t-key">Agentes acionados</span><span></span></div>
+              <div class="t-skill">&rsaquo; 01 pessoal-diagnostico-financeiro</div>
+              <div class="t-skill">&rsaquo; 03 pessoal-plano-dividas-reserva</div>
+              <div class="t-skill">&rsaquo; 05 pessoal-rotina-financeira-mensal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JORNADA -->
+  <section class="journey-section" id="jornada">
+    <div class="container">
+      <div class="section-label">A Jornada</div>
+      <h2 class="section-title">Da desorganiza&ccedil;&atilde;o &agrave; liberdade financeira</h2>
+      <div class="journey-steps">
+        <div class="journey-step reveal">
+          <div class="step-phase">Semana 1&ndash;2</div>
+          <div class="step-title">Diagn&oacute;stico</div>
+          <p>O sistema entende onde você está. Renda, dívidas, gastos visíveis e invisíveis, risco de inadimplência e capacidade atual para o Reino.</p>
+        </div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step reveal">
+          <div class="step-phase">M&ecirc;s 1&ndash;3</div>
+          <div class="step-title">Organiza&ccedil;&atilde;o</div>
+          <p>Orçamento funcional com categorias e tetos. Plano de quitação ativo. Colchão mínimo criado. Primeiros passos no dízimo regular.</p>
+        </div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step reveal">
+          <div class="step-phase">M&ecirc;s 3&ndash;12</div>
+          <div class="step-title">Estabiliza&ccedil;&atilde;o</div>
+          <p>Dívidas caras eliminadas. Reserva de emergência construída. Contribuições regularizadas. Rotina mensal implantada.</p>
+        </div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step reveal">
+          <div class="step-phase">Ano 1+</div>
+          <div class="step-title">Multiplica&ccedil;&atilde;o</div>
+          <p>Carteira de investimentos alinhada ao propósito. Generosidade crescente. Liberdade financeira como infraestrutura para servir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="icp-section" id="para-quem">
+    <div class="container">
+      <div class="section-label reveal">Para quem &eacute;</div>
+      <h2 class="section-title reveal">Criado para quem quer<br>alinhar dinheiro e prop&oacute;sito.</h2>
+      <div class="icp-grid">
+        <div class="icp-card reveal"><div class="icp-num">01</div><h3>Fam&iacute;lias crist&atilde;s</h3><p>que querem alinhar or&ccedil;amento com prop&oacute;sito sem abrir m&atilde;o da f&eacute;.</p></div>
+        <div class="icp-card reveal"><div class="icp-num">02</div><h3>L&iacute;deres e pastores</h3><p>que precisam de sa&uacute;de financeira para liderar com autoridade e integridade.</p></div>
+        <div class="icp-card reveal"><div class="icp-num">03</div><h3>Empreendedores</h3><p>que misturam finan&ccedil;as pessoais e empresariais e precisam de clareza urgente.</p></div>
+        <div class="icp-card reveal"><div class="icp-num">04</div><h3>Profissionais endividados</h3><p>que ganham bem mas n&atilde;o conseguem sair do rotativo ou construir reserva.</p></div>
+        <div class="icp-card reveal"><div class="icp-num">05</div><h3>Jovens e rec&eacute;m-casados</h3><p>que querem come&ccedil;ar certo antes que os h&aacute;bitos errados se instalem.</p></div>
+        <div class="icp-card reveal"><div class="icp-num">06</div><h3>Qualquer pessoa</h3><p>que quer mais do que controle financeiro &mdash; quer administrar com prop&oacute;sito e f&eacute;.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA ANTES/DEPOIS -->
+  <section class="proof-section">
+    <div class="container">
+      <div class="section-label reveal">Do Caos &agrave; Clareza</div>
+      <h2 class="section-title reveal">Da desorganiza&ccedil;&atilde;o &agrave; mordomia.</h2>
+      <div class="proof-grid reveal">
+        <div class="proof-col proof-before">
+          <div class="proof-label">Antes</div>
+          <ul>
+            <li>sem or&ccedil;amento definido</li>
+            <li>d&iacute;vidas no cart&atilde;o rotativo</li>
+            <li>contribui&ccedil;&otilde;es inconsistentes</li>
+            <li>sem reserva de emerg&ecirc;ncia</li>
+            <li>ansiedade financeira cr&ocirc;nica</li>
+          </ul>
+        </div>
+        <div class="proof-arrow">&rarr;</div>
+        <div class="proof-col proof-after">
+          <div class="proof-label">Depois</div>
+          <ul>
+            <li>or&ccedil;amento funcional com tetos</li>
+            <li>plano de quita&ccedil;&atilde;o ativo</li>
+            <li>d&iacute;zimo planejado como prioridade</li>
+            <li>reserva iniciada e crescendo</li>
+            <li>rotina mensal implantada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALAÇÃO -->
+  <section class="install-section" id="instalar">
+    <div class="container">
+      <div class="section-label">Como Instalar</div>
+      <h2 class="section-title">4 formas de come&ccedil;ar. Escolha a sua.</h2>
+      <div class="install-grid">
+        <div class="install-card install-card-featured">
+          <div class="install-badge">Recomendado</div>
+          <div class="install-method">M&eacute;todo A</div>
+          <h3>npx skills</h3>
+          <p>Claude Code, Codex, Cursor e 55+ agentes. Requer Node.js.</p>
+          <div class="code-block">
+            <span class="code-line"><span class="code-prompt">$</span> npx skills add thayronsabino/mordomia</span>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="install-method">M&eacute;todo B</div>
+          <h3>Upload Claude.ai</h3>
+          <p>Sem terminal. Direto pela interface do Claude.</p>
+          <ol class="install-steps">
+            <li>Configura&ccedil;&otilde;es &rarr; Habilidades</li>
+            <li>Upload dos 7 arquivos SKILL.md</li>
+            <li>Invoque <code>/gestor-financeiro</code></li>
+          </ol>
+        </div>
+        <div class="install-card">
+          <div class="install-method">M&eacute;todo C</div>
+          <h3>Clone Git</h3>
+          <p>Acesso completo ao c&oacute;digo-fonte.</p>
+          <div class="code-block">
+            <span class="code-line"><span class="code-prompt">$</span> git clone https://github.com/thayronsabino/mordomia.git</span>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="install-method">M&eacute;todo D</div>
+          <h3>Script Python</h3>
+          <p>Para ambientes sem Node.js. Requer Python 3.6+.</p>
+          <div class="code-block">
+            <span class="code-line"><span class="code-prompt">$</span> curl -O .../install.py &amp;&amp; python install.py</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-label">D&uacute;vidas Frequentes</div>
+      <h2 class="section-title">Perguntas que voc&ecirc; pode ter</h2>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">Preciso ser desenvolvedor para usar?</summary>
+          <div class="faq-answer">
+            <p>Não. Se você usa Claude, Cursor, Windsurf ou qualquer agente com suporte a skills, basta instalar com um comando ou fazer upload manual dos arquivos SKILL.md. Não há código para escrever.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">&Eacute; realmente gratuito?</summary>
+          <div class="faq-answer">
+            <p>Sim. O pacote é open source sob Apache License 2.0 — uso pessoal e comercial permitido, sem mensalidades, sem planos pagos.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Preciso usar todos os 7 agentes?</summary>
+          <div class="faq-answer">
+            <p>Não. Você pode invocar qualquer agente diretamente. O <code>/gestor-financeiro</code> é o ponto de entrada recomendado e decide automaticamente qual caminho seguir com base na sua situação.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Como funciona a parte crist&atilde;?</summary>
+          <div class="faq-answer">
+            <p>Cada agente integra dízimo, ofertas e investimento no Reino como categorias orçamentárias reais — não como sugestões opcionais. Os princípios de Salmo 24:1, Lucas 16:10 e Provérbios 22:7 fundamentam cada recomendação.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Meus dados financeiros ficam seguros?</summary>
+          <div class="faq-answer">
+            <p>Os agentes rodam no contexto da sua conversa com a IA. Nenhum dado é enviado a servidores externos do pacote — tudo fica dentro da plataforma que você já usa (Claude, Cursor, etc.).</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Posso contribuir ou adaptar o pacote?</summary>
+          <div class="faq-answer">
+            <p>Sim. O repositório é aberto no GitHub sob Apache License 2.0. Você pode fazer fork, adaptar e redistribuir — inclusive para uso comercial, desde que referencie a fonte original: <code>github.com/thayronsabino/mordomia</code></p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section" id="comecar">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-content reveal">
+        <blockquote class="cta-manifesto">
+          &ldquo;Dinheiro sem dire&ccedil;&atilde;o gera ansiedade.<br>
+          Mordomia com prop&oacute;sito gera liberdade.&rdquo;
+        </blockquote>
+        <p class="cta-sub">Instale gratuitamente o sistema operacional financeiro que transforma organiza&ccedil;&atilde;o em administra&ccedil;&atilde;o fiel.</p>
+        <div class="hero-cta">
+          <a href="https://github.com/thayronsabino/mordomia" target="_blank" rel="noopener" class="btn btn-primary btn-xl">Instalar o Sistema &mdash; &Eacute; Gr&aacute;tis</a>
+          <a href="#faq" class="btn btn-outline btn-xl">D&uacute;vidas frequentes</a>
+        </div>
+        <p class="cta-license">Apache License 2.0 &middot; Uso pessoal e comercial permitido</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">✦</span>
+          <span><strong>MordomIA</strong></span>
+        </div>
+        <p class="footer-verse">&ldquo;Porque onde estiver o vosso tesouro, a&iacute; estar&aacute; tamb&eacute;m o vosso cora&ccedil;&atilde;o.&rdquo; &mdash; Mateus 6:21</p>
+        <div class="footer-links">
+          <a href="https://github.com/thayronsabino/mordomia" target="_blank">GitHub</a>
+          <a href="https://github.com/thayronsabino/mordomia/blob/main/LICENSE" target="_blank">Licen&ccedil;a</a>
+          <a href="https://github.com/thayronsabino/mordomia/blob/main/README.md" target="_blank">Documenta&ccedil;&atilde;o</a>
+        </div>
+        <p class="footer-credit">Criado por <a href="https://github.com/thayronsabino" target="_blank">Thayron Sabino</a> &middot; Para a gl&oacute;ria de Deus</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button id="scrollTop" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
+
+  <!-- MANIFESTO MODAL -->
+  <div id="manifestoModal" class="modal-overlay" onclick="closeManifesto(event)">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Manifesto MordomIA">
+      <div class="modal-header">
+        <span class="modal-title">Manifesto &mdash; MordomIA</span>
+        <button class="modal-close" onclick="closeManifesto()" aria-label="Fechar">&#x2715;</button>
+      </div>
+      <div class="modal-body">
+
+        <p class="m-lead">O problema nunca foi apenas dinheiro.</p>
+
+        <p>A maioria das pessoas vive tentando organizar as finanças sem organizar a direção da própria vida.</p>
+
+        <p class="m-rhythm">Ganham mais.<br>Trabalham mais.<br>Consomem mais.<br>Mas continuam sem clareza.</p>
+
+        <p>Porque desorganização financeira não nasce apenas da falta de recursos.</p>
+        <p class="m-emphasis">Ela nasce da ausência de propósito.</p>
+
+        <hr class="m-divider" />
+
+        <p>Fomos ensinados a administrar dinheiro como propriedade.</p>
+        <p>Mas as Escrituras nos ensinam algo diferente:</p>
+        <p class="m-emphasis">Nada é realmente nosso.</p>
+        <p>Tudo foi confiado.</p>
+
+        <p class="m-rhythm">Tempo.<br>Recursos.<br>Oportunidades.<br>Patrimônio.<br>Influência.</p>
+
+        <p class="m-emphasis">Tudo é mordomia.</p>
+
+        <hr class="m-divider" />
+
+        <p>Mesmo assim, milhões de pessoas tentam administrar a vida no improviso, na ansiedade, na culpa, na desordem e no excesso de informação.</p>
+
+        <p class="m-rhythm">Planilhas esquecidas.<br>Aplicativos abandonados.<br>Promessas de enriquecimento rápido.<br>Controle sem direção.</p>
+
+        <p>Muito esforço. Pouca transformação.</p>
+
+        <hr class="m-divider" />
+
+        <p>A MordomIA nasceu da convicção de que organização financeira não é apenas disciplina.</p>
+
+        <p class="m-rhythm">É responsabilidade.<br>É alinhamento.<br>É fidelidade.</p>
+
+        <hr class="m-divider" />
+
+        <p>Nós acreditamos que:</p>
+        <ul class="m-list">
+          <li>dinheiro deve servir propósito;</li>
+          <li>riqueza deve gerar impacto;</li>
+          <li>generosidade deve ser intencional;</li>
+          <li>e liberdade financeira deve ampliar sua capacidade de servir.</li>
+        </ul>
+
+        <p>Porque finanças organizadas não são o destino final.</p>
+        <p class="m-emphasis">São a infraestrutura.</p>
+
+        <hr class="m-divider" />
+
+        <p>A MordomIA transforma inteligência artificial em um sistema operacional financeiro fundamentado em princípios de mordomia cristã.</p>
+        <p>Não para substituir discernimento.</p>
+        <p>Mas para trazer clareza, direção, ordem, consistência e sabedoria prática no cotidiano.</p>
+
+        <hr class="m-divider" />
+
+        <p>Não é apenas sobre sair das dívidas. É sobre recuperar direção.</p>
+        <p>Não é apenas sobre investir melhor. É sobre construir com propósito.</p>
+        <p>Não é apenas sobre controlar gastos. É sobre administrar fielmente aquilo que foi colocado em suas mãos.</p>
+
+        <hr class="m-divider" />
+
+        <p>Vivemos em uma era onde a inteligência artificial está transformando empresas, mercados e governos.</p>
+        <p>Mas acreditamos que ela também pode ajudar pessoas comuns a viverem com mais consciência, mais ordem, mais generosidade e mais propósito.</p>
+
+        <hr class="m-divider" />
+
+        <p>A MordomIA existe para isso.</p>
+        <p>Transformar ansiedade em clareza, improviso em direção, consumo em consciência e recursos em propósito.</p>
+
+        <hr class="m-divider" />
+
+        <p class="m-closing">Porque dinheiro sem direção gera ansiedade.</p>
+        <p class="m-final">Mas mordomia com propósito gera liberdade.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

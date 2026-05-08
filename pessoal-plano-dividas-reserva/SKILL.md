@@ -1,196 +1,376 @@
 ---
 name: pessoal-plano-dividas-reserva
 description: >
-  Cria plano estruturado para sair de dívidas e construir reserva de emergência.
-  Use quando o usuário menciona dívidas caras (cartão, rotativo, cheque especial,
-  empréstimos), quer montar reserva de emergência, precisa organizar finanças pessoais,
-  está endividado ou em risco de inadimplência, quer priorizar pagamentos, menciona
-  método avalanche ou bola de neve, busca estabilidade financeira, quer equilibrar
-  quitação de dívidas com poupança, ou precisa planejar contribuições enquanto ajusta
-  finanças. Ideal para quem está saindo do vermelho e construindo base sustentável.
+  Cria plano estruturado para eliminar dívidas caras e construir a Camada de Proteção Financeira (reserva de emergência). Inclui Protocolo Estancar Sangria, simuladores de quitação e reserva, engine de decisão Avalanche vs. Bola de Neve, e cronograma mensal de execução. Use quando o usuário menciona dívidas caras (cartão, rotativo, cheque especial, empréstimos), quer montar reserva de emergência, está endividado ou em risco de inadimplência, quer priorizar pagamentos, busca estabilidade financeira, ou precisa equilibrar quitação com contribuições do Reino.
 owner: financeiro-pessoal
-version: 1.0.0
-last_updated: 2026-03-27
+version: 2.0.0
+last_updated: 2026-05-07
 ---
 
-# Pessoal - Plano Dívidas e Reserva
+# Plano de Quitação e Camada de Proteção Financeira
 
-## Objetivo
+## Postura do Sistema
 
-Reduzir dívidas caras e construir reserva mínima de emergência de forma sustentável, priorizando juros altos e estabilidade de caixa. Preparar base financeira sólida para outros objetivos, incluindo contribuições do reino.
+Este skill não apresenta opções de estratégia. Ele determina a estratégia correta baseada na situação real, calcula simulações de quitação, e entrega um cronograma executável mês a mês. O usuário sai com um plano — não com um conjunto de possibilidades para decidir sozinho.
 
-## Contexto Brasileiro (2026)
+> "A estratégia correta para a sua situação é esta. Aqui está por quê, como executar e o que esperar em cada mês."
 
-As taxas de juros no Brasil estão elevadas:
-- **Rotativo do cartão**: ~438-450% ao ano
-- **Cartão parcelado**: ~189% ao ano  
-- **Cheque especial**: ~129-136% ao ano
-- **Crédito pessoal não consignado**: ~117% ao ano
-- **Selic**: 14,75% ao ano (maio 2026)
+---
 
-Priorizar quitação de dívidas caras economiza mais que qualquer investimento seguro. Reserva de emergência ideal: 3-6 meses de gastos essenciais (CLT estável), 6-12 meses (autônomos/PJ), até 12+ meses (renda variável).
+## FINANCIAL STATE ENGINE
 
-## Entradas Esperadas
+Este skill é ativado principalmente nos estados:
 
-Pergunta:
-- Lista de dívidas com valores, taxas de juros e prazos
-- Renda líquida mensal
-- Gastos essenciais mensais (moradia, alimentação, transporte, saúde)
-- Valor mensal disponível para amortização/reserva
-- Meta de reserva de emergência (se houver)
-- Perfil profissional (CLT, servidor, autônomo, PJ)
-- Contexto de contribuições do reino (se aplicável)
+| Estado | Situação | Ação do Sistema |
+|--------|----------|-----------------|
+| **SOBREVIVÊNCIA** | Rotativo ativo, inadimplência | Protocolo Estancar Sangria + Simulação de Quitação |
+| **ORGANIZAÇÃO** | Dívidas controladas, sem reserva | Construção de Base + Camada de Proteção Financeira |
+| **ESTABILIZAÇÃO** | Dívidas menores, reserva em construção | Aceleração de Quitação + Reserva Completa |
 
-Se informações faltarem, solicite apenas o essencial: dívidas com juros, renda líquida e valor livre mensal.
+---
 
-## Decisão: Avalanche vs. Bola de Neve
+## CAMADAS COGNITIVAS
 
-Dois métodos principais para quitação:
+| Camada | O Sistema Faz |
+|--------|---------------|
+| **DIAGNÓSTICO** | Mapeia todas as dívidas com saldo, taxa e prazo |
+| **INTERPRETAÇÃO** | Calcula custo real dos juros e identifica dívidas críticas |
+| **ESTRATÉGIA** | Determina método (Avalanche/Bola de Neve) e alocação mensal |
+| **EXECUÇÃO** | Gera cronograma mensal e simulação de quitação |
+| **SUSTENTAÇÃO** | Define marcos de progresso e skill de continuidade |
 
-**Método Avalanche** (economicamente ótimo)  
-Prioriza dívidas por taxa de juros, da maior para a menor. Economiza mais dinheiro no total. Use quando:
-- O usuário é disciplinado e consegue manter foco sem vitórias rápidas
-- As dívidas têm juros muito díspares (ex: rotativo 438% vs. pessoal 117%)
-- O objetivo é minimizar custo total
+---
 
-**Método Bola de Neve** (psicologicamente motivador)  
-Prioriza dívidas por saldo, da menor para a maior. Gera vitórias rápidas. Use quando:
-- O usuário precisa de motivação e progresso visível
-- As taxas de juros são similares
-- Há muitas dívidas pequenas que podem ser eliminadas rapidamente
+## Arquivos Consultados pelo Sistema
 
-**Recomendação padrão**: Avalanche para dívidas com juros muito altos (rotativo, cheque especial), depois Bola de Neve para o restante se houver muitas dívidas menores.
+| Arquivo | Quando consultar |
+|---------|------------------|
+| `../REFERENCIAS-BRASIL-2026.md` | **OBRIGATÓRIO** — taxas Selic, modalidades de crédito, FGC, Lei 14.690/2023, Desenrola Brasil 2.0 |
+| `../GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Protocolo Estancar Sangria) |
+| `../MEMORY-SYSTEM.md` | Para escrever Snapshot ao final do plano |
+| `../EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário iniciante que precisa entender o que é juros compostos, rotativo, etc. |
+| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Provérbios 22:7 — liberdade da dívida; ansiedade financeira; honestidade |
+| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | **CRÍTICO** — vício em crédito/compras, depressão por endividamento, violência patrimonial |
+| `../frameworks/investir-vs-quitar-divida.md` | Quando o usuário tem capital disponível e dúvida sobre destinação |
+| `../playbooks/recuperacao-90-dias.md` | Quando o usuário está em Estado SOBREVIVÊNCIA com cronograma agressivo |
+| `../playbooks/idoso-aposentadoria-insuficiente.md` | Idoso com consignado consumindo aposentadoria |
+| `../playbooks/endividamento-por-saude.md` | Família endividada por doença grave |
+
+## Regra de Linguagem
+
+```
+PROTOCOLO:
+- Primeira menção: termo proprietário + tradução
+  Ex: "Camada de Proteção Financeira (reserva de emergência)"
+  Ex: "Protocolo Estancar Sangria (foco em parar o crescimento da dívida)"
+- Iniciante ou em crise emocional: linguagem simples ("reserva", "controlar dívida")
+- Maturidade: termos proprietários consolidados
+```
+
+## Contexto Brasileiro — Referências Atualizadas
+
+As taxas abaixo são **referência rápida**. Para valores oficiais e atualizados, sempre consultar `../REFERENCIAS-BRASIL-2026.md`.
+
+| Modalidade | Taxa Mensal (~) | Taxa Anual (~) | Prioridade |
+|-----------|-------------|------------|-----------|
+| Rotativo do cartão | 36,5% | 438% | 🔴 CRÍTICA |
+| Cartão parcelado | 15,8% | 189% | 🔴 ALTA |
+| Cheque especial | 10,8% | 136% | 🔴 ALTA |
+| Crédito pessoal | 9,7% | 117% | 🟡 MÉDIA |
+| Consignado público | — | 26% | 🟢 BAIXA |
+| Selic Meta | — | 14,75% | — Referência |
+
+**Regra de ouro:** Qualquer dívida com taxa **> Selic líquida** (~12,5% a.a. após IR) está destruindo patrimônio. Priorize quitação antes de qualquer investimento.
+
+⚠️ Se a "Última atualização" do `REFERENCIAS-BRASIL-2026.md` estiver > 90 dias da data atual, alertar o usuário e validar com fontes oficiais (bcb.gov.br).
+
+---
+
+## ENGINE DE DECISÃO — Avalanche vs. Bola de Neve
+
+```
+SE há dívida com taxa > 100% ao ano (rotativo, cheque especial):
+  ESTRATÉGIA = AVALANCHE OBRIGATÓRIA
+  → Atacar a mais cara primeiro, independente do saldo
+  → Economia de juros é a prioridade máxima
+
+SE taxas similares entre dívidas (diferença < 30%):
+  ESTRATÉGIA = BOLA DE NEVE
+  → Quitar menor saldo primeiro
+  → Vitórias rápidas mantêm motivação
+
+SE muitas dívidas pequenas + uma dívida grande e cara:
+  ESTRATÉGIA = HÍBRIDA
+  → Avalanche na dívida cara (rotativo)
+  → Bola de Neve nas dívidas restantes após quitar a crítica
+```
+
+| Critério | Método Avalanche | Método Bola de Neve |
+|----------|-----------------|---------------------|
+| Ordem | Maior taxa → menor | Menor saldo → maior |
+| Economia de juros | Máxima | Menor |
+| Motivação | Menor (demora a ver progresso) | Alta (vitórias rápidas) |
+| Indicado para | Dívidas com taxas muito díspares | Muitas dívidas similares |
+
+---
+
+## PROTOCOLO ESTANCAR SANGRIA FINANCEIRA
+
+**Ativado quando:** rotativo ativo OU cheque especial em uso OU déficit mensal  
+**Duração:** 30–90 dias  
+**Objetivo:** Interromper crescimento exponencial de juros antes de qualquer outro passo
+
+**Ações imediatas (executar nesta ordem):**
+
+1. **Negociar parcelamento do rotativo** — transformar em parcela fixa sem juros compostos
+2. **Cortar 20% do Bloco Estilo de Vida imediatamente** — sem gradualismo
+3. **Concentrar 100% do recurso livre** na dívida mais cara
+4. **Verificar Lei 14.690/2023** — dívida de rotativo não pode ultrapassar 2x o valor original
+5. **Avaliar troca de dívida** — portabilidade para crédito pessoal ou consignado (taxa menor)
+
+**Ferramentas de negociação:**
+- Serasa Limpa Nome
+- Desenrola Brasil 2.0
+- Contato direto com o banco (solicitar renegociação)
+- Portabilidade de crédito (trocar dívida cara por dívida mais barata)
+
+**Critério de saída:** Rotativo zerado + saldo mensal positivo por 60 dias consecutivos
+
+---
+
+## SCRIPTS DE SIMULAÇÃO
+
+### Simulação de Quitação
+
+Calcular automaticamente com os dados fornecidos:
+
+```
+ENTRADA:
+  Dívida: R$ [X]
+  Taxa de juros: [X]% ao mês
+  Aporte mensal: R$ [Y]
+
+CÁLCULO:
+  Meses para quitar = ln(aporte / (aporte - dívida × taxa)) / ln(1 + taxa)
+  Custo total de juros = (aporte × meses) - dívida
+  Economia vs. pagar mínimo = [comparação]
+
+SAÍDA:
+  Prazo estimado: [X] meses
+  Total pago: R$ [X]
+  Total em juros: R$ [X]
+  Data estimada de quitação: [mês/ano]
+```
+
+**Exemplo com R$ 2.500 no rotativo (36,5% a.m.) e R$ 600/mês de aporte:**
+```
+Prazo estimado:    5 meses
+Total pago:        R$ 3.000
+Total em juros:    R$ 500
+Data de quitação:  [Mês+5/2026]
+Economia vs. mínimo: R$ 1.840 (pagando só o mínimo levaria 18 meses e R$ 2.340 em juros)
+```
+
+### Simulação de Camada de Proteção Financeira (Reserva de Emergência)
+
+```
+ENTRADA:
+  Meta: R$ [X] (equivale a [N] meses de gastos essenciais)
+  Aporte mensal: R$ [Y]
+
+SAÍDA:
+  Prazo estimado: [X] meses
+  Data estimada: [mês/ano]
+
+PROGRESSO PROJETADO:
+  Mês 1: R$ [Y] | [X]% da meta
+  Mês 2: R$ [2Y] | [X]% da meta
+  ...
+  Mês N: R$ [meta] | 100% ✅
+```
+
+### Simulação de Stress Test Financeiro
+
+Avaliar fragilidade do plano a choques externos:
+
+```
+CENÁRIO 1 — Perda de renda (desemprego 3 meses):
+  Quanto tempo a Camada de Proteção Financeira sustenta?
+  Impacto no plano de quitação?
+  Ação de contingência?
+
+CENÁRIO 2 — Emergência de saúde (R$ 3.000 inesperados):
+  Camada de Proteção absorve ou compromete o plano?
+  Quanto tempo para repor?
+
+CENÁRIO 3 — Alta de juros (taxa Selic +3pp):
+  Impacto no custo das dívidas variáveis?
+  Necessidade de ajuste no aporte?
+```
+
+---
 
 ## Estrutura do Plano
 
-### 1. Mapeamento e Priorização
+### Fase 1 — Mapeamento de Dívidas
 
-Liste todas as dívidas em tabela:
+Listar todas as dívidas em tabela de priorização:
 
-| Dívida | Saldo Atual | Taxa Juros (mês) | Taxa Juros (ano) | Pagamento Mínimo | Prioridade |
-|--------|-------------|------------------|------------------|------------------|------------|
-| Rotativo cartão A | R$ 2.500 | 36,5% | ~438% | R$ 250 | 1 |
-| Cheque especial | R$ 1.200 | 10,8% | ~136% | - | 2 |
-| Pessoal não consignado | R$ 8.000 | 9,7% | ~117% | R$ 350 | 3 |
-| Cartão parcelado B | R$ 3.600 | 15,8% | ~189% | R$ 200 | (avaliar) |
+| Dívida | Saldo Atual | Taxa Mês | Taxa Ano | Pagamento Mínimo | Prioridade |
+|--------|-------------|----------|----------|-----------------|------------|
+| Rotativo cartão A | R$ X | 36,5% | 438% | R$ X | 1 🔴 |
+| Cheque especial | R$ X | 10,8% | 136% | — | 2 🔴 |
+| Cartão parcelado | R$ X | 15,8% | 189% | R$ X | 3 🟡 |
+| Empréstimo pessoal | R$ X | 9,7% | 117% | R$ X | 4 🟡 |
 
-**Critérios de priorização**:
-1. Rotativo e cheque especial sempre primeiro (juros altíssimos)
-2. Depois por taxa de juros (Avalanche) ou saldo (Bola de Neve)
-3. Pague sempre o mínimo nas demais enquanto ataca a prioritária
+**Regra:** Pague o mínimo em todas. Concentre o recurso livre na Prioridade 1.
 
-### 2. Reserva Progressiva
+### Fase 2 — Camada de Proteção Progressiva
 
-Não espere quitar tudo para começar a reserva. Construa em fases:
+Não espere quitar tudo para começar a reserva. Construa em camadas:
 
-**Fase 1 - Colchão Mínimo** (R$ 1.000-1.500)  
-Meta: 1 mês de gastos essenciais ou valor fixo mínimo. Protege contra pequenos imprevistos enquanto quita dívidas caras.
+**Camada 1 — Colchão Mínimo** (R$ 1.000–1.500)
+- Meta: 1 mês de gastos essenciais
+- Construída simultaneamente com a quitação do rotativo
+- Protege contra pequenos imprevistos durante o plano
 
-**Fase 2 - Reserva Básica** (3 meses de gastos essenciais)  
-Inicie após quitar rotativo/cheque especial. Divida recursos: 70-80% para dívidas, 20-30% para reserva.
+**Camada 2 — Proteção Básica** (3 meses de gastos essenciais)
+- Inicia após quitar dívidas críticas (taxa > 100% a.a.)
+- Divisão do recurso livre: 70% dívidas + 30% reserva
 
-**Fase 3 - Reserva Completa** (6-12 meses conforme perfil)  
-Após quitar dívidas com juros >50% ao ano. Divida recursos: 50% dívidas restantes, 50% reserva.
+**Camada 3 — Proteção Completa** (6–12 meses conforme perfil)
+- CLT estável: 6 meses
+- Autônomo/PJ: 6–12 meses
+- Renda variável: até 12 meses
+- Divisão: 50% dívidas restantes + 50% reserva
 
-**Onde guardar**: Tesouro Selic, CDB liquidez diária >100% CDI, ou LCI/LCA pós-carência. Evite poupança (rende menos).
+**Onde guardar:**
+- Tesouro Selic (liquidez diária, rendimento > poupança)
+- CDB com liquidez diária > 100% CDI
+- LCI/LCA pós-carência de 90 dias
 
-### 3. Cronograma de Quitação
+### Fase 3 — Cronograma de Execução
 
-Exemplo:
+**Estrutura mensal:**
 
-**Mês 1-3: Ataque ao Rotativo + Colchão Mínimo**  
-- R$ 600/mês → Rotativo (além do mínimo)  
-- R$ 100/mês → Colchão mínimo  
-- Mínimos nas demais dívidas  
-- Meta: Quitar rotativo, acumular R$ 300 de colchão
+```
+MÊS 1–3: Protocolo Estancar Sangria
+  R$ [X] → dívida crítica (rotativo/cheque especial)
+  R$ [Y] → Colchão Mínimo
+  Mínimos nas demais
 
-**Mês 4-7: Cheque Especial + Colchão Mínimo**  
-- R$ 650/mês → Cheque especial  
-- R$ 50/mês → Completar colchão (chegar a R$ 1.500)  
-- Mínimos nas demais  
+MÊS 4–7: Construção de Base
+  R$ [X] → próxima dívida prioritária
+  R$ [Y] → Camada 2 (Proteção Básica)
+  Mínimos nas demais
 
-**Mês 8-15: Dívida 3 + Reserva Básica**  
-- R$ 500/mês → Dívida prioritária  
-- R$ 200/mês → Reserva básica  
-- Meta: Quitar próxima dívida, acumular R$ 1.600 adicionais de reserva
+MÊS 8–15: Proteção Ativa
+  R$ [X] → dívidas restantes
+  R$ [Y] → Camada 3 (Proteção Completa)
+  Contribuições do Reino retomadas gradualmente
+```
 
-**Adapte** ao valor livre mensal e urgência de cada dívida.
+---
 
-### 4. Regras para Contribuições do Reino
+## ENGINE DE DECISÃO — Contribuições do Reino por Fase
 
-Se o usuário menciona contribuições religiosas ou do reino, estabeleça regras por fase:
+```
+SE fase = Protocolo Estancar Sangria:
+  Dízimo: 10% INVIOLÁVEL (mantido em qualquer situação)
+  Ofertas voluntárias: pausadas temporariamente
+  Mensagem: "Organizar as finanças É mordomia. Estabilidade permite contribuir mais."
 
-**Durante Fase 1 (Emergência)**  
-Se endividamento crítico (rotativo ativo, risco de inadimplência): priorize quitação. Contribuições podem ser pausadas ou reduzidas temporariamente. Explique que estabilidade financeira permite contribuir de forma sustentável depois.
+SE fase = Construção de Base:
+  Dízimo: 10% INVIOLÁVEL
+  Ofertas: retomar proporcionalmente (2–5% conforme capacidade)
 
-**Durante Fase 2 (Estabilização)**  
-Após quitar dívidas >200% ao ano: retome contribuições em nível moderado (5-10% da renda), mantendo foco em reserva.
+SE fase = Proteção Ativa:
+  Dízimo: 10% INVIOLÁVEL
+  Ofertas: crescentes conforme reserva avança (meta: 10–15% total)
+```
 
-**Fase 3 (Sustentabilidade)**  
-Após reserva completa: contribuições podem retornar ao nível desejado (10-15% ou mais), agora sem comprometer segurança financeira.
+**REGRA ABSOLUTA:** Em nenhuma situação o dízimo é reduzido abaixo de 10%. O que pausa temporariamente são as ofertas voluntárias acima do dízimo.
 
-**Importante**: Apresente como estratégia de longo prazo. Construir base sólida permite contribuir mais e melhor no futuro.
-
-## Output - Saída Estruturada
-
-Forneça:
-
-1. **Tabela de Priorização de Dívidas**  
-   Ordenadas por prioridade com justificativa (juros, risco)
-
-2. **Cronograma Mensal de Quitação**  
-   Mês a mês: quanto para cada dívida, quanto para reserva, marcos importantes
-
-3. **Metas de Reserva por Fase**  
-   Colchão mínimo → Básica → Completa, com valores e prazos estimados
-
-4. **Alocação Mensal Sugerida**  
-   Exemplo: "Dos R$ 700 livres: R$ 600 para dívida X, R$ 100 para reserva"
-
-5. **Regras para Contribuições do Reino** (se aplicável)  
-   Por fase financeira, com raciocínio de sustentabilidade
-
-6. **Marcos de Progresso**  
-   "Mês 3: Rotativo quitado. Mês 7: Colchão completo. Mês 15: Reserva básica atingida."
-
-7. **Próximos Passos**  
-   Skill recomendada: `/pessoal-rotina-financeira-mensal` para manutenção, `/pessoal-estrategia-investimentos` após reserva completa
+---
 
 ## Pontos de Atenção
 
-**Negociação**: Se dívidas estão em atraso, sugira negociar com credores (Serasa Limpa Nome, Desenrola Brasil 2.0, contato direto com banco). Descontos podem acelerar quitação.
+**Troca de dívida:** Trocar rotativo (438% a.a.) por empréstimo pessoal (117% a.a.) estanca a sangria imediata e cria prazo para organização.
 
-**Troca de Dívida**: Sugira ativamente trocar dívidas caras (cartão de crédito/rotativo, cheque especial) por dívidas mais baratas (empréstimo pessoal ou consignado). Isso estanca a sangria de juros imediatos enquanto o plano é executado.
+**Negociação:** Dívidas em atraso têm desconto significativo via Serasa Limpa Nome e Desenrola Brasil 2.0.
 
-**Limite de cobrança**: Desde 2024, dívida de cartão rotativo não pode ultrapassar 2x o valor original (Lei 14.690/2023). Se ultrapassou, oriente contestação.
+**Lei 14.690/2023:** Dívida de rotativo não pode ultrapassar 2x o valor original. Se ultrapassou, contestar com o banco.
 
-**Emergências durante o plano**: Se surgir imprevisto, use colchão mínimo. Reponha assim que possível. Não abandone o plano por um tropeço.
+**Emergências durante o plano:** Use o Colchão Mínimo. Reponha no mês seguinte. Um tropeço não invalida o plano.
 
-**Evitar novas dívidas**: Corte cartões problemáticos, reduza limites, use débito. Fundamental para o plano funcionar.
+**Evitar novas dívidas:** Cortar ou bloquear cartões problemáticos. Reduzir limites. Usar débito.
 
-## Skills Relacionadas
+---
 
-- `/pessoal-diagnostico-financeiro` — Para mapear situação completa antes de montar o plano
-- `/pessoal-orcamento-domestico` — Para identificar gastos cortáveis e aumentar valor livre mensal  
-- `/pessoal-rotina-financeira-mensal` — Para manter disciplina durante execução do plano  
-- `/pessoal-estrategia-investimentos` — Após reserva completa, para investir excedentes  
-- `/pessoal-investimento-reino` — Para estruturar contribuições de forma sustentável  
-- `/gestor-financeiro` — Para visão integrada de finanças pessoais
+## Saída Estruturada
 
-## Exemplo de Raciocínio
+### PAINEL DO PLANO DE QUITAÇÃO
 
-**Usuário**: "Tenho R$ 2.500 no rotativo (36% a.m.), R$ 1.200 no cheque especial (10% a.m.), R$ 8.000 em empréstimo pessoal (9% a.m.). Ganho R$ 4.800 líquidos, gasto R$ 3.600 essenciais. Sobram R$ 700. Quero montar reserva e continuar contribuindo 10% para o reino."
+```
+╔══════════════════════════════════════════════╗
+║     PLANO DE QUITAÇÃO E PROTEÇÃO FINANCEIRA  ║
+╠══════════════════════════════════════════════╣
+║  ESTADO:         [SOBREVIVÊNCIA/ORGANIZAÇÃO]  ║
+║  PROTOCOLO:      [ESTANCAR SANGRIA / BASE]   ║
+║  ESTRATÉGIA:     [AVALANCHE / BOLA DE NEVE]  ║
+╠══════════════════════════════════════════════╣
+║  DÍVIDA TOTAL:   R$ [X]                      ║
+║  CUSTO JUROS/MÊS: R$ [X]                    ║
+║  APORTE LIVRE:   R$ [X]/mês                  ║
+╠══════════════════════════════════════════════╣
+║  QUITAÇÃO ESTIMADA: [N] meses ([Mês/Ano])   ║
+║  RESERVA BÁSICA:    [N] meses ([Mês/Ano])   ║
+╠══════════════════════════════════════════════╣
+║  ECONOMIA PROJETADA: R$ [X] em juros         ║
+╚══════════════════════════════════════════════╝
 
-**Raciocínio**:
-1. Dívidas críticas: rotativo (438% a.a.) e cheque especial (136% a.a.) — atacar primeiro
-2. Valor livre: R$ 700/mês
-3. Reserva ideal (CLT): 6 meses × R$ 3.600 = R$ 21.600
-4. Contribuição reino: pausar temporariamente durante Fase 1, retomar após quitar rotativo
+PROGRESSO DO PLANO
+Rotativo:     [████░░░░░░] X% quitado
+Cheque esp.:  [████████░░] X% quitado
+Empréstimo:   [██░░░░░░░░] X% quitado
+Reserva:      [██████░░░░] X% da meta
+```
 
-**Plano**:
-- Mês 1-4: R$ 650 → rotativo, R$ 50 → colchão (meta R$ 1.500). Pausar contribuição reino.
-- Mês 5-7: R$ 650 → cheque especial, R$ 50 → colchão.
-- Mês 8+: R$ 450 → empréstimo pessoal, R$ 200 → reserva, R$ 50 → retomar contribuição (7%).
-- Após reserva básica (R$ 10.800): aumentar contribuição para 10% e acelerar quitação do empréstimo.
+**Tabela de Priorização | Simulação de Quitação | Cronograma Mensal | Marcos de Progresso**
 
-**Resultado**: Rotativo e cheque especial quitados em 7 meses, reserva básica em ~18 meses, contribuições retomadas de forma sustentável.
+### Marcos de Progresso
+
+Comunicar claramente ao usuário:
+- **Mês 3:** Rotativo zerado — sangria estancada
+- **Mês 7:** Colchão Mínimo completo (R$ 1.500)
+- **Mês 12:** Próxima dívida quitada — Proteção Básica iniciada
+- **Mês 18:** Reserva básica de 3 meses atingida
+- **Mês 24:** Proteção Completa + dívidas caras eliminadas
+
+### Próxima Skill
+
+```
+Após reserva completa → /pessoal-estrategia-investimentos
+Durante execução do plano → /pessoal-rotina-financeira-mensal
+Para estruturar contribuições → /pessoal-investimento-reino
+```
+
+---
+
+## Exemplo de Aplicação
+
+**Entrada:** R$ 2.500 no rotativo (36,5% a.m.), R$ 1.200 no cheque especial (10,8% a.m.), R$ 8.000 em empréstimo pessoal (9,7% a.m.). Renda líquida R$ 4.800, gastos essenciais R$ 3.600, recurso livre R$ 700/mês.
+
+**Engine de Decisão:**
+- Rotativo + cheque especial → AVALANCHE obrigatória
+- Protocolo Estancar Sangria ativado imediatamente
+- Reserva ideal (CLT): 6 meses × R$ 3.600 = R$ 21.600
+- Dízimo 10% (R$ 480) mantido. Ofertas pausadas na Fase 1.
+
+**Plano:**
+- Meses 1–4: R$ 600 → rotativo + R$ 100 → colchão mínimo
+- Meses 5–7: R$ 620 → cheque especial + R$ 80 → completar colchão
+- Meses 8+: R$ 450 → empréstimo + R$ 200 → Proteção Básica + ofertas (R$ 50) retomadas
+- Após reserva básica (R$ 10.800): aumentar contribuições para 10% total e acelerar quitação
+
+**Resultado:** Rotativo e cheque especial eliminados em 7 meses. Reserva básica em 18 meses. Economia projetada: R$ 4.200 em juros. Contribuições retomadas de forma crescente e sustentável.

@@ -1,332 +1,377 @@
 ---
 name: pessoal-diagnostico-financeiro
 description: >
-  Faz diagnóstico financeiro pessoal para mostrar para onde o dinheiro vai,
-  identificar gargalos, mapear risco de inadimplência e definir prioridade
-  inicial de organização. Use quando o usuário não sabe por que o dinheiro
-  acaba, há uso recorrente de limite/rotativo, não existe controle de entradas
-  e saídas, ou quando mencionarem diagnóstico financeiro, raio-x financeiro,
-  análise de gastos, problemas de caixa, dinheiro sumindo, orçamento pessoal,
-  finanças pessoais desorganizadas, ou planejamento financeiro inicial.
+  Executa o Sistema de Mapeamento de Fluxo Financeiro — diagnóstico profundo que classifica o estado financeiro real do usuário (Sobrevivência → Legado), identifica o gargalo primário, mapeia risco de inadimplência, calcula indicadores-chave e define prioridade de ação imediata. Use quando o usuário não sabe por que o dinheiro acaba, há uso recorrente de limite/rotativo, não existe controle de entradas e saídas, ou quando mencionarem diagnóstico financeiro, raio-x financeiro, análise de gastos, problemas de caixa, dinheiro sumindo, orçamento pessoal, finanças pessoais desorganizadas, ou planejamento financeiro inicial.
 owner: financeiro-pessoal
-version: 1.0.0
-last_updated: 2026-03-27
+version: 2.0.0
+last_updated: 2026-05-07
 ---
 
-# Pessoal - Diagnóstico Financeiro
+# Sistema de Mapeamento de Fluxo Financeiro
 
-## Visão Geral
+## Postura do Sistema
 
-Este skill produz um raio-x financeiro pessoal que identifica a causa raiz de problemas de caixa, estabelece prioridades de ação imediata e cria base para alocação responsável de recursos, incluindo contribuições do reino com boa mordomia.
+Este skill não explica o que é diagnóstico financeiro. Ele executa o diagnóstico, classifica a situação, determina o gargalo e indica o próximo movimento — com autoridade de consultor, não com a passividade de um formulário.
 
-## Entradas Esperadas
+> "Com base na sua situação, esta é a prioridade correta agora." — não "aqui estão 3 possibilidades."
 
-Coleta as seguintes informações do usuário:
+## Arquivos Consultados pelo Sistema
+
+| Arquivo | Quando consultar |
+|---------|------------------|
+| `../REFERENCIAS-BRASIL-2026.md` | Para taxas Selic, comparação de comprometimento e referências de inadimplência |
+| `../GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Estados Financeiros, etc.) |
+| `../MEMORY-SYSTEM.md` | Para escrever o Snapshot Financeiro ao final do diagnóstico |
+| `../EDUCACAO-FINANCEIRA-BASICA.md` | Quando o usuário não conhece termos básicos (Selic, juros, rotativo, etc.) |
+| `../PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Quando dimensão espiritual surge no diagnóstico |
+| `../PROTOCOLO-CRISE-ESPIRITUAL.md` | Se detectar sinais de crise que transcendem finanças (vício, ansiedade aguda, etc.) |
+| `../frameworks/priorizacao-financeira.md` | Quando o usuário não sabe por onde começar com múltiplas frentes |
+
+## Regra de Linguagem
+
+Termos proprietários ("Sistema de Mapeamento de Fluxo Financeiro", "Camada de Proteção Financeira") são poderosos para construir identidade — mas podem confundir iniciantes ou usuários em crise.
+
+```
+PROTOCOLO:
+- Primeira menção: termo proprietário + tradução entre parênteses
+  Ex: "Sistema de Mapeamento de Fluxo Financeiro (diagnóstico financeiro)"
+- Menções subsequentes: usar termo proprietário diretamente
+- Estado SOBREVIVÊNCIA ou usuário iniciante: priorizar linguagem simples
+- Estado ESTABILIZAÇÃO+: linguagem proprietária funciona bem
+```
+
+**Princípio:** A linguagem serve ao usuário, não o contrário.
+
+---
+
+## CAMADAS COGNITIVAS DE DIAGNÓSTICO
+
+O sistema opera em sequência obrigatória antes de qualquer output:
+
+| Camada | Pergunta | O Sistema Faz |
+|--------|----------|---------------|
+| **DIAGNÓSTICO** | O que está acontecendo? | Mapeia entradas, saídas e saldo real |
+| **INTERPRETAÇÃO** | Por que isso está acontecendo? | Identifica gargalo primário e causa raiz |
+| **ESTRATÉGIA** | O que precisa mudar? | Determina prioridade única de ação |
+| **EXECUÇÃO** | Qual é o próximo passo? | Define ação mensurável para 30 dias |
+| **SUSTENTAÇÃO** | Como manter isso vivo? | Indica skill e rotina para continuar |
+
+---
+
+## Entradas Necessárias
 
 | Entrada | Obrigatória? | Exemplo |
-|---------|--------------|----------|
+|---------|--------------|---------|
 | Renda líquida mensal | Sim | R$ 5.000 |
 | Despesas fixas | Sim | Aluguel R$ 1.200, internet R$ 100, plano saúde R$ 350 |
 | Despesas variáveis | Sim | Mercado ~R$ 800, transporte ~R$ 200, lazer ~R$ 300 |
 | Dívidas e parcelas | Sim | Cartão R$ 800/mês, empréstimo R$ 450/mês |
-| Saldo atual e reserva | Não | R$ 800 em conta corrente, sem reserva de emergência |
-| Uso de crédito rotativo | Não | Frequência de uso de limite, cheque especial, rotativo |
+| Saldo atual e reserva | Não | R$ 800 em conta, sem reserva de emergência |
+| Uso de crédito rotativo | Não | Frequência de uso de limite, cheque especial |
 
-Se informações estiverem incompletas, faça perguntas direcionadas para preencher as lacunas críticas. Priorize entender o fluxo de caixa mensal completo.
+Se informações estiverem incompletas, faça perguntas direcionadas — máximo 3 por rodada.
+
+---
 
 ## Processo de Diagnóstico
 
-### 1. Consolidação Financeira
+### CAMADA 1 — DIAGNÓSTICO: O que está acontecendo?
 
-Organize os dados em três categorias:
+**Consolidação do Fluxo Financeiro:**
 
-- **Entradas**: Renda líquida mensal (salário, freelance, outras fontes)
-- **Saídas**: Despesas fixas + variáveis + parcelas de dívidas
-- **Situação patrimonial**: Saldo disponível, reserva de emergência, dívidas totais
+Organize os dados em três blocos:
+- **Entradas:** Renda líquida mensal (salário, freela, outras fontes)
+- **Saídas:** Despesas fixas + variáveis + parcelas de dívidas
+- **Situação patrimonial:** Saldo disponível, reserva de emergência, dívidas totais
 
-Calcule o saldo mensal: `Renda líquida - Total de saídas`
+Calcule o saldo mensal: `Renda líquida − Total de saídas`
 
-### 2. Classificação de Gastos
-
-Separe as despesas em três tipos para identificar onde está o problema:
+**Classificação de Gastos — Sistema de Mapeamento:**
 
 **Gastos essenciais** (sobrevivência básica):
-- Moradia (aluguel/financiamento, condomínio, IPTU)
-- Alimentação básica (mercado, não restaurantes)
+- Moradia (aluguel/financiamento, condomínio)
+- Alimentação básica (mercado)
 - Transporte essencial (trabalho/escola)
 - Saúde mínima (medicamentos, plano básico)
-- Educação obrigatória
 
 **Gastos de estilo de vida** (visíveis e conscientes):
 - Lazer e entretenimento
 - Restaurantes e delivery
 - Assinaturas (streaming, academia, apps)
 - Vestuário e beleza
-- Upgrades (carro melhor, plano premium)
 
 **Gastos invisíveis** (sangria silenciosa):
 - Juros de rotativo/limite/cheque especial
 - Taxas bancárias e multas
 - Compras por impulso pequenas e frequentes
 - Assinaturas esquecidas
-- Desperdício (comida estragada, serviços não usados)
 
-### 3. Cálculo de Comprometimento
+### CAMADA 2 — INTERPRETAÇÃO: Por que isso está acontecendo?
 
-Calcule indicadores-chave:
+**Indicadores-Chave (calcular automaticamente):**
 
 ```
-Taxa de comprometimento = (Total de saídas / Renda líquida) × 100
-Taxa de endividamento = (Parcelas de dívidas / Renda líquida) × 100
-Margem de segurança = Renda líquida - Gastos essenciais
-Capacidade de poupança atual = Saldo mensal (se positivo)
+Taxa de comprometimento  = (Total saídas / Renda líquida) × 100
+Taxa de endividamento    = (Parcelas dívidas / Renda líquida) × 100
+Margem de segurança      = Renda líquida − Gastos essenciais
+Capacidade de poupança   = Saldo mensal (se positivo)
 ```
 
-**Interpretação**:
-- Comprometimento > 100%: Situação crítica (gastando mais que ganha)
-- Comprometimento 90-100%: Risco alto (sem margem para imprevistos)
-- Comprometimento 70-90%: Risco moderado (pouca capacidade de poupança)
-- Comprometimento < 70%: Situação controlável (há margem para organização)
+**Interpretação:**
+- Comprometimento > 100% → Situação crítica (gastando mais que ganha)
+- Comprometimento 90–100% → Risco alto (sem margem para imprevistos)
+- Comprometimento 70–90% → Risco moderado
+- Comprometimento < 70% → Situação controlável
 
-### 4. Identificação de Gargalos
+**Identificação do Gargalo Primário:**
 
-Identifique o principal problema na ordem de prioridade:
+```
+SE há uso recorrente de rotativo/cheque especial:
+  GARGALO PRIMÁRIO = Juros (destroem capacidade de organização)
 
-1. **Gargalo crítico - Juros**: Se há uso recorrente de rotativo/limite, este é o gargalo primário. Juros compostos destroem capacidade de organização.
+SE gastos essenciais > 70% da renda:
+  GARGALO PRIMÁRIO = Estrutural (renda insuficiente para o custo de vida)
 
-2. **Gargalo estrutural - Renda insuficiente**: Se gastos essenciais > 70% da renda, o problema é estrutural (renda baixa ou custo de vida alto demais).
+SE saldo negativo sem justificativa nos gastos visíveis:
+  GARGALO PRIMÁRIO = Gastos invisíveis (sangria silenciosa)
 
-3. **Gargalo comportamental - Gastos invisíveis**: Se há saldo mensal negativo sem justificativa clara nos gastos visíveis, há sangria silenciosa.
+SE essenciais controlados mas nada sobra:
+  GARGALO PRIMÁRIO = Estilo de vida acima da capacidade atual
+```
 
-4. **Gargalo de estilo de vida**: Se gastos essenciais estão controlados mas não sobra nada, o problema está em escolhas de estilo de vida acima da capacidade atual.
+### CAMADA 3 — ESTRATÉGIA: O que precisa mudar?
 
-### 5. Mapeamento de Risco de Inadimplência
+**ENGINE DE DECISÃO — Mapeamento de Risco:**
 
-Avalie risco usando estes sinais:
+```
+SE rotativo ativo 2+ meses OU parcelas > 30% renda OU déficit mensal:
+  RISCO = CRÍTICO → Protocolo Estancar Sangria obrigatório
 
-**Risco crítico** (ação imediata necessária):
-- Uso de rotativo/cheque especial por 2+ meses seguidos
-- Parcelas de dívidas > 30% da renda
-- Saldo mensal consistentemente negativo
-- Sem reserva e com dívidas crescentes
+SE comprometimento > 90% OU reserva < 1 mês:
+  RISCO = ALTO → Ação urgente em 30 dias
 
-**Risco alto** (atenção urgente):
-- Comprometimento > 90%
-- Reserva < 1 mês de despesas essenciais
-- Dificuldade recorrente para fechar o mês
+SE comprometimento 70-90% OU reserva 1-3 meses:
+  RISCO = MODERADO → Organização necessária
 
-**Risco moderado** (organização necessária):
-- Comprometimento 70-90%
-- Reserva entre 1-3 meses
-- Sobra pouco ou nada no fim do mês
+SE comprometimento < 70% E reserva > 3 meses:
+  RISCO = BAIXO → Otimização e crescimento
+```
 
-**Risco baixo** (manutenção e otimização):
-- Comprometimento < 70%
-- Reserva > 3 meses
-- Sobra consistente mensal
+**ENGINE DE DECISÃO — Classificação de Estado Financeiro:**
+
+```
+SE déficit mensal OU rotativo ativo OU inadimplência:
+  ESTADO = SOBREVIVÊNCIA
+
+SE orçamento funcional E dívidas reduzindo E sem reserva:
+  ESTADO = ORGANIZAÇÃO
+
+SE reserva ativa (3+ meses) E consistência mensal E dívidas controladas:
+  ESTADO = ESTABILIZAÇÃO
+
+SE investimentos ativos E patrimônio crescendo:
+  ESTADO = EXPANSÃO
+
+SE patrimônio sustentável E planejamento sucessório:
+  ESTADO = LEGADO
+```
+
+### CAMADA 4 — EXECUÇÃO: Qual é o próximo passo?
+
+Definir UMA ação prioritária para os próximos 30 dias. Nunca uma lista. Uma ação.
+
+**Estrutura da Ação:**
+- **Ação:** [Descrição clara e única]
+- **Por quê agora:** [Impacto financeiro quantificado]
+- **Como executar:** [2–3 passos práticos]
+- **Meta:** [Número específico e verificável]
+
+### CAMADA 5 — SUSTENTAÇÃO: Como manter isso vivo?
+
+Indicar skill sequencial e mecanismo de continuidade.
+
+---
+
+## ENGINE DE DECISÃO — Diretriz de Mordomia por Estado
+
+```
+SE estado = SOBREVIVÊNCIA:
+  Contribuições: dízimo 10% inviolável + ofertas pausadas temporariamente
+  Mensagem: "Organizar a casa É mordomia. Estabilidade permite contribuir mais."
+
+SE estado = ORGANIZAÇÃO:
+  Contribuições: dízimo 10% + ofertas proporcionais (2–5% conforme capacidade)
+  Mensagem: "Retome contribuições de forma sustentável e crescente."
+
+SE estado = ESTABILIZAÇÃO ou acima:
+  Contribuições: dízimo 10% + ofertas planejadas (meta: generosidade crescente)
+  Mensagem: "Princípio dos primeiros frutos: separe antes de alocar."
+```
+
+---
+
+## MECANISMO DE MEMÓRIA FINANCEIRA
+
+Ao final do diagnóstico, registrar snapshot para continuidade futura:
+
+```
+SNAPSHOT DE DIAGNÓSTICO — [DATA]
+
+Estado financeiro:   [SOBREVIVÊNCIA / ORGANIZAÇÃO / ESTABILIZAÇÃO / ...]
+Risco identificado:  [CRÍTICO / ALTO / MODERADO / BAIXO]
+Gargalo primário:    [JUROS / ESTRUTURAL / INVISÍVEL / ESTILO DE VIDA]
+Comprometimento:     [XX%]
+Reserva atual:       [R$ X — equivale a X meses]
+Dívida total:        [R$ X]
+Saldo mensal:        [R$ X (positivo/negativo)]
+Ação prioritária:    [Descrição da ação dos 30 dias]
+Skill recomendada:   [Próxima skill]
+```
+
+Ao retornar para sessões futuras, referenciar este snapshot:
+> "Na última análise, sua alimentação estourou 22%, sua reserva cresceu 8% e a dívida do cartão caiu 14%. Vamos ver o que mudou."
+
+---
 
 ## Saída Padronizada
 
-Estruture o diagnóstico em cinco seções:
+### PAINEL DE DIAGNÓSTICO FINANCEIRO
 
-### 1. Resumo Executivo da Situação
+```
+╔══════════════════════════════════════════════╗
+║     SISTEMA DE MAPEAMENTO DE FLUXO           ║
+╠══════════════════════════════════════════════╣
+║  ESTADO:        [ESTADO FINANCEIRO]          ║
+║  RISCO:         [CRÍTICO/ALTO/MOD/BAIXO]    ║
+║  COMPROMETIMENTO: [XX%]                      ║
+║  GARGALO:       [TIPO DO GARGALO]            ║
+╠══════════════════════════════════════════════╣
+║  PROTOCOLO ATIVO: [NOME DO PROTOCOLO]        ║
+║  AÇÃO PRIORITÁRIA: [DESCRIÇÃO]               ║
+║  PRAZO:         [30 DIAS]                    ║
+╠══════════════════════════════════════════════╣
+║  CAPACIDADE REINO: [MÍNIMA/PADRÃO/EXPANDIDA] ║
+╚══════════════════════════════════════════════╝
 
-Apresente em 3-4 parágrafos:
+MAPA OPERACIONAL
+[✔] Fluxo financeiro mapeado
+[ ] Gargalo eliminado
+[ ] Orçamento estruturado
+[ ] Camada de Proteção Financeira constituída
+[ ] Estratégia patrimonial ativa
+```
+
+### Seção 1 — Resumo Executivo da Situação
+
+Apresentar em 2–3 parágrafos:
 - Situação atual do fluxo de caixa (saldo mensal, taxa de comprometimento)
-- Nível de risco de inadimplência
-- Principal achado (o que mais chama atenção nos números)
+- Nível de risco e estado financeiro
+- Principal achado com números concretos (não percentuais abstratos)
 
-**Exemplo**:
-> "Sua renda líquida de R$ 5.000 está 108% comprometida, gerando déficit mensal de R$ 400. Você está usando limite do cartão para fechar o mês, acumulando juros de ~14% ao mês. O risco de inadimplência é crítico: sem intervenção imediata, a bola de neve de juros tornará a situação insustentável em 3-4 meses."
+**Exemplo:**
+> "Sua renda líquida de R$ 5.000 está 108% comprometida — déficit de R$ 400/mês. Você está usando limite do cartão para fechar o mês, acumulando juros de ~14% ao mês. Este é o Estado SOBREVIVÊNCIA: a prioridade não é otimização, é estancar a sangria."
 
-### 2. Diagnóstico de Gargalos
+### Seção 2 — Diagnóstico de Gargalos
 
-Identifique e explique o gargalo primário e secundário:
+**Gargalo primário:** [Tipo] — [Explicação com números em reais, não percentuais]
+**Gargalo secundário:** [Tipo] — [Explicação com números]
 
-**Gargalo primário**: [Tipo] - [Explicação com números]
-**Gargalo secundário**: [Tipo] - [Explicação com números]
+### Seção 3 — Prioridade Imediata de Ação (Próximos 30 Dias)
 
-**Exemplo**:
-> **Gargalo primário: Juros de crédito rotativo**
-> Você paga ~R$ 280/mês em juros de rotativo e limite. Isso equivale a 5.6% da sua renda virando fumaça. Enquanto esse ciclo continuar, qualquer tentativa de organização será sabotada.
->
-> **Gargalo secundário: Gastos invisíveis**
-> Há R$ 600-800/mês não contabilizados. Comparando renda vs. despesas declaradas, existe uma "caixa preta" de pequenos gastos (delivery, apps, compras por impulso) que somam mais que seu aluguel.
+UMA ação. Com por quê, como executar (2–3 passos) e meta mensurável.
 
-### 3. Prioridade Imediata de Ação (Próximos 30 Dias)
+### Seção 4 — Capacidade de Contribuição ao Reino
 
-Defina UMA ação prioritária para o próximo ciclo mensal. Não sobrecarregue com múltiplas frentes.
+Definir capacidade por estado financeiro conforme Engine de Decisão acima.
 
-**Estrutura**:
-- **Ação prioritária**: [Descrição clara]
-- **Por quê**: [Razão baseada no gargalo]
-- **Como executar**: [2-3 passos práticos]
-- **Meta mensurável**: [Número específico]
+### Seção 5 — Snapshot de Memória Financeira
 
-**Exemplo para gargalo de juros**:
-> **Ação prioritária**: Eliminar uso de rotativo neste ciclo
-> 
-> **Por quê**: Juros de 14% ao mês destroem R$ 280 da sua renda. Cada mês no rotativo torna a saída mais difícil.
-> 
-> **Como executar**:
-> 1. Negocie parcelamento da dívida atual do rotativo (transforme em parcela fixa sem juros compostos)
-> 2. Corte R$ 400 em gastos de estilo de vida neste mês (cancele 2 assinaturas, reduza delivery)
-> 3. Use o saldo para pagar o mínimo sem entrar no rotativo novamente
-> 
-> **Meta**: Fechar o mês com saldo zero no rotativo, mesmo que outras áreas fiquem apertadas.
+Registrar conforme template do Mecanismo de Memória acima.
 
-**Exemplo para gargalo de gastos invisíveis**:
-> **Ação prioritária**: Rastrear 100% dos gastos por 30 dias
-> 
-> **Por quê**: Você tem R$ 600-800/mês desaparecendo. Sem visibilidade, não há controle.
-> 
-> **Como executar**:
-> 1. Anote TUDO: use app (Mobills, Organizze) ou planilha simples
-> 2. Categorize cada gasto ao lançar (não deixe para depois)
-> 3. Revise semanalmente onde o dinheiro está indo
-> 
-> **Meta**: Chegar ao fim do mês sabendo exatamente para onde foram os R$ 5.000.
+### Seção 6 — Próxima Skill Recomendada
 
-### 4. Diretriz Inicial de Capacidade para Contribuições do Reino
+Indicar UMA skill. Não listar opções — determinar a correta:
 
-Baseado na situação financeira, defina capacidade realista para contribuições com boa mordomia:
+```
+SE gargalo primário = Juros → /pessoal-plano-dividas-reserva
+SE gargalo primário = Gastos invisíveis → /pessoal-orcamento-domestico
+SE situação controlada + otimizar contribuições → /pessoal-investimento-reino
+SE precisa de rotina de controle → /pessoal-rotina-financeira-mensal
+```
 
-**Situação crítica** (risco crítico de inadimplência):
-> "Neste momento, a prioridade é estancar a sangria financeira. Contribuições devem ser simbólicas (R$ 50-100/mês) até eliminar o ciclo de juros e estabelecer saldo mensal positivo. Deus se agrada de contribuições proporcionais e sustentáveis, não de sacrifícios que geram mais dívida."
-
-**Situação de organização** (risco moderado/alto):
-> "Capacidade inicial estimada: R$ [X]/mês (Y% da renda líquida). Comece com esse valor fixo enquanto organiza o orçamento. Após 3 meses de controle, reavalie para aumentar proporcionalmente."
-
-**Situação controlada** (risco baixo):
-> "Capacidade estimada: R$ [X]/mês (Y% da renda líquida). Considere aplicar o princípio dos primeiros frutos: separe a contribuição assim que receber a renda, antes de alocar outras despesas. Após constituir reserva de 6 meses, reavalie para aumentar."
-
-Sempre explique o raciocínio: boa mordomia significa sustentabilidade, não sacrifício que gera desequilíbrio.
-
-### 5. Próxima Skill Recomendada
-
-Baseado no diagnóstico, indique qual skill usar em seguida:
-
-- **Se gargalo primário é dívida/juros**: `/pessoal-plano-dividas-reserva`
-- **Se precisa rastrear gastos invisíveis**: `/pessoal-orcamento-domestico`
-- **Se situação está controlada e quer otimizar contribuições**: `/pessoal-investimento-reino`
-- **Se precisa criar rotina de controle mensal**: `/pessoal-rotina-financeira-mensal`
+---
 
 ## Exemplo Completo de Diagnóstico
 
-**Entrada do usuário**:
+**Dados de entrada:**
 > "Ganho R$ 5.000 líquidos, pago R$ 1.200 de aluguel, R$ 800 de mercado, R$ 300 de transporte, R$ 350 de plano de saúde, R$ 800 de cartão parcelado, R$ 450 de empréstimo. Tenho R$ 800 na conta e nenhuma reserva. Todo mês uso o limite do cartão para fechar as contas."
 
-**Saída do diagnóstico**:
+**Diagnóstico:**
+
+```
+╔══════════════════════════════════════════════╗
+║     SISTEMA DE MAPEAMENTO DE FLUXO           ║
+╠══════════════════════════════════════════════╣
+║  ESTADO:        SOBREVIVÊNCIA                ║
+║  RISCO:         CRÍTICO                      ║
+║  COMPROMETIMENTO: 108%                       ║
+║  GARGALO:       JUROS + GASTOS INVISÍVEIS    ║
+╠══════════════════════════════════════════════╣
+║  PROTOCOLO ATIVO: ESTANCAR SANGRIA           ║
+║  AÇÃO PRIORITÁRIA: RASTREAR 100% DOS GASTOS  ║
+║  PRAZO:         30 DIAS                      ║
+╠══════════════════════════════════════════════╣
+║  CAPACIDADE REINO: MÍNIMA (dízimo mantido)   ║
+╚══════════════════════════════════════════════╝
+
+MAPA OPERACIONAL
+[ ] Fluxo financeiro mapeado ← estamos aqui
+[ ] Gargalo eliminado
+[ ] Orçamento estruturado
+[ ] Camada de Proteção Financeira constituída
+[ ] Estratégia patrimonial ativa
+```
+
+**Resumo Executivo:**
+
+Renda líquida de R$ 5.000 com comprometimento de 108% — déficit mensal de R$ 390. As despesas declaradas somam R$ 3.900, mas há uma "caixa preta" de R$ 1.490/mês não contabilizados. Ciclo crítico: limite do cartão cobre o déficit, juros do rotativo crescem a ~14% a.m., e a bola de neve se expande a cada mês.
+
+Estado: **SOBREVIVÊNCIA**. A prioridade não é otimização — é interromper a sangria de juros nos próximos 30 dias.
+
+**Gargalos:**
+
+**Gargalo primário — Juros de crédito rotativo:** Estimativa de R$ 280–350/mês em juros compostos (14% a.m. sobre saldo médio de R$ 2.000). Cada mês no rotativo torna a saída mais difícil.
+
+**Gargalo secundário — Gastos invisíveis de R$ 1.490/mês:** Renda de R$ 5.000 menos despesas declaradas de R$ 3.900 deveria gerar R$ 1.100 de sobra. Na prática há déficit. Os R$ 1.490 "desaparecem" em compras pequenas, delivery, apps e gastos não registrados.
+
+**Ação prioritária:** Rastrear 100% dos gastos por 30 dias usando app (Mobills, Organizze) ou planilha simples. Registrar todo gasto no momento. Meta: identificar pelo menos R$ 400–500 em gastos cortáveis ao final do período.
+
+**Snapshot de Memória:**
+
+```
+SNAPSHOT — [DATA ATUAL]
+Estado: SOBREVIVÊNCIA | Risco: CRÍTICO
+Gargalo: Juros (R$ 280-350/mês) + Gastos invisíveis (R$ 1.490/mês)
+Comprometimento: 108% | Reserva: R$ 0 | Dívida: ~R$ 15.250
+Saldo mensal: -R$ 390 | Ação: Rastrear 100% dos gastos
+Próxima skill: /pessoal-orcamento-domestico
+```
+
+**Próxima skill:** `/pessoal-orcamento-domestico` — para transformar o diagnóstico em Sistema de Orçamento Doméstico funcional, com categorias, tetos e Ciclo de Recalibração Financeira mensal.
 
 ---
 
-## DIAGNÓSTICO FINANCEIRO PESSOAL
+## Princípios de Comunicação
 
-### 1. Resumo Executivo
-
-Sua renda líquida mensal de R$ 5.000 está 108% comprometida, gerando déficit de R$ 390/mês. As despesas declaradas somam R$ 3.900, mas o déficit indica gastos invisíveis de R$ 1.490 mensais. Você está em ciclo crítico: usa limite do cartão para cobrir o déficit, acumula juros de rotativo (~14% a.m.), e a cada mês a dívida cresce. 
-
-Sem reserva de emergência e com saldo de apenas R$ 800, qualquer imprevisto (saúde, carro, desemprego) levará à inadimplência. O risco é crítico e requer ação imediata nos próximos 30 dias.
-
-Principal achado: você tem uma "caixa preta" de R$ 1.490/mês em gastos não mapeados — mais que seu aluguel. Identificar e controlar esses gastos invisíveis é a chave para reverter a situação.
-
-### 2. Diagnóstico de Gargalos
-
-**Gargalo primário: Juros de crédito rotativo**
-
-O uso recorrente de limite do cartão está gerando juros compostos de aproximadamente R$ 280-350/mês (estimativa conservadora com 14% a.m. sobre saldo médio de R$ 2.000). Isso equivale a 5-7% da sua renda virando fumaça. Enquanto esse ciclo continuar, você está nadando contra a correnteza: cada real economizado é parcialmente devorado por juros.
-
-**Gargalo secundário: Gastos invisíveis de R$ 1.490/mês**
-
-Você declarou R$ 3.900 em despesas, mas com renda de R$ 5.000 deveria sobrar R$ 1.100. Na prática, sobra zero e ainda falta. Existem R$ 1.490/mês desaparecendo em:
-- Delivery e restaurantes não contabilizados
-- Compras pequenas e frequentes (farmácia, padaria, Uber, apps)
-- Assinaturas e serviços esquecidos
-- Lazer e entretenimento não planejado
-
-Essa sangria silenciosa é maior que despesas visíveis como aluguel ou mercado.
-
-**Indicadores calculados**:
-- Taxa de comprometimento: 108% (crítico)
-- Taxa de endividamento: 25% (alto — parcelas de R$ 1.250 em dívidas)
-- Margem de segurança: R$ 2.350 (renda menos gastos essenciais de R$ 2.650)
-- Capacidade de poupança atual: -R$ 390/mês (déficit)
-
-### 3. Prioridade Imediata de Ação (Próximos 30 Dias)
-
-**Ação prioritária: Rastrear 100% dos gastos por 30 dias e identificar a caixa preta de R$ 1.490**
-
-**Por quê**: Você não pode controlar o que não enxerga. Os R$ 1.490 invisíveis são o dobro do seu déficit — se conseguir visibilidade e cortar 30% deles (R$ 450), já sai do vermelho. Atacar juros sem eliminar a causa raiz (gastos descontrolados) é enxugar gelo.
-
-**Como executar**:
-1. **Instale um app de controle** (Mobills, Organizze, Guiabolso) ou crie planilha simples com colunas: Data | Descrição | Valor | Categoria
-2. **Registre TODO gasto no momento** — até o cafezinho de R$ 3. Não confie na memória.
-3. **Categorize imediatamente**: Essencial / Estilo de vida / Invisível
-4. **Revise semanalmente**: Toda sexta, some quanto gastou e compare com o planejado
-5. **No fim do mês, analise**: Onde foram os R$ 1.490? Quais gastos foram conscientes e quais foram no piloto automático?
-
-**Meta mensurável**: Chegar ao dia 30 com registro de 100% dos gastos e identificar pelo menos R$ 400-500 em gastos cortáveis para o próximo ciclo.
-
-**Ação complementar (se possível)**: Negocie parcelamento da dívida do rotativo com o banco para transformar em parcela fixa sem juros compostos. Mesmo que a parcela seja alta, elimina o crescimento exponencial da dívida.
-
-### 4. Diretriz Inicial de Capacidade para Contribuições do Reino
-
-Sua situação financeira está em risco crítico: déficit mensal, uso de crédito rotativo, sem reserva de emergência. Neste momento, a prioridade é estancar a sangria e estabelecer base financeira saudável.
-
-**Capacidade inicial recomendada: R$ 50-100/mês (1-2% da renda)**
-
-Esta é uma contribuição simbólica que mantém o princípio da fidelidade sem agravar o desequilíbrio financeiro. Deus se agrada de contribuições proporcionais e sustentáveis, não de sacrifícios que geram mais dívida e ansiedade.
-
-**Princípio da mordomia**: Boa mordomia significa cuidar bem dos recursos confiados a você. Organizar suas finanças, eliminar desperdício (os R$ 1.490 invisíveis) e sair do ciclo de juros É mordomia. Uma vez estabelecido saldo mensal positivo e reserva mínima de 3 meses, reavalie para aumentar contribuições proporcionalmente.
-
-**Cronograma sugerido**:
-- Meses 1-3: R$ 50-100/mês (enquanto organiza e rastreia gastos)
-- Meses 4-6: Reavalie após eliminar déficit — considere 5% da renda (~R$ 250)
-- Meses 7-12: Após constituir reserva de 3 meses, considere 10% da renda (~R$ 500)
-
-Lembre-se: você não está "deixando de contribuir" — está investindo em organizar a casa para contribuir de forma sustentável e crescente.
-
-### 5. Próxima Skill Recomendada
-
-Após completar os 30 dias de rastreamento e identificar os gastos invisíveis, use:
-
-**`/pessoal-orcamento-domestico`**
-
-Este skill ajudará você a transformar o diagnóstico em orçamento mensal funcional, com:
-- Alocação de cada real da renda em categorias
-- Metas de gasto por categoria
-- Sistema de controle semanal
-- Estratégias para cortar os gastos invisíveis identificados
-
-Se após o diagnóstico você identificar que o gargalo primário são as dívidas parceladas (cartão + empréstimo de R$ 1.250/mês), considere também:
-
-**`/pessoal-plano-dividas-reserva`**
-
-Para criar estratégia de eliminação de dívidas (método bola de neve ou avalanche) e começar a construir reserva de emergência.
-
-- `/pessoal-investimento-reino`
-- `/pessoal-rotina-financeira-mensal`
-- `/gestor-financeiro`
-
----
-
-## Princípios de Boa Comunicação no Diagnóstico
-
-1. **Seja direto sobre a gravidade, mas não catastrófico**: Use termos como "situação crítica" ou "risco alto" quando apropriado, mas sempre aponte o caminho de saída.
-
-2. **Use números concretos, não percentuais abstratos**: "R$ 280/mês em juros" impacta mais que "taxa de 14% a.m."
-
-3. **Traduza números em contexto real**: "Seus gastos invisíveis (R$ 1.490) são maiores que seu aluguel (R$ 1.200)" cria clareza imediata.
-
-4. **Uma prioridade por vez**: Não sobrecarregue com 5 ações simultâneas. Identifique a alavanca de maior impacto para os próximos 30 dias.
-
-5. **Explique o raciocínio**: Não apenas diga "faça X", explique por que X é mais importante que Y ou Z neste momento.
-
-6. **Conecte finanças e fé com equilíbrio**: Ao abordar contribuições do reino, integre princípios de mordomia sem culpa ou pressão. Organização financeira É mordomia.
+1. **Ser direto sobre a gravidade, não catastrófico** — apontar o caminho de saída junto
+2. **Números em reais, não percentuais abstratos** — "R$ 280/mês em juros" impacta mais que "14% a.m."
+3. **Traduzir em contexto real** — "seus gastos invisíveis são maiores que seu aluguel"
+4. **Uma prioridade por vez** — a alavanca de maior impacto para os próximos 30 dias
+5. **Decidir, não listar** — indicar o caminho correto com autoridade
 
 ## Observações Finais
 
-- Este skill é o ponto de entrada do sistema de finanças pessoais. Ele não resolve problemas — ele cria clareza sobre qual problema atacar primeiro.
-- A qualidade do diagnóstico depende da qualidade das informações coletadas. Se o usuário não souber valores exatos, ajude a estimar baseado em extratos bancários e faturas.
-- O diagnóstico deve ser revisitado a cada 3-6 meses, pois gargalos mudam conforme a situação evolui.
-- Se o usuário mencionar contexto de família (cônjuge, filhos), ajuste a análise para considerar renda familiar total e despesas compartilhadas.
+- Este skill cria clareza sobre qual problema atacar primeiro — não resolve todos os problemas
+- A qualidade do diagnóstico depende das informações coletadas. Ajude a estimar com base em extratos
+- O diagnóstico deve ser revisitado a cada 3–6 meses — gargalos mudam conforme a situação evolui
+- Se o usuário mencionar família, ajuste a análise para renda familiar total
