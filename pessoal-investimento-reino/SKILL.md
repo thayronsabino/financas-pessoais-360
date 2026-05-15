@@ -3,8 +3,8 @@ name: pessoal-investimento-reino
 description: >
   Estrutura o Plano de Generosidade Sustentável — integração de contribuições do Reino (dízimo, ofertas e projetos ministeriais) ao planejamento financeiro pessoal com mordomia bíblica. Inclui Stewardship Engine, engine de decisão por estado financeiro, calendário de contribuições e Protocolo Generosidade Sustentável. Use quando o usuário quer organizar dízimo, ofertas, contribuições religiosas, doações para igreja, projetos missionários, mordomia cristã, generosidade bíblica, ou alinhar fé e finanças pessoais.
 owner: financeiro-pessoal
-version: 2.0.0
-last_updated: 2026-05-07
+version: 2.1.0
+last_updated: 2026-05-14
 ---
 
 # Plano de Generosidade Sustentável
@@ -58,6 +58,67 @@ PROTOCOLO:
 | Método Wesleyano | — | Renda crescente = generosidade crescente (não apenas estilo de vida crescente) |
 
 **Regra Absoluta:** O dízimo de 10% é mantido em QUALQUER situação financeira. O que pode ser ajustado temporariamente são as ofertas voluntárias acima dos 10%. Nunca sugerir dízimo abaixo de 10%.
+
+---
+
+## CALCULADORA DÍZIMO — BRUTO vs. LÍQUIDO
+
+Esta é a dúvida mais frequente e mais constrangedora para cristãos. O sistema resolve com clareza e respeito à convicção pessoal:
+
+```
+PERGUNTA: "Devo dizimar sobre o bruto ou o líquido?"
+
+POSIÇÃO DO SISTEMA:
+  1. A Bíblia fala em "primícias" (Pv 3:9) — que precede deduções.
+     Teologicamente, o bruto é a posição mais consistente com primícias.
+  
+  2. Na prática brasileira, dois cálculos legítimos:
+     
+     SOBRE O BRUTO (posição conservadora):
+       Salário bruto: R$ 6.200
+       Dízimo: 10% = R$ 620
+       Base: tudo que foi recebido antes de deduções do governo
+     
+     SOBRE O LÍQUIDO (posição alternativa aceita):
+       Salário líquido: R$ 4.870 (após IR + INSS)
+       Dízimo: 10% = R$ 487
+       Diferença: R$ 133/mês = R$ 1.596/ano
+     
+  3. Postura do sistema: NUNCA impor. Apresentar as duas posições e 
+     respeitar a convicção da liderança pastoral do usuário.
+     "A convicção bíblica sobre a base do dízimo é decisão sua e da sua liderança.
+      O que garanto é que você pratique consistentemente o percentual escolhido."
+
+PARA CLT:
+  Base natural = salário líquido (o que entra na conta)
+  Recebeu 13°? → dizimar sobre o 13° separadamente
+  Recebeu PLR/bônus? → dizimar sobre o valor líquido recebido
+
+PARA AUTÔNOMO/PJ:
+  Base = receita líquida do mês (faturamento menos impostos recolhidos)
+  Meses irregulares: usar a média dos últimos 3 meses como base
+```
+
+## IRPF E DEDUÇÕES — O QUE UM ESPECIALISTA SABE
+
+```
+DOAÇÕES DEDUTÍVEIS DO IR (para declaração completa):
+  Fundos da Criança e do Adolescente (FCA/FUMCAD): até 3% do IR devido
+  Fundos do Idoso: até 3% do IR devido
+  Fundos de apoio à Cultura: até 4% do IR devido
+  Total combinado: até 6% do IR devido
+
+  IMPORTANTE: Doações para IGREJAS não são dedutíveis no IRPF.
+  Mas doações para entidades parceiras da sua igreja 
+  (OSCIP, Fundação) que se enquadrem nos fundos acima = SIM.
+
+  Como identificar: entidade registrada no CNPJ com finalidade social? 
+  Pergunte ao contador da igreja/entidade se ela recebe doações dedutíveis.
+
+PRÁTICA RECOMENDADA:
+  → Se você já doa para causas sociais além do dízimo, verifique se 
+    pode ser feito via entidade dedutível → mesma generosidade, menor IR
+```
 
 ---
 
@@ -126,9 +187,23 @@ ESTABILIZAÇÃO → EXPANSÃO:
   A cada mês com saldo positivo, aumentar ofertas em 0,5%
   Meta de longo prazo: 15-20% da renda total para o Reino
 
-MESES DE RENDA EXTRA (13°, bônus, restituição IR):
-  Reservar percentual definido para oferta especial
-  Padrão sugerido: 10-15% da renda extra para o Reino
+MESES DE RENDA EXTRA — PROTOCOLO COMPLETO:
+
+  13° SALÁRIO (dezembro):
+    Dízimo: 10% sobre o líquido do 13° (obrigatório)
+    Oferta especial: 5-10% adicional (conforme nível Stewardship)
+    Reserva/quitação: restante vai para objetivo financeiro prioritário
+    NUNCA gastar o 13° antes de dizimar e alocar a reserva
+
+  RESTITUIÇÃO DO IRPF (abril-junho):
+    Tratar como renda ordinária: dizimar 10%
+    Lembrar: é devolução de imposto que VOCÊ pagou — não é "presente"
+    Alocação do restante: seguir prioridades financeiras (dívidas > reserva > investimentos)
+  
+  BÔNUS / PLR:
+    Dizimar sobre o valor líquido recebido
+    Separar oferta especial ANTES de planejar o restante
+    "O que você faz com o extra revela a maturidade da sua mordomia"
 
 MESES DE APERTO:
   Ajustar ofertas voluntárias — nunca o dízimo
@@ -222,10 +297,21 @@ Criar blocos que respeitem convicções de fé e realidade financeira:
 
 ### Dízimo
 
-- Percentual: 10% INVIOLÁVEL (bruto ou líquido — conforme convicção, mas nunca abaixo de 10% do líquido)
+- Percentual: 10% INVIOLÁVEL (bruto ou líquido — conforme convicção pessoal e pastoral, ver Calculadora acima)
 - Frequência: mensal (ou quinzenal conforme recebimentos)
 - Destino: igreja local
 - Automação: transferência programada no dia do recebimento
+
+**Como automatizar o dízimo (passo a passo):**
+1. Identifique a data fixa de recebimento (dia 5, dia 1°, sexta do pagamento)
+2. No app do banco, crie uma transferência programada recorrente
+   - Valor: 10% da renda líquida esperada (arredonde para cima)
+   - Data: 1 dia após o recebimento (para garantir que caiu)
+   - Conta destino: conta da igreja ou conta separada para dízimo
+3. Se renda variável: configure para o dia 10 (dá tempo de saber o quanto entrou)
+4. Revise o agendamento 1x por trimestre (ou quando renda mudar)
+
+> "Automatizar o dízimo remove a decisão emocional do momento. Quando é agendado, nunca compete com outras despesas."
 
 ### Ofertas Regulares
 
@@ -292,6 +378,20 @@ MAPA DO REINO
 4. **Protocolo ativo** — Generosidade Sustentável com regras por fase
 5. **Evolução planejada** — como as contribuições crescem com o estado financeiro
 6. **Próximos passos** — skill recomendada para continuar
+
+### Próximos Passos Reais (5 ações concretas)
+
+**Antes de encerrar, entregar ao usuário:**
+
+1. **Configurar a transferência automática do dízimo** — Use o app do banco agora. Leva 3 minutos. Data: 1 dia após o recebimento. Valor: 10% da renda esperada.
+
+2. **Calcular e comunicar à liderança seu nível atual** — Informe à sua igreja o percentual que você pratica. Transparência com a liderança pastoral é ato de mordomia, não obrigação.
+
+3. **Criar conta separada para contribuições especiais** — Uma conta simples (Nubank, Inter) onde você acumula mensalmente para campanhas e projetos. Assim quando a campanha chega, o recurso já existe.
+
+4. **Definir seu percentual de crescimento** — "A cada mês de saldo positivo, aumento as ofertas em R$50." Específico e verificável, não vago.
+
+5. **Revisar na próxima rotina mensal** — No `/pessoal-rotina-financeira-mensal`, incluir dízimo e ofertas como linha de verificação obrigatória (praticado? no percentual correto? crescendo?).
 
 ### Próxima Skill
 

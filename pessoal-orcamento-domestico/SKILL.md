@@ -3,8 +3,8 @@ name: pessoal-orcamento-domestico
 description: >
   Implanta o Sistema de Orçamento Doméstico — estrutura de controle de fluxo financeiro com categorias, tetos por bloco, Ciclo de Recalibração Financeira semanal e integração de contribuições do Reino como primeira prioridade. Use quando o usuário mencionar orçamento familiar, planejamento financeiro pessoal, controle de gastos, organizar finanças da casa, definir teto de gastos, planejar economia mensal, criar orçamento pessoal, controlar despesas mensais, estabelecer meta de poupança, dividir salário em categorias, quando gastos variam sem controle, ou falta dinheiro antes do fim do mês.
 owner: financeiro-pessoal
-version: 2.0.0
-last_updated: 2026-05-07
+version: 2.1.0
+last_updated: 2026-05-14
 ---
 
 # Sistema de Orçamento Doméstico
@@ -367,10 +367,132 @@ SE não há dívidas E quer estruturar contribuições → /pessoal-investimento
 
 **Envolva a família:** Orçamento individual funciona. Familiar exige alinhamento de todos.
 
+## CALENDÁRIO SAZONAL DE DESPESAS — Provisão Mensal
+
+Um consultor experiente sabe que a maioria das "emergências" são despesas previsíveis mal planejadas. Reserve 1/12 por mês:
+
+| Mês | Despesa Típica | Como Provisionar |
+|-----|---------------|-----------------|
+| Janeiro | IPVA + IPTU + matrícula escolar + seguro anual | Reservar 1/12 do total mensal (ex: R$3.600/ano = R$300/mês) |
+| Fevereiro | Material escolar + uniforme | Já coberto pela provisão de janeiro |
+| Março–Abril | Declaração IRPF (eventuais impostos a pagar) | Reservar valor estimado do imposto devido |
+| Junho–Julho | Férias + revisão anual do veículo + viagem | Reservar antecipadamente no Bloco Futuro |
+| Dezembro | Presentes de Natal + confraternizações + 13° | O 13° cobre parte — mas evitar comprometer antes de receber |
+
+**Regra prática:** Some todas as despesas anuais previsíveis. Divida por 12. Esse valor entra no Bloco Futuro como "sinking fund" (provisionamento). Quando a despesa chegar, o dinheiro já existe.
+
+```
+EXEMPLO:
+  IPVA:          R$ 1.400/ano ÷ 12 = R$ 117/mês
+  IPTU:          R$ 900/ano  ÷ 12 = R$ 75/mês
+  Matrícula:     R$ 600/ano  ÷ 12 = R$ 50/mês
+  Seguro auto:   R$ 1.800/ano ÷ 12 = R$ 150/mês
+  Férias:        R$ 2.400/ano ÷ 12 = R$ 200/mês
+  ─────────────────────────────────────────────
+  Total provisão: R$ 592/mês → entra no Bloco Futuro
+```
+
+## ZONA CINZENTA — Essencial ou Estilo de Vida?
+
+Perguntas frequentes que um consultor responde com clareza:
+
+```
+"Netflix/Spotify/Disney+ são essenciais?"
+  → NÃO são essenciais no sentido de sobrevivência.
+  → MAS: se são sua principal forma de lazer e custam <2% da renda, ok no Bloco Estilo de Vida.
+  → Em SOBREVIVÊNCIA: cortar tudo, sem exceção.
+
+"Plano de saúde com ortodontia/psicólogo é essencial?"
+  → Cobertura básica (hospitalar, urgência) = Bloco Essencial.
+  → Add-ons de conforto (ortodontia, estética) = Bloco Estilo de Vida.
+  → Se filhos em tratamento: reclassifique como Essencial durante o tratamento.
+
+"Academia é essencial?"
+  → Depende: prescrição médica de atividade física = Essencial.
+  → Escolha de bem-estar = Estilo de Vida (legítimo, mas não protegido de cortes).
+
+"Escola particular é essencial?"
+  → Se há escola pública disponível e de qualidade: Estilo de Vida (escolha consciente).
+  → Sem alternativa pública adequada: Essencial.
+
+"Carro próprio é essencial?"
+  → Depende do transporte público na cidade e da necessidade profissional.
+  → Se há transporte público funcional: o carro é Estilo de Vida.
+  → Se o trabalho exige ou inexiste alternativa: Essencial.
+
+PRINCÍPIO: "Essencial" = sem isso, não consigo trabalhar ou sobreviver.
+          "Estilo de vida" = é conforto e qualidade de vida que escolhi.
+          Ambos são legítimos — mas só um é protegido de cortes em crise.
+```
+
+## GESTÃO DO CARTÃO DE CRÉDITO NO ORÇAMENTO
+
+O cartão de crédito é a maior fonte de confusão orçamentária no Brasil. Um consultor explica assim:
+
+```
+CARTÃO NÃO É DINHEIRO EXTRA — é antecipação de renda futura.
+
+REGRA FUNDAMENTAL:
+  Só gaste no cartão o que já está no orçamento do mês.
+  O limite do cartão NÃO é sua margem disponível.
+
+COMO INTEGRAR O CARTÃO AO ORÇAMENTO:
+
+  Método 1 — Cartão como débito (recomendado para iniciantes):
+    Registre cada gasto no dia em que ocorre, dentro do bloco correto.
+    Trate a fatura como "conta a pagar" que já foi provisionada.
+    Ao fechar a fatura: você já "gastou" esse dinheiro no orçamento — só está pagando.
+
+  Método 2 — Bloco de cartão separado:
+    Defina teto máximo de uso do cartão por mês.
+    Reserve esse valor na conta antes do vencimento.
+    Nunca deixe a fatura ultrapassar o que você tem na conta.
+
+SINAIS DE MAU USO DO CARTÃO:
+  🔴 Pagando apenas o mínimo → você está no rotativo (438% a.a.) → emergência
+  🔴 Não sabe o valor da fatura do próximo mês → perda de controle
+  🔴 Usa cartão para "fechar o mês" → orçamento com déficit estrutural
+  🟡 Fatura variou muito mês a mês → gastos não planejados (rastrear)
+  ✅ Fatura previsível e paga integralmente todo mês → uso correto
+
+QUANDO CORTAR O CARTÃO:
+  Se você está em SOBREVIVÊNCIA com rotativo ativo → cortar ou bloquear.
+  "Mas perco os pontos/milhas" → você está pagando 36,5% a.m. de juros. 
+  Os pontos não compensam nada.
+```
+
+## GUIA DE APLICATIVOS — Qual Usar?
+
+| App | Ideal para | Custo | Prós | Contras |
+|-----|-----------|-------|------|---------|
+| **Organizze** | Iniciantes e intermediários | Gratuito (básico) / R$19/mês (pro) | Simples, intuitivo, categorias claras | Versão grátis limitada |
+| **Mobills** | Quem quer rastrear gastos detalhados | Gratuito (básico) / R$14/mês | Relatórios visuais excelentes, categorias avançadas | Interface mais complexa |
+| **Minhas Economias** | Quem quer algo 100% gratuito | Gratuito | Bom para controle simples, sem ads | Menos recursos visuais |
+| **Planilha (Google Sheets)** | Quem quer controle total e personalização | Gratuito | Flexibilidade máxima, personalização | Exige mais disciplina manual |
+| **Nubank/Itaú app** | Quem quer praticidade mínima | Gratuito | Integrado ao banco, automático | Não tem orçamento completo |
+
+**Recomendação do sistema:**
+```
+SE iniciante ou em SOBREVIVÊNCIA:
+  → Organizze (simples) OU planilha básica
+  → Foco: registrar tudo, sem complexidade
+
+SE em ORGANIZAÇÃO ou acima:
+  → Mobills (rastreamento detalhado) OU Organizze Pro
+  → Foco: análise de padrões e tendências
+
+SE autônomo/PJ:
+  → Planilha customizada (separa PJ de pessoal)
+  → Ou Mobills com perfis separados
+
+EVITAR: Guiabolso (instabilidades desde 2023), apps de banco como orçamento principal
+```
+
 ## Armadilhas Comuns
 
 - **Subestimar variáveis:** Mercado, transporte e lazer custam sempre mais que o estimado. Use média real
-- **Esquecer despesas anuais:** IPTU, seguro, matrícula. Divida por 12 e reserve mensalmente
-- **Ignorar pequenos gastos:** Cafezinho, app, Uber. Somados consomem 10–15% da renda
+- **Esquecer despesas anuais:** IPTU, seguro, matrícula. Use o Calendário Sazonal acima e provisionamento mensal
+- **Ignorar pequenos gastos:** Cafezinho, app, Uber, PIX avulso. Somados consomem 10–15% da renda — são os "gastos invisíveis"
 - **Compra por emoção:** Regra das 24 horas — se couber no orçamento amanhã, compre
 - **Desistir no primeiro estouro:** Ninguém acerta no primeiro mês. Ajuste e siga
+- **Tratar o limite do cartão como renda:** O limite é dívida potencial, não margem disponível

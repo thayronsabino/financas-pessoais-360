@@ -3,8 +3,8 @@ name: pessoal-diagnostico-financeiro
 description: >
   Executa o Sistema de Mapeamento de Fluxo Financeiro — diagnóstico profundo que classifica o estado financeiro real do usuário (Sobrevivência → Legado), identifica o gargalo primário, mapeia risco de inadimplência, calcula indicadores-chave e define prioridade de ação imediata. Use quando o usuário não sabe por que o dinheiro acaba, há uso recorrente de limite/rotativo, não existe controle de entradas e saídas, ou quando mencionarem diagnóstico financeiro, raio-x financeiro, análise de gastos, problemas de caixa, dinheiro sumindo, orçamento pessoal, finanças pessoais desorganizadas, ou planejamento financeiro inicial.
 owner: financeiro-pessoal
-version: 2.0.0
-last_updated: 2026-05-07
+version: 2.1.0
+last_updated: 2026-05-14
 ---
 
 # Sistema de Mapeamento de Fluxo Financeiro
@@ -14,6 +14,29 @@ last_updated: 2026-05-07
 Este skill não explica o que é diagnóstico financeiro. Ele executa o diagnóstico, classifica a situação, determina o gargalo e indica o próximo movimento — com autoridade de consultor, não com a passividade de um formulário.
 
 > "Com base na sua situação, esta é a prioridade correta agora." — não "aqui estão 3 possibilidades."
+
+### Protocolo para Usuário Recorrente
+
+Se há snapshot anterior no `../docs/MEMORY-SYSTEM.md`, **NÃO** fazer diagnóstico genérico. Abrir com referência direta ao histórico:
+
+```
+ABERTURA PARA USUÁRIO RECORRENTE:
+  "Na nossa última análise [data], você estava em Estado [X] com [gargalo].
+   Sua ação prioritária era [ação]. O que mudou desde então?"
+
+PERGUNTAS DE RETORNO (máx. 3):
+  1. A ação prioritária foi executada? Com que resultado?
+  2. O saldo mensal melhorou, piorou ou ficou igual?
+  3. Alguma mudança relevante: renda, dívida nova, emergência?
+
+ATUALIZAR SNAPSHOT: Ao final, comparar métricas:
+  Comprometimento: [anterior] → [atual]
+  Reserva: [anterior] → [atual]
+  Dívida total: [anterior] → [atual]
+  Trajetória: PROGREDINDO ↑ / ESTÁVEL → / REGREDINDO ↓
+```
+
+O diagnóstico recorrente é mais poderoso que o inicial — porque compara com o passado e responsabiliza o usuário pelo progresso real.
 
 ## Arquivos Consultados pelo Sistema
 
@@ -26,6 +49,11 @@ Este skill não explica o que é diagnóstico financeiro. Ele executa o diagnós
 | `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Quando dimensão espiritual surge no diagnóstico |
 | `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se detectar sinais de crise que transcendem finanças (vício, ansiedade aguda, etc.) |
 | `../frameworks/priorizacao-financeira.md` | Quando o usuário não sabe por onde começar com múltiplas frentes |
+
+**Protocolo de dados ao vivo:** Antes de calcular taxa de comprometimento vs. benchmarks ou mencionar Selic, tentar busca ao vivo:
+- Selic: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json`
+- Se falhar → usar cache de `../docs/REFERENCIAS-BRASIL-2026.md` com aviso: *"⚠️ Usando referência em cache de [data]. Valide em bcb.gov.br."*
+- Se data do arquivo > 45 dias: alertar antes de qualquer cálculo (Copom se reúne a cada 45 dias)
 
 ## Regra de Linguagem
 
@@ -63,13 +91,18 @@ O sistema opera em sequência obrigatória antes de qualquer output:
 | Entrada | Obrigatória? | Exemplo |
 |---------|--------------|---------|
 | Renda líquida mensal | Sim | R$ 5.000 |
+| Regime de trabalho | Sim | CLT / PJ / Autônomo / Servidor / Informal |
+| Dependentes | Sim | Cônjuge, filhos (idades), pais dependentes |
 | Despesas fixas | Sim | Aluguel R$ 1.200, internet R$ 100, plano saúde R$ 350 |
 | Despesas variáveis | Sim | Mercado ~R$ 800, transporte ~R$ 200, lazer ~R$ 300 |
 | Dívidas e parcelas | Sim | Cartão R$ 800/mês, empréstimo R$ 450/mês |
 | Saldo atual e reserva | Não | R$ 800 em conta, sem reserva de emergência |
 | Uso de crédito rotativo | Não | Frequência de uso de limite, cheque especial |
+| Seguros ativos | Não | Plano saúde, seguro de vida, seguro veículo |
 
 Se informações estiverem incompletas, faça perguntas direcionadas — máximo 3 por rodada.
+
+> **Por que regime de trabalho e dependentes importam:** Um CLT com filhos pequenos que perde emprego tem FGTS + seguro-desemprego mas precisa de reserva de 6 meses. Um autônomo sem dependentes pode ter reserva de 3 meses. Um PJ sem INSS pode estar construindo um risco invisível de aposentadoria. O diagnóstico muda completamente com esses dados.
 
 ---
 
@@ -115,6 +148,13 @@ Taxa de comprometimento  = (Total saídas / Renda líquida) × 100
 Taxa de endividamento    = (Parcelas dívidas / Renda líquida) × 100
 Margem de segurança      = Renda líquida − Gastos essenciais
 Capacidade de poupança   = Saldo mensal (se positivo)
+
+ESTIMADOR DE GASTOS INVISÍVEIS (calcular sempre):
+  Gastos invisíveis = Renda líquida − Despesas declaradas − Saldo declarado
+  SE resultado > 0: há sangria não contabilizada
+  Exemplo: R$5.000 − R$3.900 declarados − (−R$390 déficit) = R$1.490 "invisíveis"
+  Interpretar como: "Há R$1.490/mês saindo por canais não rastreados."
+  → Delivery, compras online, PIX avulsos, saques em espécie, gorjetas, apps
 ```
 
 **Interpretação:**
@@ -174,6 +214,37 @@ SE investimentos ativos E patrimônio crescendo:
 
 SE patrimônio sustentável E planejamento sucessório:
   ESTADO = LEGADO
+```
+
+### CAMADA 3.5 — LACUNAS DE PROTEÇÃO (avaliar sempre)
+
+Um consultor experiente avalia não apenas o fluxo, mas os riscos estruturais que o usuário ignora:
+
+```
+CHECKLIST DE PROTEÇÃO — avaliar após mapear o fluxo:
+
+☐ SAÚDE: Tem plano de saúde? Se não: risco de emergência médica destruir reserva
+  → CLT: verificar se cobertura do empregador é adequada (dependentes incluídos?)
+  → Autônomo/PJ: Plano individual pode custar R$300–1.200/mês. Sem ele = risco crítico.
+
+☐ VIDA E INVALIDEZ: Tem seguro de vida? Tem dependentes?
+  → Com cônjuge/filhos sem renda própria: ausência de seguro de vida é risco CRÍTICO
+  → Seguro de vida para R$1M de cobertura pode custar R$80–150/mês (<35 anos)
+  → Invalidez permanente: quem paga as contas?
+
+☐ PREVIDÊNCIA: Está contribuindo para INSS?
+  → CLT: automático. Autônomo/PJ: contribuição voluntária é responsabilidade própria
+  → PJ sem INSS = sem aposentadoria, sem benefício por doença, sem proteção por invalidez
+
+☐ VEÍCULO (se houver): Seguro ativo? Tem garagem/risco de roubo?
+  → Carro financiado sem seguro = passivo duplo (dívida + risco de perder o bem)
+
+PROTOCOLO DE COMUNICAÇÃO:
+  SE lacuna crítica identificada (vida, saúde, INSS):
+    → Reportar no diagnóstico: "Além do fluxo financeiro, identifiquei um risco estrutural..."
+    → Não exigir ação imediata (não sobrecarregar), mas incluir no mapa de prioridades
+    → Em SOBREVIVÊNCIA: mencionar mas não priorizar (fluxo primeiro)
+    → Em ORGANIZAÇÃO+: incluir como item da segunda fase do plano
 ```
 
 ### CAMADA 4 — EXECUÇÃO: Qual é o próximo passo?
@@ -283,6 +354,13 @@ UMA ação. Com por quê, como executar (2–3 passos) e meta mensurável.
 ### Seção 4 — Capacidade de Contribuição ao Reino
 
 Definir capacidade por estado financeiro conforme Engine de Decisão acima.
+
+### Seção 4.5 — Lacunas de Proteção Identificadas
+
+Reportar apenas se há lacuna real. Não sobrecarregar o usuário com todos os seguros de uma vez.
+
+Exemplo:
+> "Além do fluxo financeiro, identifiquei que você é PJ autônomo sem contribuição ao INSS. Isso significa que hoje você não tem direito a benefício por doença, aposentadoria pelo INSS nem proteção por invalidez. Com [dependentes / cônjuge sem renda própria], esse é um risco estrutural que precisa entrar no seu mapa de prioridades após estabilizar o fluxo mensal."
 
 ### Seção 5 — Snapshot de Memória Financeira
 
