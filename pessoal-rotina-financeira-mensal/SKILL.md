@@ -3,8 +3,8 @@ name: pessoal-rotina-financeira-mensal
 description: >
   Implanta o Ciclo de Recalibração Financeira — rotina mensal com fechamento contábil, análise comparativa de desvios, diagnóstico de causa raiz, recalibração de metas e planejamento do próximo ciclo. Inclui mecanismo de memória financeira para rastrear evolução entre sessões, engine de decisão para ajustes, e painel operacional de progresso. Use quando o usuário mencionar controle financeiro mensal, fechamento de contas, revisão de gastos, ajuste de orçamento, acompanhamento de investimentos, disciplina financeira, ou quando precisar criar hábitos de revisão periódica.
 owner: financeiro-pessoal
-version: 2.0.0
-last_updated: 2026-05-07
+version: 2.1.0
+last_updated: 2026-05-14
 ---
 
 # Ciclo de Recalibração Financeira
@@ -21,12 +21,22 @@ Este skill não explica a importância de revisar as finanças. Ele executa o Ci
 |---------|------------------|
 | `../docs/MEMORY-SYSTEM.md` | **OBRIGATÓRIO** — leitura do snapshot anterior + escrita do snapshot atual ao final |
 | `../docs/REFERENCIAS-BRASIL-2026.md` | Para validar referências (IPCA mensal, atualização das taxas) |
+
+**Protocolo de dados ao vivo (usar na revisão trimestral e anual):**
+Ao comparar evolução do orçamento com inflação real, buscar IPCA ao vivo:
+- IPCA mensal: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json`
+- IPCA acumulado 12m: calcular `(1 + IPCA_mês/100)^12 - 1` com o valor retornado
+- Se falhar → usar cache do `../docs/REFERENCIAS-BRASIL-2026.md` com aviso de data
+- Uso prático: "Sua alimentação subiu 8% este ano. O IPCA foi X%. Acima da inflação = problema real; abaixo = eficiência."
 | `../docs/GLOSSARIO.md` | Para terminologia padronizada (Ciclo de Recalibração, Trajetória, etc.) |
 | `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para revisão com usuário ainda em consolidação dos termos básicos |
 | `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Para revisão de coração + revisão de números (contentamento, gratidão, idolatria) |
 | `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se sinais aparecem em revisão (fadiga emocional do cuidador, ansiedade crescente) |
 | `../frameworks/priorizacao-financeira.md` | Quando há excedente identificado e dúvida de alocação |
 | `../playbooks/generosidade-sustentavel.md` | Para revisar nível Stewardship e crescimento progressivo das contribuições |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Barras planejado vs. realizado por categoria (Tipo 1), Sparkline de tendência histórica (Tipo 10), Linha de evolução da reserva (Tipo 2), Comparativo mês anterior vs. atual (Tipo 7). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 ## Regra de Linguagem
 
@@ -124,6 +134,7 @@ Contribuições: R$ [X] → R$ [Y]
 - [ ] Consolidar extratos de todas as contas correntes
 - [ ] Consolidar faturas de cartões de crédito
 - [ ] Registrar investimentos realizados (aportes, resgates, rendimentos)
+- [ ] Verificar rendimento da reserva de emergência (Tesouro Selic, CDB)
 - [ ] Registrar contribuições do Reino (dízimo, ofertas, doações)
 - [ ] Anotar receitas extras ou variações de renda
 
@@ -274,6 +285,136 @@ MAPA OPERACIONAL
 8. **Snapshot de Memória** — registro para continuidade futura
 
 ---
+
+## REVISÃO TRIMESTRAL — Ciclo de Profundidade
+
+A revisão mensal mantém o sistema. A revisão trimestral **ajusta a estratégia**.
+
+Realizar em março, junho, setembro e dezembro (última semana):
+
+```
+CHECKLIST TRIMESTRAL (60 minutos):
+
+FINANCEIRO:
+  [ ] Comparar os 3 meses: o padrão melhorou, piorou ou ficou estável?
+  [ ] A taxa de poupança mensal está crescendo ou estagnada?
+  [ ] O patrimônio líquido (ativos - passivos) cresceu?
+  [ ] Renda aumentou? → Reveja percentuais dos blocos (não apenas valores absolutos)
+
+INVESTIMENTOS (se houver):
+  [ ] Rentabilidade dos investimentos está acima do CDI/benchmark?
+  [ ] A alocação ainda está correta para o perfil e horizonte?
+  [ ] Algum fundo/ativo com custo total > 2% a.a.? → Considerar portabilidade
+  [ ] Rebalancear se alguma classe saiu do percentual planejado em >5pp
+
+PROTEÇÃO:
+  [ ] Seguro de vida adequado para dependentes atuais?
+  [ ] Plano de saúde cobre as necessidades da família?
+  [ ] INSS em dia (para autônomos/PJ)?
+
+CONTRIBUIÇÕES DO REINO:
+  [ ] Stewardship Engine: nível atual adequado ao estado financeiro?
+  [ ] Cresceu 0,5% conforme planejado?
+  [ ] Algum projeto especial a planejar para o próximo trimestre?
+
+METAS:
+  [ ] Meta anual: qual o % de progresso?
+  [ ] Alguma meta nova surgiu? (filho, imóvel, aposentadoria antecipada)
+  [ ] Alguma meta precisa ser abandonada ou reprioritizada?
+```
+
+## PLANEJAMENTO ANUAL — Ciclo Estratégico
+
+Realizar em dezembro para o ano seguinte (2 horas, pode ser em família):
+
+```
+SESSÃO DE PLANEJAMENTO ANUAL:
+
+1. BALANÇO DO ANO QUE PASSOU:
+   Patrimônio líquido: início vs. fim do ano
+   Maior conquista financeira do ano
+   Maior erro financeiro do ano (aprendizado)
+   Meta que não foi atingida (por quê?)
+
+2. METAS DO ANO SEGUINTE:
+   Definir 1-3 metas financeiras prioritárias (específicas, mensuráveis)
+   Exemplo: "Completar reserva de 6 meses até junho" (R$18.000)
+   Exemplo: "Iniciar aportes mensais de R$500 em renda variável até março"
+   
+3. AJUSTE DE ORÇAMENTO ANUAL:
+   Inflação esperada (IPCA projetado): ajustar tetos de categorias?
+   Reajuste de IPTU/IPVA previsível: atualizar provisão mensal?
+   Reajuste de plano de saúde (ANS autoriza aumento anual): prever
+   Aumento de mensalidade escolar: negociar em novembro para fevereiro
+
+4. ALINHAMENTO FAMILIAR:
+   Se casal: revisar divisão de contribuições
+   Filhos mais velhos: como incluí-los no planejamento?
+   Metas compartilhadas: viagem, imóvel, aposentadoria
+
+5. REVISÃO DE CONTRIBUIÇÕES:
+   Nível Stewardship: subir um patamar no próximo ano?
+   Projetos ministeriais do ano: campanhas, missões, projetos sociais
+   Meta de generosidade do ano (R$ total para o Reino)
+```
+
+## PROTOCOLO DE EMERGÊNCIA MID-MONTH
+
+Quando algo inesperado acontece no meio do mês (demissão, doença, emergência):
+
+```
+PASSO 1 — DIAGNÓSTICO RÁPIDO (hoje):
+  Qual foi o impacto financeiro em R$?
+  Qual é a duração estimada do problema?
+  A Camada de Proteção Financeira absorve? (reserva de emergência)
+
+PASSO 2 — CONGELAR GASTOS NÃO ESSENCIAIS:
+  Cancelar todos os gastos de Bloco Estilo de Vida até avaliar o cenário
+  Não é corte permanente — é pausa para avaliar
+  
+PASSO 3 — RECLASSIFICAR O ORÇAMENTO DO MÊS:
+  Recalcular com a nova realidade (renda reduzida ou despesa extra)
+  Redistribuir: o que pode esperar? O que é inadiável?
+  
+PASSO 4 — COMUNICAR SE HOUVER COMPROMETIMENTOS:
+  Campanha da igreja: avisar a liderança que o mês é atípico
+  Parcelas: avisar o credor ANTES de atrasar (negocia melhor)
+  
+PASSO 5 — ABRIR SESSÃO EXTRA DE CICLO:
+  Não esperar o fechamento mensal normal
+  Fazer mini-ciclo de recalibração agora para o restante do mês
+  Documentar: o que aconteceu, como foi gerenciado, o que aprendeu
+
+REGRA DO CONSULTOR:
+  "Emergência que a reserva resolve não é crise — é exatamente para isso que ela existe.
+   Crise é quando não há reserva e o imprevisto chega."
+```
+
+## PROTOCOLO ÉPOCA DE IR (Janeiro–Abril)
+
+O período de declaração do IRPF exige atenção financeira específica:
+
+```
+JANEIRO:
+  [ ] Solicitar ou baixar todos os informes de rendimentos (banco, corretora, empregador)
+  [ ] Verificar se há restituição ou imposto a pagar do ano anterior ainda aberto
+  [ ] Provisionar para eventual imposto a pagar (meses em que IR retido < IR devido)
+
+FEVEREIRO–MARÇO:
+  [ ] Organizar documentos: recibos médicos, educação, doações dedutíveis
+  [ ] Verificar com contador/declaração própria: modelo completo ou simplificado?
+  [ ] Calcular se PGBL (até 12% da renda bruta) pode ser aproveitado retroativamente
+
+ABRIL:
+  [ ] Declarar até 30 de abril (evitar multa: R$165,74 a 20% do imposto devido)
+  [ ] Se restituição prevista: guardar — não é renda extra, é devolução de imposto pago
+  [ ] Dízimo sobre a restituição: calcular e executar conforme convicção pastoral
+
+ALERTA PARA PJ/AUTÔNOMOS:
+  Carnê-Leão: preencher mensalmente (não acumular para o ano todo)
+  DARF mensal: pagar em dia (multa de 0,33% ao dia após vencimento)
+  PGBL: autônomo pode usar — deduz da base de cálculo do carnê-leão
+```
 
 ## Princípios de Execução
 
