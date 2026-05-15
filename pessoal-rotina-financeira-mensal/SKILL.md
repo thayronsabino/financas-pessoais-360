@@ -34,6 +34,9 @@ Ao comparar evolução do orçamento com inflação real, buscar IPCA ao vivo:
 | `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se sinais aparecem em revisão (fadiga emocional do cuidador, ansiedade crescente) |
 | `../frameworks/priorizacao-financeira.md` | Quando há excedente identificado e dúvida de alocação |
 | `../playbooks/generosidade-sustentavel.md` | Para revisar nível Stewardship e crescimento progressivo das contribuições |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Barras planejado vs. realizado por categoria (Tipo 1), Sparkline de tendência histórica (Tipo 10), Linha de evolução da reserva (Tipo 2), Comparativo mês anterior vs. atual (Tipo 7). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 ## Regra de Linguagem
 

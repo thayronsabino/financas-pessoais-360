@@ -37,6 +37,9 @@ Buscar Selic e IPCA ao vivo antes de calcular projeções — dados desatualizad
 | `../frameworks/casa-vs-aluguel.md` | Quando objetivo é compra de imóvel |
 | `../playbooks/generosidade-sustentavel.md` | Para alinhar Bloco Reino com crescimento patrimonial |
 | `../playbooks/transicao-clt-pj.md` | Para PJ que precisa estruturar previdência privada complementar |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Linha de crescimento patrimonial xychart (Tipo 2), Pie chart de alocação da carteira (Tipo 3), Comparativo de produtos por retorno líquido (Tipo 7), Gantt de metas de longo prazo (Tipo 4). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 ## Regra de Linguagem
 

@@ -478,18 +478,22 @@ Investimento Reino → Estratégia Investimentos → Rotina
 
 ## Recursos Visuais Obrigatórios
 
-Toda devolutiva analítica inclui ao menos um recurso visual.
+Toda devolutiva analítica inclui ao menos um recurso visual. Consultar `../docs/VISUALIZACAO.md` para templates completos, protocolo de seleção automática e geração sob demanda do usuário.
 
-| Situação | Recurso Visual |
-|----------|----------------|
-| Composição do orçamento | Tabela de alocação por categoria |
-| Evolução de dívida | Tabela de amortização ou gráfico ASCII |
-| Comparação de estratégias | Tabela comparativa lado a lado |
-| Jornada financeira | Fluxograma em Mermaid ou ASCII |
-| Distribuição do orçamento | Tabela percentual |
-| Projeção de reserva/investimento | Tabela de evolução mensal |
-| Plano de ação com prioridades | Roadmap em tabela com fases |
-| Fluxo de decisão do orquestrador | Fluxograma de roteamento |
+| Situação | Tipo de Visual | Referência |
+|----------|---------------|------------|
+| Composição do orçamento | Pie chart Mermaid | VISUALIZACAO.md Tipo 3 |
+| Evolução de dívida mês a mês | Tabela de amortização + linha xychart | VISUALIZACAO.md Tipos 2 e 6 |
+| Comparação de estratégias A vs. B | Tabela comparativa Tipo 7 | VISUALIZACAO.md Tipo 7 |
+| Jornada financeira (estados) | Flowchart Mermaid | VISUALIZACAO.md Tipo 5 |
+| Distribuição do orçamento por bloco | Barras xychart ou pie | VISUALIZACAO.md Tipos 1 e 3 |
+| Projeção de crescimento patrimonial | Linha xychart | VISUALIZACAO.md Tipo 2 |
+| Cronograma de quitação ou metas | Gantt Mermaid | VISUALIZACAO.md Tipo 4 |
+| Progresso de meta financeira | Barra de progresso ASCII | VISUALIZACAO.md Tipo 8 |
+| Taxa de comprometimento | Termômetro ASCII | VISUALIZACAO.md Tipo 9 |
+| Tendência histórica de categoria | Sparkline ASCII | VISUALIZACAO.md Tipo 10 |
+
+**Pedido custom do usuário:** Qualquer visual solicitado explicitamente deve ser gerado. Ver protocolo completo em `../docs/VISUALIZACAO.md` — seção "PROTOCOLO DE RESPOSTA A PEDIDO CUSTOM".
 
 ---
 

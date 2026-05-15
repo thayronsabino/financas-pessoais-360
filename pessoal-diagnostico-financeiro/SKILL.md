@@ -49,6 +49,9 @@ O diagnóstico recorrente é mais poderoso que o inicial — porque compara com 
 | `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Quando dimensão espiritual surge no diagnóstico |
 | `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se detectar sinais de crise que transcendem finanças (vício, ansiedade aguda, etc.) |
 | `../frameworks/priorizacao-financeira.md` | Quando o usuário não sabe por onde começar com múltiplas frentes |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Termômetro de comprometimento (Tipo 9), Flowchart de jornada financeira (Tipo 5), Barra de progresso do mapa operacional (Tipo 8). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 **Protocolo de dados ao vivo:** Antes de calcular taxa de comprometimento vs. benchmarks ou mencionar Selic, tentar busca ao vivo:
 - Selic: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json`

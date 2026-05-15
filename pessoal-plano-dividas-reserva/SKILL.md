@@ -55,6 +55,9 @@ Este skill é ativado principalmente nos estados:
 | `../playbooks/recuperacao-90-dias.md` | Quando o usuário está em Estado SOBREVIVÊNCIA com cronograma agressivo |
 | `../playbooks/idoso-aposentadoria-insuficiente.md` | Idoso com consignado consumindo aposentadoria |
 | `../playbooks/endividamento-por-saude.md` | Família endividada por doença grave |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Gantt de cronograma de quitação (Tipo 4), Tabela de amortização mês a mês (Tipo 6), Linha de redução da dívida xychart (Tipo 2), Comparativo mínimo vs. agressivo (Tipo 7). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 ## Regra de Linguagem
 

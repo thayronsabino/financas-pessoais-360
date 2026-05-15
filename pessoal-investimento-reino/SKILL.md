@@ -27,6 +27,9 @@ Este skill não apresenta opções sobre o dízimo. O dízimo é 10% — inviol�
 | `../docs/PROTOCOLO-CRISE-ESPIRITUAL.md` | Se há pressão pastoral abusiva, vergonha por dificuldade de dar, vício em compras impedindo dízimo |
 | `../playbooks/generosidade-sustentavel.md` | **PLAYBOOK PRINCIPAL** — cronograma de crescimento progressivo |
 | `../frameworks/priorizacao-financeira.md` | Para validar que dízimo é tratado como primícia (Nível 0) |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Barras de evolução das contribuições ao longo dos estados (Tipo 1), Pie chart de alocação dízimo + ofertas + investimentos pessoais (Tipo 3), Barra de progresso para meta de generosidade (Tipo 8). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 ## Regra de Linguagem
 

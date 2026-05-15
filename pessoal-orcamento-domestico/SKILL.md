@@ -28,6 +28,9 @@ Este skill não explica o que é um orçamento. Ele implanta um Sistema de Orça
 | `../playbooks/idoso-aposentadoria-insuficiente.md` | Para 60+ com aperto financeiro |
 | `../playbooks/informal-sem-cnpj.md` | Para trabalhador informal com renda variável |
 | `../frameworks/priorizacao-financeira.md` | Para validar a alocação dos blocos por estado financeiro |
+| `../docs/VISUALIZACAO.md` | Para gerar qualquer visual solicitado pelo usuário ou oferecido proativamente |
+
+**Visuais prioritários desta skill:** Pie chart de distribuição por bloco (Tipo 3), Barras de comparativo por categoria (Tipo 1), Barra de progresso de reserva (Tipo 8). Para qualquer pedido de gráfico do usuário, consultar `../docs/VISUALIZACAO.md`.
 
 ## Regra de Linguagem
 
