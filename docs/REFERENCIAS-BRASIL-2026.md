@@ -2,12 +2,71 @@
 
 > **Validade:** Maio/2026 a Dezembro/2026  
 > **Última atualização:** 2026-05-07  
-> **Próxima revisão obrigatória:** 2026-08-07 (revisão trimestral)  
-> **Como atualizar:** Ver seção "Fontes Oficiais e Atualização" ao final.
+> **Próxima revisão obrigatória:** 2026-06-21 (45 dias — ciclo Copom)  
+> **Como atualizar:** Executar `python update-referencias.py` ou ver seção "Fontes Oficiais e Atualização" ao final.
 
-Este arquivo centraliza todos os dados macroeconômicos, regulatórios e tributários usados pelas skills do pacote **Finanças Pessoais 360**. Todas as skills devem referenciar este arquivo em vez de manter taxas hardcoded.
+Este arquivo centraliza todos os dados macroeconômicos, regulatórios e tributários usados pelas skills do pacote **MordomIA**. Todas as skills devem referenciar este arquivo em vez de manter taxas hardcoded.
 
-⚠️ **AVISO DE DERIVA:** Se a data atual for posterior a 90 dias da "última atualização", os dados podem estar defasados. As skills devem alertar o usuário e sugerir consulta às fontes oficiais.
+---
+
+## 0. PROTOCOLO DE DADOS AO VIVO — PARA O AGENTE
+
+> **Leia isto antes de usar qualquer taxa abaixo.**
+
+O Banco Central do Brasil disponibiliza uma API pública, gratuita e sem autenticação que retorna JSON com os valores mais recentes. **Sempre que houver ferramenta de busca web disponível (WebSearch, Firecrawl, fetch), busque os dados ao vivo antes de usar o cache abaixo.**
+
+### APIs BCB — Indicadores de Política Monetária
+
+| Indicador | Série SGS | URL da API |
+|-----------|-----------|------------|
+| **Selic Meta** (% a.a.) | 432 | `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json` |
+| **IPCA** (% a.m.) | 433 | `https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json` |
+| **CDI** (% a.a.) | 12 | `https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/1?formato=json` |
+| **TR** (% a.m.) | 226 | `https://api.bcb.gov.br/dados/serie/bcdata.sgs.226/dados/ultimos/1?formato=json` |
+| **IGP-M** (% a.m.) | 189 | `https://api.bcb.gov.br/dados/serie/bcdata.sgs.189/dados/ultimos/1?formato=json` |
+
+**Formato da resposta:** `[{"data": "DD/MM/YYYY", "valor": "X.XX"}]`
+
+### API BCB — Taxas de Crédito por Modalidade
+
+```
+https://olinda.bcb.gov.br/olinda/servico/taxaJuros/versao/v2/odata/TaxasJuros
+  ?$top=300&$format=json&$orderby=DataEmissao%20desc
+  &$select=Modalidade,TaxaJurosMes,TaxaJurosAno,DataEmissao
+```
+
+### Protocolo de uso pelo agente
+
+```
+PASSO 1 — Tentar busca ao vivo:
+  Buscar Selic (série 432) e IPCA (série 433) via WebSearch/Firecrawl/fetch
+  Se obtiver valor → usar o valor ao vivo, informar a data da série
+
+PASSO 2 — Se a busca falhar:
+  Usar os valores em cache das seções abaixo
+  Exibir aviso: "⚠️ Usando taxa em cache de [data da última atualização].
+  Verifique em bcb.gov.br para o valor atual."
+
+PASSO 3 — Se cache > 45 dias:
+  Exibir aviso reforçado: "⚠️ Taxas podem estar desatualizadas (Copom pode
+  ter alterado a Selic). Execute update-referencias.py ou consulte bcb.gov.br."
+```
+
+### Automação (atualização automática do cache)
+
+Execute localmente para atualizar este arquivo com dados ao vivo:
+
+```bash
+pip install requests
+python update-referencias.py
+```
+
+Para automação recorrente (recomendado a cada 45 dias):
+- **GitHub Actions:** criar workflow `.github/workflows/update-referencias.yml`
+- **Windows:** `schtasks /create /sc weekly /tn "MordomIA BCB" /tr "python update-referencias.py"`
+- **Linux/Mac:** `crontab -e` → `0 8 1,15 * * python /caminho/update-referencias.py`
+
+⚠️ **AVISO DE DERIVA:** Se a data atual for posterior a **45 dias** da "última atualização", os dados podem estar defasados (o Copom se reúne a cada 45 dias). As skills devem alertar o usuário e sugerir consulta às fontes oficiais.
 
 ---
 
@@ -23,6 +82,8 @@ Este arquivo centraliza todos os dados macroeconômicos, regulatórios e tribut�
 | **Poupança** | 0,5% a.m. + TR | ~7,9% | (rendimento abaixo da inflação real) |
 
 **Juros real (Selic − IPCA 12m):** ~9,5% a.a. (alto historicamente)
+
+> 📡 *Valores acima são cache. Para dados ao vivo, ver seção 0 — Protocolo de Dados ao Vivo.*
 
 ---
 
@@ -255,19 +316,22 @@ SENÃO:
 | Simples Nacional | gov.br/receitafederal/simples-nacional |
 | Desenrola Brasil | desenrola.gov.br |
 
-### Procedimento de atualização (trimestral)
+### Procedimento de atualização (a cada 45 dias — ciclo Copom)
 
-1. Acessar fontes acima
-2. Atualizar valores neste arquivo
-3. Atualizar a "Última atualização" e "Próxima revisão"
-4. Se houver mudança regulatória relevante, criar entrada na seção 7
-5. Notificar usuários do pacote sobre mudanças significativas
+**Automático (recomendado):**
+```bash
+pip install requests
+python update-referencias.py
+```
+O script atualiza Selic, CDI, IPCA, TR, IGP-M e taxas de crédito direto da API do BCB.
 
-### Ferramentas que poderiam automatizar
-
-- **firecrawl** (MCP) para scraping das fontes acima
-- **WebSearch** para validação cruzada
-- Script Python para parsing de tabelas oficiais e atualização automática deste arquivo
+**Manual (para dados não cobertos pelo script):**
+1. Tabela IR (seção 3.1): atualizar anualmente — fonte: gov.br/receitafederal
+2. Faixas INSS (seção 4.1): atualizar anualmente — fonte: gov.br/inss
+3. Simples Nacional (seção 8): atualizar anualmente — fonte: gov.br/receitafederal
+4. Contexto econômico (seção 10): atualizar a cada trimestre
+5. Atualizar a "Última atualização" e "Próxima revisão" no cabeçalho
+6. Se houver mudança regulatória relevante, criar entrada na seção 7
 
 ---
 

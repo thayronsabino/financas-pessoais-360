@@ -227,7 +227,11 @@ Estes arquivos são consultados por todas as skills:
 
 **Regra de uso:**
 - Sempre referenciar `../docs/REFERENCIAS-BRASIL-2026.md` para taxas e alíquotas — nunca usar valores hardcoded
-- Verificar a "Última atualização" deste arquivo; se > 90 dias, alertar o usuário
+- **Protocolo ao vivo:** Antes de qualquer cálculo com Selic ou IPCA, tentar buscar via WebSearch/Firecrawl:
+  - Selic: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json`
+  - IPCA: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json`
+  - Se falhar → usar cache do arquivo com aviso: *"⚠️ Usando taxa em cache de [data]. Valide em bcb.gov.br."*
+- Verificar a "Última atualização" do arquivo; se > **45 dias**, alertar o usuário (Copom se reúne a cada 45 dias)
 - Usar termos do `../docs/GLOSSARIO.md` consistentemente
 - Skills que escrevem snapshot devem seguir o schema em `../docs/MEMORY-SYSTEM.md`
 - **Toda vez que detectar dimensão espiritual profunda no usuário, consultar `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md`**
