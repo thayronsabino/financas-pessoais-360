@@ -21,6 +21,13 @@ Este skill não explica a importância de revisar as finanças. Ele executa o Ci
 |---------|------------------|
 | `../docs/MEMORY-SYSTEM.md` | **OBRIGATÓRIO** — leitura do snapshot anterior + escrita do snapshot atual ao final |
 | `../docs/REFERENCIAS-BRASIL-2026.md` | Para validar referências (IPCA mensal, atualização das taxas) |
+
+**Protocolo de dados ao vivo (usar na revisão trimestral e anual):**
+Ao comparar evolução do orçamento com inflação real, buscar IPCA ao vivo:
+- IPCA mensal: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json`
+- IPCA acumulado 12m: calcular `(1 + IPCA_mês/100)^12 - 1` com o valor retornado
+- Se falhar → usar cache do `../docs/REFERENCIAS-BRASIL-2026.md` com aviso de data
+- Uso prático: "Sua alimentação subiu 8% este ano. O IPCA foi X%. Acima da inflação = problema real; abaixo = eficiência."
 | `../docs/GLOSSARIO.md` | Para terminologia padronizada (Ciclo de Recalibração, Trajetória, etc.) |
 | `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para revisão com usuário ainda em consolidação dos termos básicos |
 | `../docs/PRINCIPIOS-BIBLICOS-EXPANDIDOS.md` | Para revisão de coração + revisão de números (contentamento, gratidão, idolatria) |

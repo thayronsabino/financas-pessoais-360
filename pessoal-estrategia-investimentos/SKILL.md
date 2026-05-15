@@ -20,6 +20,14 @@ Este skill não apresenta opções de alocação para o usuário escolher. Ele d
 | Arquivo | Quando consultar |
 |---------|------------------|
 | `../docs/REFERENCIAS-BRASIL-2026.md` | **OBRIGATÓRIO** — Selic, IPCA, IR sobre investimentos (tabela regressiva), FGC, Tesouro Direto |
+
+**Protocolo de dados ao vivo (obrigatório antes de qualquer simulação):**
+Buscar Selic e IPCA ao vivo antes de calcular projeções — dados desatualizados invalidam as simulações:
+- Selic Meta: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json`
+- IPCA mensal: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1?formato=json`
+- CDI anual: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/1?formato=json`
+- Se falhar → usar cache do `../docs/REFERENCIAS-BRASIL-2026.md` com aviso: *"⚠️ Usando taxas em cache de [data]. Valide em bcb.gov.br antes de tomar decisões."*
+- Se data do arquivo > 45 dias: alertar antes de qualquer projeção (Copom se reúne a cada 45 dias — Selic pode ter mudado)
 | `../docs/GLOSSARIO.md` | Para terminologia padronizada (Camada de Proteção Financeira, Estados Financeiros) |
 | `../docs/MEMORY-SYSTEM.md` | Para validar que pré-requisitos estão atendidos via Snapshot anterior |
 | `../docs/EDUCACAO-FINANCEIRA-BASICA.md` | Para usuário que ainda não entende Tesouro, CDB, ações, FIIs |
