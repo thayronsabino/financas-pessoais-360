@@ -82,7 +82,7 @@ As taxas abaixo são **referência rápida**. Para valores oficiais e atualizado
 
 **Regra de ouro:** Qualquer dívida com taxa **> Selic líquida** (~12,5% a.a. após IR) está destruindo patrimônio. Priorize quitação antes de qualquer investimento.
 
-⚠️ Se a "Última atualização" do `../docs/REFERENCIAS-BRASIL-2026.md` estiver > 90 dias da data atual, alertar o usuário e validar com fontes oficiais (bcb.gov.br).
+⚠️ Se a "Última atualização" do `../docs/REFERENCIAS-BRASIL-2026.md` estiver > **45 dias** da data atual, alertar o usuário e validar com fontes oficiais (bcb.gov.br). Para dados ao vivo da Selic: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json`
 
 ---
 
