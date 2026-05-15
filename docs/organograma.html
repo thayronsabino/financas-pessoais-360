@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MordomIA — Orquestração de Agents & Skills</title>
+<style>
+  :root {
+    --bg:        #080C14;
+    --bg2:       #0D1320;
+    --border:    rgba(255,255,255,0.07);
+    --user:      #94A3B8;
+    --orch:      #F59E0B;
+    --orch2:     #FBBF24;
+    --skill:     #818CF8;
+    --skill2:    #6366F1;
+    --play:      #34D399;
+    --play2:     #10B981;
+    --frame:     #38BDF8;
+    --frame2:    #0EA5E9;
+    --doc:       #C084FC;
+    --doc2:      #A855F7;
+    --api:       #FB7185;
+    --api2:      #F43F5E;
+    --text:      #F1F5F9;
+    --muted:     #64748B;
+    --track:     #1E293B;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 40px 24px 60px;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ─────────────────────────────────────────── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--orch), var(--skill), var(--play));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .badge-gold  { background: rgba(245,158,11,0.15); color: var(--orch);  border: 1px solid rgba(245,158,11,0.3); }
+  .badge-blue  { background: rgba(99,102,241,0.15); color: var(--skill); border: 1px solid rgba(99,102,241,0.3); }
+  .badge-green { background: rgba(16,185,129,0.15); color: var(--play);  border: 1px solid rgba(16,185,129,0.3); }
+  .badge-red   { background: rgba(244,63,94,0.15);  color: var(--api);   border: 1px solid rgba(244,63,94,0.3); }
+
+  /* ── SVG overlay for connections ────────────────────── */
+  #conn-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Diagram wrapper ─────────────────────────────────── */
+  .diagram {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── Layers ──────────────────────────────────────────── */
+  .layer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+
+  /* ── Nodes ───────────────────────────────────────────── */
+  .node {
+    border-radius: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+    cursor: default;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    text-align: center;
+    animation: fadeInUp 0.5s both;
+  }
+  .node:hover {
+    transform: translateY(-3px);
+    z-index: 10;
+  }
+  .node-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .node-name {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+  .node-desc {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 3px;
+    line-height: 1.4;
+    max-width: 140px;
+  }
+  .node-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  /* Tooltip on hover */
+  .node[data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1E293B;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #E2E8F0;
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 6px 10px;
+    border-radius: 8px;
+    width: max-content;
+    max-width: 220px;
+    white-space: normal;
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  /* ── USER node ───────────────────────────────────────── */
+  .node-user {
+    border-color: rgba(148,163,184,0.3);
+    background: rgba(148,163,184,0.08);
+    min-width: 180px;
+  }
+  .node-user .node-label { color: var(--user); }
+  .node-user:hover { box-shadow: 0 0 20px rgba(148,163,184,0.2); }
+
+  /* ── ORCHESTRATOR node ───────────────────────────────── */
+  .node-orch {
+    border-color: rgba(245,158,11,0.5);
+    background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(251,191,36,0.06));
+    min-width: 240px;
+    animation: fadeInUp 0.5s both, pulseOrch 3s ease-in-out 1s infinite;
+  }
+  .node-orch .node-label { color: var(--orch); }
+  .node-orch .node-name  { font-size: 16px; color: var(--orch2); }
+  .node-orch:hover { box-shadow: 0 0 40px rgba(245,158,11,0.35); }
+
+  /* ── SKILL nodes ─────────────────────────────────────── */
+  .node-skill {
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.07);
+    min-width: 130px;
+    max-width: 150px;
+  }
+  .node-skill .node-label { color: var(--skill); }
+  .node-skill:hover { box-shadow: 0 0 24px rgba(99,102,241,0.3); }
+
+  /* ── PLAYBOOK nodes ──────────────────────────────────── */
+  .node-play {
+    border-color: rgba(16,185,129,0.3);
+    background: rgba(16,185,129,0.07);
+    min-width: 110px;
+    max-width: 130px;
+    padding: 9px 12px;
+  }
+  .node-play .node-label { color: var(--play); }
+  .node-play:hover { box-shadow: 0 0 20px rgba(16,185,129,0.25); }
+
+  /* ── FRAMEWORK nodes ─────────────────────────────────── */
+  .node-frame {
+    border-color: rgba(14,165,233,0.3);
+    background: rgba(14,165,233,0.07);
+    min-width: 110px;
+    max-width: 130px;
+    padding: 9px 12px;
+  }
+  .node-frame .node-label { color: var(--frame); }
+  .node-frame:hover { box-shadow: 0 0 20px rgba(14,165,233,0.25); }
+
+  /* ── DOC nodes ───────────────────────────────────────── */
+  .node-doc {
+    border-color: rgba(168,85,247,0.3);
+    background: rgba(168,85,247,0.07);
+    min-width: 110px;
+    max-width: 140px;
+    padding: 9px 12px;
+  }
+  .node-doc .node-label { color: var(--doc); }
+  .node-doc:hover { box-shadow: 0 0 20px rgba(168,85,247,0.25); }
+
+  /* ── API LIVE node ───────────────────────────────────── */
+  .node-api {
+    border-color: rgba(244,63,94,0.35);
+    background: rgba(244,63,94,0.07);
+    min-width: 150px;
+    animation: fadeInUp 0.5s both, pulseApi 2s ease-in-out 2s infinite;
+  }
+  .node-api .node-label { color: var(--api); }
+  .node-api:hover { box-shadow: 0 0 24px rgba(244,63,94,0.3); }
+
+  /* ── STATES bar ──────────────────────────────────────── */
+  .states-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-top: 28px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .state {
+    padding: 10px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeInUp 0.5s both;
+    cursor: default;
+    transition: transform 0.2s;
+    border-radius: 8px;
+    margin: 4px 2px;
+  }
+  .state:hover { transform: translateY(-2px); }
+  .state-arrow {
+    color: var(--muted);
+    font-size: 18px;
+    margin: 0 2px;
+    align-self: center;
+  }
+  .s1 { background: rgba(239,68,68,0.12);  color: #F87171; border: 1px solid rgba(239,68,68,0.25);  }
+  .s2 { background: rgba(249,115,22,0.12); color: #FB923C; border: 1px solid rgba(249,115,22,0.25); }
+  .s3 { background: rgba(234,179,8,0.12);  color: #FACC15; border: 1px solid rgba(234,179,8,0.25);  }
+  .s4 { background: rgba(34,197,94,0.12);  color: #4ADE80; border: 1px solid rgba(34,197,94,0.25);  }
+  .s5 { background: rgba(99,102,241,0.12); color: #818CF8; border: 1px solid rgba(99,102,241,0.25); }
+
+  /* ── Section labels ──────────────────────────────────── */
+  .section-label {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Resource groups ─────────────────────────────────── */
+  .resources {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+  .resource-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .resource-group-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .rg-play  { color: var(--play);  background: rgba(16,185,129,0.1);  border: 1px solid rgba(16,185,129,0.25);  }
+  .rg-frame { color: var(--frame); background: rgba(14,165,233,0.1);  border: 1px solid rgba(14,165,233,0.25); }
+  .rg-doc   { color: var(--doc);   background: rgba(168,85,247,0.1);  border: 1px solid rgba(168,85,247,0.25); }
+
+  /* ── Dividers ────────────────────────────────────────── */
+  .divider {
+    width: 100%;
+    max-width: 1100px;
+    margin: 8px auto 24px;
+    border: none;
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Flow indicators ─────────────────────────────────── */
+  .flow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+    animation: blink 1.4s ease-in-out infinite;
+  }
+  .dot-orch  { background: var(--orch);  }
+  .dot-skill { background: var(--skill); animation-delay: 0.2s; }
+  .dot-play  { background: var(--play);  animation-delay: 0.4s; }
+  .dot-frame { background: var(--frame); animation-delay: 0.6s; }
+  .dot-doc   { background: var(--doc);   animation-delay: 0.8s; }
+  .dot-api   { background: var(--api);   animation-delay: 1.0s; }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── SVG connection lines ────────────────────────────── */
+  .conn-line {
+    stroke-dasharray: 6 4;
+    stroke-dashoffset: 0;
+    animation: flowLine 1.8s linear infinite;
+    opacity: 0.45;
+  }
+  .conn-line-solid {
+    opacity: 0.3;
+  }
+  .conn-orch  { stroke: var(--orch);  }
+  .conn-skill { stroke: var(--skill); }
+  .conn-play  { stroke: var(--play);  }
+  .conn-frame { stroke: var(--frame); }
+  .conn-doc   { stroke: var(--doc);   }
+  .conn-api   { stroke: var(--api);   }
+
+  /* ── Keyframes ───────────────────────────────────────── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulseOrch {
+    0%, 100% { box-shadow: 0 0 20px rgba(245,158,11,0.2); }
+    50%       { box-shadow: 0 0 45px rgba(245,158,11,0.5), 0 0 80px rgba(245,158,11,0.15); }
+  }
+  @keyframes pulseApi {
+    0%, 100% { box-shadow: 0 0 8px rgba(244,63,94,0.2); }
+    50%       { box-shadow: 0 0 20px rgba(244,63,94,0.5); }
+  }
+  @keyframes flowLine {
+    from { stroke-dashoffset: 100; }
+    to   { stroke-dashoffset: 0; }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.2; }
+  }
+
+  /* ── Responsive ──────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .node-skill { min-width: 100px; max-width: 120px; }
+    .node-play, .node-frame, .node-doc { min-width: 90px; max-width: 110px; }
+    .resources  { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MordomIA — Orquestração de Agents &amp; Skills</h1>
+  <p>Arquitetura completa do sistema de consultoria financeira com mordomia cristã</p>
+  <div class="badge-row">
+    <span class="badge badge-gold">v2.2.0</span>
+    <span class="badge badge-blue">7 Skills</span>
+    <span class="badge badge-green">8 Playbooks · 5 Frameworks</span>
+    <span class="badge badge-red">API BCB ao vivo</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- DIAGRAM                                                    -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="diagram" id="diagram">
+
+  <!-- SVG connections overlay -->
+  <svg id="conn-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+
+  <!-- ── Layer 0: User ─────────────────────────────────── -->
+  <div class="layer" style="margin-bottom:12px;">
+    <div class="node node-user" id="n-user" data-tip="Qualquer mensagem em linguagem natural — o sistema detecta a intenção e classifica o estado financeiro automaticamente">
+      <span class="node-icon">👤</span>
+      <div class="node-label">Entrada</div>
+      <div class="node-name">Usuário</div>
+      <div class="node-desc">Linguagem natural — qualquer plataforma</div>
+    </div>
+  </div>
+
+  <!-- ── Layer 1: Orchestrator ─────────────────────────── -->
+  <div class="layer" style="margin-bottom:12px;">
+    <div class="node node-orch" id="n-orch" data-tip="Ponto de entrada único. Classifica estado financeiro (Sobrevivência→Legado), ativa protocolo correto, decide cadeia de skills, detecta gatilhos para frameworks e playbooks.">
+      <span class="node-icon">🧭</span>
+      <div class="node-label">Orquestrador — v3.1</div>
+      <div class="node-name">gestor-financeiro</div>
+      <div class="node-desc">Acolhimento · State Engine · Risk Engine · Stewardship Engine · Detecção de demandas</div>
+    </div>
+    <div class="node node-api" id="n-api" data-tip="API pública do Banco Central do Brasil — sem autenticação. Selic (série 432), IPCA (433), CDI (12), TR (226), IGP-M (189) e taxas de crédito via Olinda. Atualiza automaticamente via update-referencias.py">
+      <span class="node-icon">🔴</span>
+      <div class="node-label">Live Data</div>
+      <div class="node-name">API BCB</div>
+      <div class="node-desc">Selic · IPCA · CDI · TR · IGP-M · Taxas de crédito</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="section-label">Skills Especializadas</div>
+
+  <!-- ── Layer 2: Skills ───────────────────────────────── -->
+  <div class="layer" style="gap:8px; margin-bottom:8px;">
+    <div class="node node-skill" id="n-s0" data-tip="Diagnóstico profundo: estado financeiro, gargalo primário, lacunas de proteção, gastos invisíveis, protocolo de retorno para usuários recorrentes. v2.1">
+      <span class="node-icon">🔍</span>
+      <div class="node-label">Skill</div>
+      <div class="node-name">Diagnóstico Financeiro</div>
+      <div class="node-desc">Estado · Gargalo · Proteção</div>
+    </div>
+    <div class="node node-skill" id="n-s1" data-tip="Sistema de Orçamento Doméstico com 4 blocos, calendário sazonal, zona cinzenta, protocolo cartão de crédito e guia de apps. v2.1">
+      <span class="node-icon">📋</span>
+      <div class="node-label">Skill</div>
+      <div class="node-name">Orçamento Doméstico</div>
+      <div class="node-desc">Blocos · Sazonal · Apps</div>
+    </div>
+    <div class="node node-skill" id="n-s2" data-tip="Plano de quitação (Avalanche/Bola de Neve), Portabilidade de crédito, Lei 14.181/2021 Superendividamento, recuperação de score, calculadora do mínimo. v2.1">
+      <span class="node-icon">💳</span>
+      <div class="node-label">Skill</div>
+      <div class="node-name">Plano Dívidas &amp; Reserva</div>
+      <div class="node-desc">Avalanche · Portabilidade · Score</div>
+    </div>
+    <div class="node node-skill" id="n-s3" data-tip="PGBL/VGBL engine, simulações com retorno líquido real, ancoragem comportamental de risco, FII/BDR warnings, 7 corretoras + guia de especialistas. v3.0">
+      <span class="node-icon">📈</span>
+      <div class="node-label">Skill</div>
+      <div class="node-name">Estratégia Investimentos</div>
+      <div class="node-desc">PGBL · Líquido real · CFP/AAI</div>
+    </div>
+    <div class="node node-skill" id="n-s4" data-tip="Ciclo de Recalibração mensal, revisão trimestral e anual, protocolo IR (jan-abr), emergência mid-month, integração com IPCA ao vivo. v2.1">
+      <span class="node-icon">🔄</span>
+      <div class="node-label">Skill</div>
+      <div class="node-name">Rotina Mensal</div>
+      <div class="node-desc">Fechamento · IR · Trimestral</div>
+    </div>
+    <div class="node node-skill" id="n-s5" data-tip="Calculadora bruto vs. líquido, deductibilidade IRPF, automação do dízimo passo a passo, protocolo 13°/PLR/bônus/restituição. v2.1">
+      <span class="node-icon">✝️</span>
+      <div class="node-label">Skill</div>
+      <div class="node-name">Investimento Reino</div>
+      <div class="node-desc">Dízimo · IRPF · Wesleyano</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ── Layer 3: Resources ────────────────────────────── -->
+  <div class="resources" id="resources-layer">
+
+    <!-- Playbooks -->
+    <div class="resource-group">
+      <div class="resource-group-title rg-play">Playbooks Premium</div>
+      <div class="node node-play" id="n-p0" data-tip="Cronograma semana a semana para sair do estado Sobrevivência em 90 dias">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Recuperação 90 Dias</div>
+      </div>
+      <div class="node node-play" id="n-p1" data-tip="Família sem sistema financeiro → sistema operacional completo em 3-6 meses">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Estruturação Familiar</div>
+      </div>
+      <div class="node node-play" id="n-p2" data-tip="Desalinhamento ou conflito entre cônjuges sobre dinheiro">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Casal e Finanças</div>
+      </div>
+      <div class="node node-play" id="n-p3" data-tip="Migração CLT → PJ com cálculo real de benefícios, impostos e proteção social">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Transição CLT → PJ</div>
+      </div>
+      <div class="node node-play" id="n-p4" data-tip="Crescimento progressivo de dízimo e ofertas segundo o Método Wesleyano">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Generosidade Sustentável</div>
+      </div>
+      <div class="node node-play" id="n-p5" data-tip="60+ com aposentadoria insuficiente: BPC, isenção IR, consignado, direitos não acessados">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Idoso &amp; Aposentadoria</div>
+      </div>
+      <div class="node node-play" id="n-p6" data-tip="Trabalhador informal sem CNPJ: proteção social, INSS voluntário, MEI">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Informal Sem CNPJ</div>
+      </div>
+      <div class="node node-play" id="n-p7" data-tip="Família endividada por doença grave: negociação, PROCON, reestruturação de passivo">
+        <div class="node-label">Playbook</div>
+        <div class="node-name">Endividamento por Saúde</div>
+      </div>
+    </div>
+
+    <!-- Frameworks -->
+    <div class="resource-group">
+      <div class="resource-group-title rg-frame">Frameworks de Decisão</div>
+      <div class="node node-frame" id="n-f0" data-tip="Quando quitar dívida vs. quando investir — engine com taxa de corte e custo de oportunidade">
+        <div class="node-label">Framework</div>
+        <div class="node-name">Investir vs. Quitar</div>
+      </div>
+      <div class="node node-frame" id="n-f1" data-tip="Cálculo real de equivalência CLT → PJ: FGTS, férias, 13°, plano saúde, INSS voluntário">
+        <div class="node-label">Framework</div>
+        <div class="node-name">CLT vs. PJ</div>
+      </div>
+      <div class="node node-frame" id="n-f2" data-tip="Análise de 30 anos comprar vs. alugar: custo total, custo de oportunidade, patrimônio">
+        <div class="node-label">Framework</div>
+        <div class="node-name">Casa vs. Aluguel</div>
+      </div>
+      <div class="node node-frame" id="n-f3" data-tip="Ordem correta entre 8 prioridades financeiras — da mais urgente à mais estratégica">
+        <div class="node-label">Framework</div>
+        <div class="node-name">Priorização Financeira</div>
+      </div>
+      <div class="node node-frame" id="n-f4" data-tip="À vista vs. parcelado: juros embutidos no preço, custo de oportunidade real do capital">
+        <div class="node-label">Framework</div>
+        <div class="node-name">À Vista vs. Parcelado</div>
+      </div>
+    </div>
+
+    <!-- Docs centrais -->
+    <div class="resource-group">
+      <div class="resource-group-title rg-doc">Docs Centrais</div>
+      <div class="node node-doc" id="n-d0" data-tip="Selic, IPCA, CDI, TR, IGP-M, IR tabelas, INSS, FGC, taxas por modalidade — atualizado via API BCB">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Referências Brasil 2026</div>
+      </div>
+      <div class="node node-doc" id="n-d1" data-tip="10 tipos de visual: barras, linha, pizza, gantt, flowchart, amortização, comparativo, progresso, termômetro, sparkline">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Visualização</div>
+      </div>
+      <div class="node node-doc" id="n-d2" data-tip="Schema de persistência de snapshots financeiros entre sessões — mantém histórico e evolução do usuário">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Memory System</div>
+      </div>
+      <div class="node node-doc" id="n-d3" data-tip="Terminologia proprietária: Camada de Proteção Financeira, Ciclo de Recalibração, Stewardship Engine…">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Glossário</div>
+      </div>
+      <div class="node node-doc" id="n-d4" data-tip="Alma pastoral do pacote: idolatria, ansiedade, contentamento, generosidade radical, riqueza como teste">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Princípios Bíblicos</div>
+      </div>
+      <div class="node node-doc" id="n-d5" data-tip="Protocolo crítico: vício, violência patrimonial, crise espiritual, risco à vida — CVV 188, Disque 180">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Crise Espiritual</div>
+      </div>
+      <div class="node node-doc" id="n-d6" data-tip="Glossário para iniciantes absolutos: Selic, CDI, CDB, rotativo, juros compostos, IR, FGC…">
+        <div class="node-label">Doc</div>
+        <div class="node-name">Educação Financeira</div>
+      </div>
+    </div>
+  </div><!-- /resources -->
+
+  <hr class="divider">
+
+  <!-- ── States bar ─────────────────────────────────────── -->
+  <div class="section-label">Jornada Financeira do Usuário</div>
+  <div class="states-bar">
+    <div class="state s1" style="animation-delay:0.1s" data-tip="Déficit mensal, rotativo ativo, inadimplência → Protocolo Estancar Sangria">🔴 Sobrevivência</div>
+    <span class="state-arrow">→</span>
+    <div class="state s2" style="animation-delay:0.2s" data-tip="Orçamento funcional, dívidas reduzindo, sem reserva → Protocolo Construção de Base">🟠 Organização</div>
+    <span class="state-arrow">→</span>
+    <div class="state s3" style="animation-delay:0.3s" data-tip="Reserva ativa 3+ meses, consistência mensal, dívidas controladas → Protocolo Proteção Ativa">🟡 Estabilização</div>
+    <span class="state-arrow">→</span>
+    <div class="state s4" style="animation-delay:0.4s" data-tip="Investimentos ativos, patrimônio crescendo, generosidade aumentando → Protocolo Multiplicação Responsável">🟢 Expansão</div>
+    <span class="state-arrow">→</span>
+    <div class="state s5" style="animation-delay:0.5s" data-tip="Patrimônio sustentável, planejamento sucessório, impacto real → Protocolo Legado Vivo">🔵 Legado</div>
+  </div>
+
+  <!-- ── Legend ─────────────────────────────────────────── -->
+  <div class="legend">
+    <div class="legend-item"><span class="flow-dot dot-orch"></span> Orquestrador</div>
+    <div class="legend-item"><span class="flow-dot dot-skill"></span> Skills (7)</div>
+    <div class="legend-item"><span class="flow-dot dot-play"></span> Playbooks (8)</div>
+    <div class="legend-item"><span class="flow-dot dot-frame"></span> Frameworks (5)</div>
+    <div class="legend-item"><span class="flow-dot dot-doc"></span> Docs Centrais (7)</div>
+    <div class="legend-item"><span class="flow-dot dot-api"></span> API BCB ao vivo</div>
+  </div>
+
+</div><!-- /diagram -->
+
+<script>
+// Draw animated SVG connections between nodes
+(function() {
+  const svg = document.getElementById('conn-svg');
+  const diagram = document.getElementById('diagram');
+
+  function getCenter(id) {
+    const el = document.getElementById(id);
+    if (!el) return null;
+    const dr = diagram.getBoundingClientRect();
+    const er = el.getBoundingClientRect();
+    return {
+      x: er.left - dr.left + er.width / 2,
+      y: er.top  - dr.top  + er.height / 2,
+      top:    er.top  - dr.top,
+      bottom: er.bottom - dr.top,
+      left:   er.left - dr.left,
+      right:  er.right - dr.left,
+    };
+  }
+
+  function makePath(x1, y1, x2, y2, cls, delay) {
+    const mx = (x1 + x2) / 2;
+    const my = (y1 + y2) / 2 - Math.abs(x2 - x1) * 0.1;
+    const d  = `M${x1},${y1} Q${mx},${my} ${x2},${y2}`;
+    const p  = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    p.setAttribute('d', d);
+    p.setAttribute('fill', 'none');
+    p.setAttribute('stroke-width', '1.5');
+    p.setAttribute('class', `conn-line ${cls}`);
+    p.style.animationDelay = delay + 's';
+    svg.appendChild(p);
+  }
+
+  function draw() {
+    svg.innerHTML = '';
+    svg.setAttribute('width',  diagram.offsetWidth);
+    svg.setAttribute('height', diagram.offsetHeight);
+
+    const orch = getCenter('n-orch');
+    const api  = getCenter('n-api');
+    const user = getCenter('n-user');
+
+    // User → Orch
+    if (user && orch) {
+      makePath(user.x, user.bottom, orch.x, orch.top, 'conn-orch', 0);
+    }
+
+    // API → Orch
+    if (api && orch) {
+      makePath(api.x, api.top, orch.right, orch.y, 'conn-api', 0.3);
+    }
+
+    // Orch → Skills
+    const skillIds = ['n-s0','n-s1','n-s2','n-s3','n-s4','n-s5'];
+    skillIds.forEach((id, i) => {
+      const s = getCenter(id);
+      if (orch && s) makePath(orch.x, orch.bottom, s.x, s.top, 'conn-skill', i * 0.12);
+    });
+
+    // Skills → Playbooks (first skill to first playbook group center)
+    const playIds  = ['n-p0','n-p1','n-p2','n-p3','n-p4','n-p5','n-p6','n-p7'];
+    const frameIds = ['n-f0','n-f1','n-f2','n-f3','n-f4'];
+    const docIds   = ['n-d0','n-d1','n-d2','n-d3','n-d4','n-d5','n-d6'];
+
+    // Representative skill → resource group (abstract connection)
+    const s0 = getCenter('n-s0');
+    const s2 = getCenter('n-s2');
+    const s3 = getCenter('n-s3');
+    const s4 = getCenter('n-s4');
+
+    playIds.forEach((id, i) => {
+      const r = getCenter(id);
+      if (s0 && r) makePath(s0.x, s0.bottom, r.x, r.top, 'conn-play', 0.5 + i * 0.08);
+    });
+
+    frameIds.forEach((id, i) => {
+      const r = getCenter(id);
+      if (s2 && r) makePath(s2.x, s2.bottom, r.x, r.top, 'conn-frame', 0.6 + i * 0.1);
+    });
+
+    docIds.forEach((id, i) => {
+      const r = getCenter(id);
+      if (s3 && r) makePath(s3.x, s3.bottom, r.x, r.top, 'conn-doc', 0.7 + i * 0.08);
+    });
+  }
+
+  // Draw after layout settles
+  window.addEventListener('load', () => { setTimeout(draw, 80); });
+  window.addEventListener('resize', () => { setTimeout(draw, 80); });
+})();
+</script>
+
+</body>
+</html>
